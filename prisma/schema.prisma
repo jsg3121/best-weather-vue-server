@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider          = "mysql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model WeatherKo {
+  id               Int                @id @default(autoincrement())
+  date             DateTime
+  content          Json
+  HistoryWeatherKo HistoryWeatherKo[]
+}
+
+model HistoryWeatherKo {
+  id             Int       @id @default(autoincrement())
+  date           DateTime
+  content        Json
+  historyContent WeatherKo @relation(fields: [content], references: [content])
+}
+
+model OpenWeatherMap {
+  id                    Int                     @id @default(autoincrement())
+  date                  DateTime
+  content               Json
+  HistoryOpenWeatherMap HistoryOpenWeatherMap[]
+}
+
+model HistoryOpenWeatherMap {
+  id             Int            @id @default(autoincrement())
+  date           DateTime
+  content        Json
+  historyContent OpenWeatherMap @relation(fields: [content], references: [content])
+}
+
+model AccuWeather {
+  id                 Int                  @id @default(autoincrement())
+  date               DateTime
+  content            Json
+  HistoryAccuWeather HistoryAccuWeather[]
+}
+
+model HistoryAccuWeather {
+  id             Int         @id @default(autoincrement())
+  date           DateTime
+  content        Json
+  historyContent AccuWeather @relation(fields: [content], references: [content])
+}

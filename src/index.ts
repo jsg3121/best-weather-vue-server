@@ -16,4 +16,5 @@ app.get("/aa", (_, res) => {
 
 app.listen(PORT, () => {
   console.log("server start!!");
+  console.log(PORT);
 });
