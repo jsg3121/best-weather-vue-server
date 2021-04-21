@@ -14,10 +14,10 @@ generator client {
 model WeatherKoDaily {
   id                        Int      @id @default(autoincrement())
   date                      DateTime
-  nowTemperatures           Int      @map("now_temperatures") // 현재 기온
-  nowSkyState               String   @map("now_sky_state") // 현재 하늘상태
-  nowHumidity               String   @map("now_humidity") // 현재 습도
-  nowPrecipitation          String   @map("now_precipitation") // 현재 강수량
+  // nowTemperatures           Int      @map("now_temperatures") // 현재 기온
+  // nowSkyState               String   @map("now_sky_state") // 현재 하늘상태
+  // nowHumidity               String   @map("now_humidity") // 현재 습도
+  // nowPrecipitation          String   @map("now_precipitation") // 현재 강수량
   todayPrecipitationPercent Int      @map("today_precipitation_percent") // 3시간 및 당일 강수 확률
   todayPrecipitationshape   String   @map("today_precipitation_shape") // 3시간 및 당일 강수 형태
   todayMinimumTemperatures  String   @map("today_minimum_temperatures") // 당일 죄저기온
@@ -42,9 +42,12 @@ model WeatherKoWeekly {
 }
 
 model WeatherKoWeeklyHistory {
-  id            Int      @id @default(autoincrement())
-  date          DateTime
-  weeklyWeather String   @map("weekly_weather") // 주간 날씩 히스토리
+  id                          Int      @id @default(autoincrement())
+  date                        DateTime
+  historyWeather              String   @map("history_weather") // 주간 날씨
+  historyMinimumTemperature   String   @map("history_minimum_temperature") // 주간 최저기온
+  historyMaximumTemperature   String   @map("history_maximum_temperature") // 주간 최고기온
+  historyPrecipitationPercent String   @map("history_precipitation_percent") // 주간 강수확률
 }
 
 // model HistoryWeatherKo {
