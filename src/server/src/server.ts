@@ -21,7 +21,7 @@ export const runServer = async (): Promise<void> => {
   });
 
   app.get("/test", (_, res) => {
-    res.send("start!!!!!");
+    res.send("start!!!!");
   });
   weatherKorea();
   // koreaCron();
