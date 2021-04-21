@@ -16,13 +16,6 @@ export const runServer = async (): Promise<void> => {
     console.log(PORT);
   });
 
-  app.get("/", (_, res) => {
-    res.send("start");
-  });
-
-  app.get("/test", (_, res) => {
-    res.send("start!!!!!");
-  });
   weatherKorea();
   // koreaCron();
 };
