@@ -1,5 +1,6 @@
 import cors from "cors";
 import express from "express";
+import { serverAwake } from "~/cron/src/serverAwake";
 // import { koreaCron } from "~/cron";
 import { weatherKorea } from "~/service";
 export const app = express();
@@ -23,6 +24,7 @@ export const runServer = async (): Promise<void> => {
   app.get("/test", (_, res) => {
     res.send("start!!!!");
   });
+  serverAwake();
   weatherKorea();
   // koreaCron();
 };
