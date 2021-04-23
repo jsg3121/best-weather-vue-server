@@ -1,14 +1,14 @@
 import axios from "axios";
-import { dailyWeatherRequestProps, getMaxMinTemperatureProps, getThreeHourWeatherProps, resultDailyDataProps, resultDailyTemperatureProps, returnDatilyDataProps } from "~/@types";
+import { dailyWeatherRequestProps, getLivingInformationProps, getMaxMinTemperatureProps, getThreeHourWeatherProps, resultDailyDataProps, resultDailyTemperatureProps, returnDatilyDataProps } from "~/@types";
+import { changDateFormMiniDust, changDateFormThreeHoursTime, defaultDate, defaultTime, formDataMiniDust } from "~/common";
 
-const apikey = "422JryGS9%2B676hcl7wOZ4jh5de2s99vCJr2NcRWV4YXkv9nQP8C0BFGDPVlBt55Fyy5VMJh%2ByRYBMkV%2BcciYZg%3D%3D";
-const date = new Date();
-const base_date = `${date.getFullYear()}${date.getMonth() > 10 ? date.getMonth() : "0" + (date.getMonth() + 1)}${date.getDate()}`;
-const base_time = date.getHours() - 1 > 10 ? date.getHours() - 1 : "0" + (date.getHours() - 3);
+const APIKEY = "422JryGS9%2B676hcl7wOZ4jh5de2s99vCJr2NcRWV4YXkv9nQP8C0BFGDPVlBt55Fyy5VMJh%2ByRYBMkV%2BcciYZg%3D%3D";
+const BASE_DATE = defaultDate();
+const BASE_TIME = defaultTime();
 
 export const getDailyWeather: dailyWeatherRequestProps = async (data) => {
   const { nx, ny } = data;
-  const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtNcst?serviceKey=${apikey}&numOfRows=10&pageNo=1&dataType=json&base_date=${base_date}&base_time=${base_time}00&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
+  const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtNcst?serviceKey=${APIKEY}&numOfRows=10&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}00&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
     return res.data.response.body.items.item;
   });
 
@@ -39,7 +39,7 @@ export const getDailyWeather: dailyWeatherRequestProps = async (data) => {
 
 export const getMaxMinTemperature: dailyWeatherRequestProps = async (data) => {
   const { nx, ny } = data;
-  const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${apikey}&numOfRows=40&pageNo=1&dataType=json&base_date=${base_date}&base_time=0200&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
+  const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${APIKEY}&numOfRows=40&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=0200&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
     return res.data.response.body.items.item;
   });
 
@@ -65,85 +65,35 @@ export const getMaxMinTemperature: dailyWeatherRequestProps = async (data) => {
 export const threeHoursWeather: dailyWeatherRequestProps = async (data) => {
   const { nx, ny } = data;
 
-  const getTime = () => {
-    if (date.getHours() % 3 === 2) {
-      if (date.getMinutes() > 10) {
-        const hour = 3 * Math.floor(date.getHours() / 3) + 2;
-        return hour + "00";
-      } else {
-        const hour = 3 * Math.floor(date.getHours() / 3) - 1;
-        return hour + "00";
-      }
-    }
-    const hour = 3 * Math.floor(date.getHours() / 3) - 1;
-    return hour + "00";
-  };
-
-  const time = parseInt(getTime(), 10);
-  const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${apikey}&numOfRows=180&pageNo=1&dataType=json&base_date=${base_date}&base_time=${time}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
+  const time = parseInt(changDateFormThreeHoursTime(), 10);
+  const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${APIKEY}&numOfRows=180&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${time}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
     return res.data.response.body.items.item;
   });
 
   const out: getThreeHourWeatherProps = {
     pop: {
       description: "강수확률",
-      data: [
-        {
-          date: "",
-          time: "",
-          value: "",
-        },
-      ],
+      data: [{}],
     },
     pty: {
       description: "강수형태",
-      data: [
-        {
-          date: "",
-          time: "",
-          value: "",
-        },
-      ],
+      data: [{}],
     },
     sky: {
       description: "하늘상태",
-      data: [
-        {
-          date: "",
-          time: "",
-          value: "",
-        },
-      ],
+      data: [{}],
     },
     t3h: {
       description: "기온",
-      data: [
-        {
-          date: "",
-          time: "",
-          value: "",
-        },
-      ],
+      data: [{}],
     },
     vec: {
       description: "풍향",
-      data: [
-        {
-          date: "",
-          time: "",
-          value: "",
-        },
-      ],
+      data: [{}],
     },
     wsd: {
       description: "풍속",
-      data: [
-        {
-          date: "",
-          time: "",
-          value: "",
-        },
-      ],
+      data: [{}],
     },
   };
 
@@ -207,8 +157,30 @@ export const threeHoursWeather: dailyWeatherRequestProps = async (data) => {
         return;
     }
   });
-
-  console.log(out);
-
   return out;
+};
+
+export const livingInfomation = async () => {
+  const area = "서울";
+  const encoding = encodeURIComponent(area);
+  const requestDate = changDateFormMiniDust();
+  let out: getLivingInformationProps[] = [];
+
+  const res = await axios.get(`http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?sidoName=${encoding}&pageNo=1&numOfRows=200&returnType=json&serviceKey=${APIKEY}&ver=1.0`).then((res) => {
+    return res.data.response.body.items;
+  });
+  res.map((list: getLivingInformationProps) => {
+    out.push({
+      sidoName: list.sidoName,
+      pm10Value: list.pm10Value,
+      o3Value: list.o3Value,
+    });
+  });
+
+  const minidust = await axios.get(`http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustWeekFrcstDspth?searchDate=${requestDate}&returnType=json&serviceKey=${APIKEY}&numOfRows=50&pageNo=1`).then((res) => {
+    return res.data.response.body.items;
+  });
+  const dust = formDataMiniDust(minidust);
+
+  return { dust, out };
 };

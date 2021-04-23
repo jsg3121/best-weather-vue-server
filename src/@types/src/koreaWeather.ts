@@ -31,13 +31,15 @@ export type getMaxMinTemperatureProps = {
 
 type threeHourWeatherOption = {
   description: string;
-  data: [
-    {
-      date: string;
-      time: string;
-      value: string;
-    }
-  ];
+  data:
+    | [
+        {
+          date: string;
+          time: string;
+          value: string;
+        }
+      ]
+    | [{}];
 };
 
 export type getThreeHourWeatherProps = {
@@ -47,6 +49,12 @@ export type getThreeHourWeatherProps = {
   t3h: threeHourWeatherOption;
   vec: threeHourWeatherOption;
   wsd: threeHourWeatherOption;
+};
+
+export type getLivingInformationProps = {
+  sidoName: string;
+  pm10Value: string;
+  o3Value: string;
 };
 
 export type dailyWeatherRequestProps = (data: { nx?: number; ny?: number }) => Promise<object>;
