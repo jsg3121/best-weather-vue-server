@@ -11,7 +11,8 @@
     "build:types": "tsc -p tsconfig.json --emitDeclarationOnly",
     "build:js": "babel src --out-dir build --extensions \".ts\" --source-maps inline",
     "heroku-postbuild": "npm install && npm run build",
-    "start": "node -r esm build/index.js"
+    "start:dev": "node -r esm build/index.js",
+    "start": "pm2-runtime start ecosystem.config.js --env production"
   },
   "keywords": [],
   "author": "",
