@@ -1,5 +1,5 @@
 import axios from "axios";
-import { dailyWeatherRequestProps, getLivingInformationProps, getMaxMinTemperatureProps, resultDailyDataProps, resultDailyTemperatureProps, returnDatilyDataProps, threeHourWeatherOption, threeHourWeatherOutput } from "~/@types";
+import { dailyWeatherRequestProps, getLivingInformationProps, getMaxMinTemperatureProps, resultDailyDataProps, resultDailyTemperatureProps, returnDatilyDataProps } from "~/@types";
 import { changDateFormMiniDust, changDateFormThreeHoursTime, defaultDate, defaultTime, formDataMiniDust } from "~/common";
 
 const APIKEY = "422JryGS9%2B676hcl7wOZ4jh5de2s99vCJr2NcRWV4YXkv9nQP8C0BFGDPVlBt55Fyy5VMJh%2ByRYBMkV%2BcciYZg%3D%3D";
@@ -66,12 +66,12 @@ export const getMaxMinTemperature: dailyWeatherRequestProps = async (data) => {
 export const threeHoursWeather: dailyWeatherRequestProps = async (data) => {
   const { nx, ny } = data;
 
-  const POP: threeHourWeatherOutput[] = [];
-  const PTY: threeHourWeatherOutput[] = [];
-  const SKY: threeHourWeatherOutput[] = [];
-  const T3H: threeHourWeatherOutput[] = [];
-  const VEC: threeHourWeatherOutput[] = [];
-  const WSD: threeHourWeatherOutput[] = [];
+  // const POP: threeHourWeatherOutput[] = [];
+  // const PTY: threeHourWeatherOutput[] = [];
+  // const SKY: threeHourWeatherOutput[] = [];
+  // const T3H: threeHourWeatherOutput[] = [];
+  // const VEC: threeHourWeatherOutput[] = [];
+  // const WSD: threeHourWeatherOutput[] = [];
 
   const time = parseInt(changDateFormThreeHoursTime(), 10);
 
@@ -79,70 +79,70 @@ export const threeHoursWeather: dailyWeatherRequestProps = async (data) => {
     return res.data.response.body.items.item;
   });
 
-  res.map((item: threeHourWeatherOption) => {
-    switch (item.category) {
-      case "POP":
-        {
-          POP.push({
-            date: item.fcstDate,
-            time: item.fcstTime,
-            value: item.fcstValue,
-          });
-        }
-        return;
-      case "PTY":
-        {
-          PTY.push({
-            date: item.fcstDate,
-            time: item.fcstTime,
-            value: item.fcstValue,
-          });
-        }
-        return;
-      case "SKY":
-        {
-          SKY.push({
-            date: item.fcstDate,
-            time: item.fcstTime,
-            value: item.fcstValue,
-          });
-        }
-        return;
-      case "T3H":
-        {
-          T3H.push({
-            date: item.fcstDate,
-            time: item.fcstTime,
-            value: item.fcstValue,
-          });
-        }
-        return;
-      case "VEC":
-        {
-          VEC.push({
-            date: item.fcstDate,
-            time: item.fcstTime,
-            value: item.fcstValue,
-          });
-        }
-        return;
-      case "WSD":
-        {
-          WSD.push({
-            date: item.fcstDate,
-            time: item.fcstTime,
-            value: item.fcstValue,
-          });
-        }
-        return;
-      default:
-        return;
-    }
-  });
+  // res.map((item: threeHourWeatherOption) => {
+  //   switch (item.category) {
+  //     case "POP":
+  //       {
+  //         POP.push({
+  //           date: item.fcstDate,
+  //           time: item.fcstTime,
+  //           value: item.fcstValue,
+  //         });
+  //       }
+  //       return;
+  //     case "PTY":
+  //       {
+  //         PTY.push({
+  //           date: item.fcstDate,
+  //           time: item.fcstTime,
+  //           value: item.fcstValue,
+  //         });
+  //       }
+  //       return;
+  //     case "SKY":
+  //       {
+  //         SKY.push({
+  //           date: item.fcstDate,
+  //           time: item.fcstTime,
+  //           value: item.fcstValue,
+  //         });
+  //       }
+  //       return;
+  //     case "T3H":
+  //       {
+  //         T3H.push({
+  //           date: item.fcstDate,
+  //           time: item.fcstTime,
+  //           value: item.fcstValue,
+  //         });
+  //       }
+  //       return;
+  //     case "VEC":
+  //       {
+  //         VEC.push({
+  //           date: item.fcstDate,
+  //           time: item.fcstTime,
+  //           value: item.fcstValue,
+  //         });
+  //       }
+  //       return;
+  //     case "WSD":
+  //       {
+  //         WSD.push({
+  //           date: item.fcstDate,
+  //           time: item.fcstTime,
+  //           value: item.fcstValue,
+  //         });
+  //       }
+  //       return;
+  //     default:
+  //       return;
+  //   }
+  // });
 
-  const out = { dd: "da" };
+  // const out = { dd: "da" };
 
-  return out;
+  return res;
 };
 
 export const livingInfomation = async () => {
