@@ -1,5 +1,5 @@
 import axios from "axios";
-import { dailyWeatherRequestProps, getLivingInformationProps, getMaxMinTemperatureProps, getThreeHourWeatherProps, resultDailyDataProps, resultDailyTemperatureProps, returnDatilyDataProps } from "~/@types";
+import { dailyWeatherRequestProps, getLivingInformationProps, getMaxMinTemperatureProps, resultDailyDataProps, resultDailyTemperatureProps, returnDatilyDataProps, threeHourWeatherOption, threeHourWeatherOutput } from "~/@types";
 import { changDateFormMiniDust, changDateFormThreeHoursTime, defaultDate, defaultTime, formDataMiniDust } from "~/common";
 
 const APIKEY = "422JryGS9%2B676hcl7wOZ4jh5de2s99vCJr2NcRWV4YXkv9nQP8C0BFGDPVlBt55Fyy5VMJh%2ByRYBMkV%2BcciYZg%3D%3D";
@@ -65,44 +65,23 @@ export const getMaxMinTemperature: dailyWeatherRequestProps = async (data) => {
 export const threeHoursWeather: dailyWeatherRequestProps = async (data) => {
   const { nx, ny } = data;
 
+  const POP: threeHourWeatherOutput[] = [];
+  const PTY: threeHourWeatherOutput[] = [];
+  const SKY: threeHourWeatherOutput[] = [];
+  const T3H: threeHourWeatherOutput[] = [];
+  const VEC: threeHourWeatherOutput[] = [];
+  const WSD: threeHourWeatherOutput[] = [];
+
   const time = parseInt(changDateFormThreeHoursTime(), 10);
   const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${APIKEY}&numOfRows=180&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${time}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
-    console.log("1111111111111111111111111111111111111111111111111");
     return res.data.response.body.items.item;
   });
 
-  const out: getThreeHourWeatherProps = {
-    pop: {
-      description: "강수확률",
-      data: [{}],
-    },
-    pty: {
-      description: "강수형태",
-      data: [{}],
-    },
-    sky: {
-      description: "하늘상태",
-      data: [{}],
-    },
-    t3h: {
-      description: "기온",
-      data: [{}],
-    },
-    vec: {
-      description: "풍향",
-      data: [{}],
-    },
-    wsd: {
-      description: "풍속",
-      data: [{}],
-    },
-  };
-
-  res.map((item: resultDailyTemperatureProps) => {
+  res.map((item: threeHourWeatherOption) => {
     switch (item.category) {
       case "POP":
         {
-          out.pop.data.push({
+          POP.push({
             date: item.fcstDate,
             time: item.fcstTime,
             value: item.fcstValue,
@@ -111,7 +90,7 @@ export const threeHoursWeather: dailyWeatherRequestProps = async (data) => {
         return;
       case "PTY":
         {
-          out.pty.data.push({
+          PTY.push({
             date: item.fcstDate,
             time: item.fcstTime,
             value: item.fcstValue,
@@ -120,7 +99,7 @@ export const threeHoursWeather: dailyWeatherRequestProps = async (data) => {
         return;
       case "SKY":
         {
-          out.sky.data.push({
+          SKY.push({
             date: item.fcstDate,
             time: item.fcstTime,
             value: item.fcstValue,
@@ -129,7 +108,7 @@ export const threeHoursWeather: dailyWeatherRequestProps = async (data) => {
         return;
       case "T3H":
         {
-          out.t3h.data.push({
+          T3H.push({
             date: item.fcstDate,
             time: item.fcstTime,
             value: item.fcstValue,
@@ -138,7 +117,7 @@ export const threeHoursWeather: dailyWeatherRequestProps = async (data) => {
         return;
       case "VEC":
         {
-          out.vec.data.push({
+          VEC.push({
             date: item.fcstDate,
             time: item.fcstTime,
             value: item.fcstValue,
@@ -147,7 +126,7 @@ export const threeHoursWeather: dailyWeatherRequestProps = async (data) => {
         return;
       case "WSD":
         {
-          out.wsd.data.push({
+          WSD.push({
             date: item.fcstDate,
             time: item.fcstTime,
             value: item.fcstValue,
@@ -158,6 +137,9 @@ export const threeHoursWeather: dailyWeatherRequestProps = async (data) => {
         return;
     }
   });
+
+  const out = { POP, PTY, SKY, T3H, VEC, WSD };
+
   return out;
 };
 

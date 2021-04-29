@@ -29,26 +29,17 @@ export type getMaxMinTemperatureProps = {
   minTemperature: resultDailyTemperatureProps["fcstValue"];
 };
 
-type threeHourWeatherOption = {
-  description: string;
-  data:
-    | [
-        {
-          date: string;
-          time: string;
-          value: string;
-        }
-      ]
-    | [{}];
+export type threeHourWeatherOption = {
+  category: string;
+  fcstDate: string;
+  fcstTime: string;
+  fcstValue: string;
 };
 
-export type getThreeHourWeatherProps = {
-  pop: threeHourWeatherOption;
-  pty: threeHourWeatherOption;
-  sky: threeHourWeatherOption;
-  t3h: threeHourWeatherOption;
-  vec: threeHourWeatherOption;
-  wsd: threeHourWeatherOption;
+export type threeHourWeatherOutput = {
+  date: threeHourWeatherOption["fcstDate"];
+  time: threeHourWeatherOption["fcstTime"];
+  value: threeHourWeatherOption["fcstValue"];
 };
 
 export type getLivingInformationProps = {
