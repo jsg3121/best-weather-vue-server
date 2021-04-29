@@ -138,7 +138,7 @@ export const threeHoursWeather: dailyWeatherRequestProps = async (data) => {
     }
   });
 
-  const out = { POP, PTY, SKY, T3H, VEC, WSD };
+  const out = { dd: "da" };
 
   return out;
 };
