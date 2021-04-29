@@ -6,6 +6,7 @@ export const weatherKorea = () => {
     res.send("server start");
     res.end();
   });
+
   app.get("/api/daily", async (req, res) => {
     console.log("--------------------------------------------------");
     console.log("daily");
@@ -14,6 +15,7 @@ export const weatherKorea = () => {
     res.send(data);
     res.end();
   });
+
   app.get("/api/weekly", async (req, res) => {
     console.log("--------------------------------------------------");
     console.log("weekly");
@@ -22,6 +24,7 @@ export const weatherKorea = () => {
     res.send(data);
     res.end();
   });
+
   app.get("/api/threeHours", async (req, res) => {
     console.log("--------------------------------------------------");
     console.log("threeHours");
@@ -30,6 +33,7 @@ export const weatherKorea = () => {
     res.send(data);
     res.end();
   });
+
   app.get("/api/livingInformation", async (_, res) => {
     console.log("--------------------------------------------------");
     console.log("livingInformation");
