@@ -7,9 +7,10 @@ const BASE_DATE = defaultDate();
 const BASE_TIME = defaultTime();
 console.log(BASE_DATE);
 console.log(BASE_TIME);
-export const getDailyWeather: dailyWeatherRequestProps = async (_) => {
-  // const { nx, ny } = data;
-  const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtNcst?serviceKey=${APIKEY}&numOfRows=10&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}00&nx=60&ny=127`).then((res) => {
+export const getDailyWeather: dailyWeatherRequestProps = async (data) => {
+  const { nx, ny } = data;
+  const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtNcst?serviceKey=${APIKEY}&numOfRows=10&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}00&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
+    console.log("@@@@@@@@@@@@@@@@@@@@@@@@");
     return res.data.response.body.items.item;
   });
 
@@ -38,9 +39,10 @@ export const getDailyWeather: dailyWeatherRequestProps = async (_) => {
   return out;
 };
 
-export const getMaxMinTemperature: dailyWeatherRequestProps = async (_) => {
-  // const { nx, ny } = data;
-  const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${APIKEY}&numOfRows=40&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=0200&nx=60&ny=127`).then((res) => {
+export const getMaxMinTemperature: dailyWeatherRequestProps = async (data) => {
+  const { nx, ny } = data;
+  const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${APIKEY}&numOfRows=40&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=0200&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     return res.data.response.body.items.item;
   });
 
@@ -50,10 +52,10 @@ export const getMaxMinTemperature: dailyWeatherRequestProps = async (_) => {
   };
   res.map((item: resultDailyTemperatureProps) => {
     switch (item.category) {
-      case "TMN":
+      case "TMX":
         out.maxTemperature = item.fcstValue;
         return;
-      case "TMX":
+      case "TMN":
         out.minTemperature = item.fcstValue;
         return;
       default:
@@ -63,8 +65,8 @@ export const getMaxMinTemperature: dailyWeatherRequestProps = async (_) => {
   return out;
 };
 
-export const threeHoursWeather: dailyWeatherRequestProps = async (_) => {
-  // const { nx, ny } = data;
+export const threeHoursWeather: dailyWeatherRequestProps = async (data) => {
+  const { nx, ny } = data;
 
   const POP: threeHourWeatherOutput[] = [];
   const PTY: threeHourWeatherOutput[] = [];
@@ -74,16 +76,10 @@ export const threeHoursWeather: dailyWeatherRequestProps = async (_) => {
   const WSD: threeHourWeatherOutput[] = [];
 
   const time = parseInt(changDateFormThreeHoursTime(), 10);
-  console.log(time);
-  const res = await axios
-    .get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${APIKEY}&numOfRows=40&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${time}&nx=60&ny=127`)
-    .then((res) => {
-      return res.data.response.body.items.item;
-    })
-    .catch((e) => {
-      console.log(e);
-      return e;
-    });
+  const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${APIKEY}&numOfRows=40&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${time}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
+    console.log("!@#!@!@#!@#!@#!@#!@#");
+    return res.data.response.body.items.item;
+  });
 
   res.map((item: threeHourWeatherOption) => {
     switch (item.category) {
