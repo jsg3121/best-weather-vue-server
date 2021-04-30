@@ -74,9 +74,7 @@ export const threeHoursWeather: dailyWeatherRequestProps = async (data) => {
   const WSD: threeHourWeatherOutput[] = [];
 
   const time = changDateFormThreeHoursTime();
-  const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${APIKEY}&numOfRows=40&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${time}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
-    console.log(time);
-    console.log(res);
+  const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${APIKEY}&numOfRows=180&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${time}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
     return res.data.response.body.items.item;
   });
 
