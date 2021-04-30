@@ -1,5 +1,5 @@
 import axios from "axios";
-import { dailyWeatherRequestProps, getLivingInformationProps, getMaxMinTemperatureProps, resultDailyDataProps, resultDailyTemperatureProps, returnDatilyDataProps, threeHourWeatherOutput } from "~/@types";
+import { dailyWeatherRequestProps, getLivingInformationProps, getMaxMinTemperatureProps, resultDailyDataProps, resultDailyTemperatureProps, returnDatilyDataProps, threeHourWeatherOption, threeHourWeatherOutput } from "~/@types";
 import { changDateFormMiniDust, changDateFormThreeHoursTime, defaultDate, defaultTime, formDataMiniDust } from "~/common";
 
 const APIKEY = "422JryGS9%2B676hcl7wOZ4jh5de2s99vCJr2NcRWV4YXkv9nQP8C0BFGDPVlBt55Fyy5VMJh%2ByRYBMkV%2BcciYZg%3D%3D";
@@ -75,70 +75,69 @@ export const threeHoursWeather: dailyWeatherRequestProps = async (data) => {
 
   const time = parseInt(changDateFormThreeHoursTime(), 10);
   const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${APIKEY}&numOfRows=40&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${time}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
-    return res;
+    return res.data.response.body.items.item;
   });
-  console.log(res);
 
-  // res.map((item: threeHourWeatherOption) => {
-  //   switch (item.category) {
-  //     case "POP":
-  //       {
-  //         POP.push({
-  //           date: item.fcstDate,
-  //           time: item.fcstTime,
-  //           value: item.fcstValue,
-  //         });
-  //       }
-  //       return;
-  //     case "PTY":
-  //       {
-  //         PTY.push({
-  //           date: item.fcstDate,
-  //           time: item.fcstTime,
-  //           value: item.fcstValue,
-  //         });
-  //       }
-  //       return;
-  //     case "SKY":
-  //       {
-  //         SKY.push({
-  //           date: item.fcstDate,
-  //           time: item.fcstTime,
-  //           value: item.fcstValue,
-  //         });
-  //       }
-  //       return;
-  //     case "T3H":
-  //       {
-  //         T3H.push({
-  //           date: item.fcstDate,
-  //           time: item.fcstTime,
-  //           value: item.fcstValue,
-  //         });
-  //       }
-  //       return;
-  //     case "VEC":
-  //       {
-  //         VEC.push({
-  //           date: item.fcstDate,
-  //           time: item.fcstTime,
-  //           value: item.fcstValue,
-  //         });
-  //       }
-  //       return;
-  //     case "WSD":
-  //       {
-  //         WSD.push({
-  //           date: item.fcstDate,
-  //           time: item.fcstTime,
-  //           value: item.fcstValue,
-  //         });
-  //       }
-  //       return;
-  //     default:
-  //       return;
-  //   }
-  // });
+  res.map((item: threeHourWeatherOption) => {
+    switch (item.category) {
+      case "POP":
+        {
+          POP.push({
+            date: item.fcstDate,
+            time: item.fcstTime,
+            value: item.fcstValue,
+          });
+        }
+        return;
+      case "PTY":
+        {
+          PTY.push({
+            date: item.fcstDate,
+            time: item.fcstTime,
+            value: item.fcstValue,
+          });
+        }
+        return;
+      case "SKY":
+        {
+          SKY.push({
+            date: item.fcstDate,
+            time: item.fcstTime,
+            value: item.fcstValue,
+          });
+        }
+        return;
+      case "T3H":
+        {
+          T3H.push({
+            date: item.fcstDate,
+            time: item.fcstTime,
+            value: item.fcstValue,
+          });
+        }
+        return;
+      case "VEC":
+        {
+          VEC.push({
+            date: item.fcstDate,
+            time: item.fcstTime,
+            value: item.fcstValue,
+          });
+        }
+        return;
+      case "WSD":
+        {
+          WSD.push({
+            date: item.fcstDate,
+            time: item.fcstTime,
+            value: item.fcstValue,
+          });
+        }
+        return;
+      default:
+        return;
+    }
+  });
 
   const out = { POP, PTY, SKY, T3H, VEC, WSD };
 
