@@ -5,8 +5,6 @@ import { changDateFormMiniDust, changDateFormThreeHoursTime, defaultDate, defaul
 const APIKEY = "422JryGS9%2B676hcl7wOZ4jh5de2s99vCJr2NcRWV4YXkv9nQP8C0BFGDPVlBt55Fyy5VMJh%2ByRYBMkV%2BcciYZg%3D%3D";
 const BASE_DATE = defaultDate();
 const BASE_TIME = defaultTime();
-console.log(BASE_DATE);
-console.log(BASE_TIME);
 export const getDailyWeather: dailyWeatherRequestProps = async (data) => {
   const { nx, ny } = data;
   const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtNcst?serviceKey=${APIKEY}&numOfRows=10&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}00&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
@@ -148,7 +146,7 @@ export const livingInfomation = async () => {
   const area = "서울";
   const encoding = encodeURIComponent(area);
   const requestDate = changDateFormMiniDust();
-  let out: getLivingInformationProps[] = [];
+  const out: getLivingInformationProps[] = [];
 
   const res = await axios.get(`http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?sidoName=${encoding}&pageNo=1&numOfRows=200&returnType=json&serviceKey=${APIKEY}&ver=1.0`).then((res) => {
     return res.data.response.body.items;
@@ -164,7 +162,18 @@ export const livingInfomation = async () => {
   const minidust = await axios.get(`http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustWeekFrcstDspth?searchDate=${requestDate}&returnType=json&serviceKey=${APIKEY}&numOfRows=50&pageNo=1`).then((res) => {
     return res.data.response.body.items;
   });
-  const dust = formDataMiniDust(minidust);
+  const minimumDust = formDataMiniDust(minidust);
 
-  return { dust, out };
+  const uv = await axios.get(`http://apis.data.go.kr/1360000/LivingWthrIdxService01/getUVIdx?serviceKey=${APIKEY}&dataType=json&areaNo=1100000000&time=${BASE_DATE}${BASE_TIME}`).then((res) => {
+    return res.data.response.body.items.item;
+  });
+
+  const uvValue = {
+    date: uv[0].date,
+    today: uv[0].today,
+    tomorrow: uv[0].tomorrow,
+    theDayAfterTomorrow: uv[0].theDayAfterTomorrow,
+  };
+
+  return { minimumDust, out, uvValue };
 };

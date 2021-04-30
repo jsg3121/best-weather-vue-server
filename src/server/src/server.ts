@@ -1,12 +1,11 @@
 import cors from "cors";
 import express from "express";
-import { serverAwake } from "~/cron/src/serverAwake";
 import { koreaCron } from "~/cron";
 import { weatherKorea } from "~/service";
 export const app = express();
 
 export const runServer = async (): Promise<void> => {
-  const PORT = process.env.PORT || 8989;
+  const PORT = 8989;
 
   app.use(cors());
   app.use(express.json());
@@ -17,7 +16,6 @@ export const runServer = async (): Promise<void> => {
     console.log(PORT);
   });
 
-  serverAwake();
   weatherKorea();
   koreaCron();
 };

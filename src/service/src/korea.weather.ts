@@ -42,4 +42,13 @@ export const weatherKorea = () => {
     res.send(data);
     res.end();
   });
+
+  app.get("/api/sunRiseFall", async (_, res) => {
+    console.log("--------------------------------------------------");
+    console.log("sunRiseFall");
+    console.log("--------------------------------------------------");
+    const data = await livingInfomation();
+    res.send(data);
+    res.end();
+  });
 };
