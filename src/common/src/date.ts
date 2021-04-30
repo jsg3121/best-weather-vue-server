@@ -24,12 +24,24 @@ export const changDateFormThreeHoursTime = (): string => {
   if (DATE.getHours() % 3 === 2) {
     if (DATE.getMinutes() > 10) {
       const hour = 3 * Math.floor(DATE.getHours() / 3) + 2;
-      return hour + 7 + "00";
+      if (hour < 10) {
+        return "0" + hour + "00";
+      } else {
+        return hour + "00";
+      }
     } else {
       const hour = 3 * Math.floor(DATE.getHours() / 3) - 1;
-      return hour + 7 + "00";
+      if (hour < 10) {
+        return "0" + hour + "00";
+      } else {
+        return hour + "00";
+      }
     }
   }
   const hour = 3 * Math.floor(DATE.getHours() / 3) - 1;
-  return hour + "00";
+  if (hour < 10) {
+    return "0" + hour + "00";
+  } else {
+    return hour + "00";
+  }
 };
