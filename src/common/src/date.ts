@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import "dayjs/locale/ko";
-const TODAY = dayjs();
+const TODAY = dayjs().locale("ko");
 
 export const defaultDate = (): string => {
   return TODAY.format("YYYYMMDD");
