@@ -15,7 +15,7 @@ export const defaultTime = (): string => {
 export const changDateFormMiniDust = (): string => {
   const yyyy = DATE.getFullYear();
   const mm = DATE.getMonth() + 1 > 10 ? DATE.getMonth() + 1 : "0" + (DATE.getMonth() + 1);
-  const dd = DATE.getDate() - 3;
+  const dd = DATE.getDate() - 3 > 10 ? DATE.getDate() - 3 : "0" + (DATE.getDate() - 3);
   const output = `${yyyy}-${mm}-${dd}`;
   return output;
 };
