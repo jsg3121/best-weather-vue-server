@@ -5,7 +5,7 @@ const KR_TIME = 9 * 60 * 60 * 1000;
 const DATE = new Date(utc + KR_TIME);
 
 export const defaultDate = (): string => {
-  return `${DATE.getFullYear()}${DATE.getMonth() > 10 ? DATE.getMonth() : "0" + (DATE.getMonth() + 1)}${DATE.getDate() > 10 ? DATE.getDate() : "0" + (DATE.getDate() + 1)}`;
+  return `${DATE.getFullYear()}${DATE.getMonth() > 10 ? DATE.getMonth() : "0" + (DATE.getMonth() + 1)}${DATE.getDate() > 10 ? DATE.getDate() : "0" + DATE.getDate()}`;
 };
 
 export const defaultTime = (): string => {
