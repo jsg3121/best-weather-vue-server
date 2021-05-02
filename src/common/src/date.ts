@@ -25,3 +25,11 @@ export const changDateFormThreeHoursTime = (): string => {
     return res.toString();
   }
 };
+
+export const checkWeeklyDate = () => {
+  const date = TODAY.format("YYYYMMDD");
+  console.log(date);
+
+  const time = parseInt(TODAY.format("HH"), 10);
+  return time >= 6 && time <= 17 ? `${date}0600` : `${date}1800`;
+};

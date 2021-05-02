@@ -1,4 +1,4 @@
-import { getDailyWeather, getMaxMinTemperature, livingInfomation, threeHoursWeather } from "~/api";
+import { getDailyWeather, getMaxMinTemperature, livingInfomation, sunRiseFall, threeHoursWeather } from "~/api";
 import { app } from "~/server";
 
 export const weatherKorea = () => {
@@ -47,7 +47,7 @@ export const weatherKorea = () => {
     console.log("--------------------------------------------------");
     console.log("sunRiseFall");
     console.log("--------------------------------------------------");
-    const data = await livingInfomation();
+    const data = await sunRiseFall();
     res.send(data);
     res.end();
   });

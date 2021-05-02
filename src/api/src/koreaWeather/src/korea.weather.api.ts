@@ -1,13 +1,10 @@
 import axios from "axios";
-import { dailyWeatherRequestProps, getLivingInformationProps, getMaxMinTemperatureProps, resultDailyDataProps, resultDailyTemperatureProps, returnDatilyDataProps, threeHourWeatherOption, threeHourWeatherOutput } from "~/@types";
-import { changDateFormMiniDust, changDateFormThreeHoursTime, defaultDate, defaultTime, formDataMiniDust } from "~/common";
+import { dailyWeatherRequestProps, getLivingInformationProps, getMaxMinTemperatureProps, getSunSetRiseProps, resultDailyDataProps, resultDailyTemperatureProps, returnDatilyDataProps, threeHourWeatherOption, threeHourWeatherOutput } from "~/@types";
+import { changDateFormMiniDust, changDateFormThreeHoursTime, checkWeeklyDate, defaultDate, defaultTime, formDataMiniDust } from "~/common";
 
 const APIKEY = "422JryGS9%2B676hcl7wOZ4jh5de2s99vCJr2NcRWV4YXkv9nQP8C0BFGDPVlBt55Fyy5VMJh%2ByRYBMkV%2BcciYZg%3D%3D";
 const BASE_DATE = defaultDate();
 const BASE_TIME = defaultTime();
-
-console.log(BASE_DATE);
-console.log(BASE_TIME);
 
 export const getDailyWeather: dailyWeatherRequestProps = async (data) => {
   const { nx, ny } = data;
@@ -42,14 +39,39 @@ export const getDailyWeather: dailyWeatherRequestProps = async (data) => {
 
 export const getMaxMinTemperature: dailyWeatherRequestProps = async (data) => {
   const { nx, ny } = data;
+
+  const out: getMaxMinTemperatureProps = {
+    maxTemperature: "",
+    minTemperature: "",
+  };
+  const weeklyResDate = checkWeeklyDate();
   const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${APIKEY}&numOfRows=40&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=0200&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
     return res.data.response.body.items.item;
   });
 
-  let out: getMaxMinTemperatureProps = {
-    maxTemperature: "",
-    minTemperature: "",
+  const weeklyRes = await axios.get(`http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${APIKEY}&numOfRows=10&pageNo=&dataType=json&regId=11D20501&tmFc=${weeklyResDate}`).then((res) => {
+    return res.data.response.body.items.item[0];
+  });
+
+  const weekOut = {
+    day3Min: weeklyRes.taMin3,
+    day3Max: weeklyRes.taMax3,
+    day4Min: weeklyRes.taMin4,
+    day4Max: weeklyRes.taMax4,
+    day5Min: weeklyRes.taMin5,
+    day5Max: weeklyRes.taMax5,
+    day6Min: weeklyRes.taMin6,
+    day6Max: weeklyRes.taMax6,
+    day7Min: weeklyRes.taMin7,
+    day7Max: weeklyRes.taMax7,
+    day8Min: weeklyRes.taMin8,
+    day8Max: weeklyRes.taMax8,
+    day9Min: weeklyRes.taMin9,
+    day9Max: weeklyRes.taMax9,
+    day10Min: weeklyRes.taMin10,
+    day10Max: weeklyRes.taMax10,
   };
+
   res.map((item: resultDailyTemperatureProps) => {
     switch (item.category) {
       case "TMX":
@@ -62,7 +84,8 @@ export const getMaxMinTemperature: dailyWeatherRequestProps = async (data) => {
         return;
     }
   });
-  return out;
+
+  return { out, weekOut };
 };
 
 export const threeHoursWeather: dailyWeatherRequestProps = async (data) => {
@@ -181,4 +204,22 @@ export const livingInfomation = async () => {
   };
 
   return { minimumDust, out, uvValue };
+};
+
+export const sunRiseFall = async () => {
+  const area = "서울";
+  const encoding = encodeURIComponent(area);
+  const res = await axios.get(`http://apis.data.go.kr/B090041/openapi/service/RiseSetInfoService/getAreaRiseSetInfo?location=${encoding}&locdate=${BASE_DATE}&ServiceKey=${APIKEY}`).then((res) => {
+    return res.data.response.body.items.item;
+  });
+
+  const output: getSunSetRiseProps[] = [];
+  output.push({
+    sunrise: res.sunrise,
+    sunset: res.sunset,
+    moonrise: res.moonset,
+    moonset: res.moonrise,
+  });
+
+  return output;
 };

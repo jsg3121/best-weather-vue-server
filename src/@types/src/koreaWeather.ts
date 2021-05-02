@@ -48,4 +48,11 @@ export type getLivingInformationProps = {
   o3Value: string;
 };
 
+export type getSunSetRiseProps = {
+  sunset: string;
+  sunrise: string;
+  moonset: string;
+  moonrise: string;
+};
+
 export type dailyWeatherRequestProps = (data: { nx?: number; ny?: number }) => Promise<object>;
