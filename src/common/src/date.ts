@@ -7,7 +7,7 @@ export const defaultDate = (): string => {
 };
 
 export const defaultTime = (): string => {
-  return TODAY.format("HH00");
+  return TODAY.subtract(1, "hour").format("HH00");
 };
 
 export const changDateFormMiniDust = (): string => {
