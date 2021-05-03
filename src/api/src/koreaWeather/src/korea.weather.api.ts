@@ -46,10 +46,12 @@ export const getMaxMinTemperature: dailyWeatherRequestProps = async (data) => {
   };
   const weeklyResDate = checkWeeklyDate();
   const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${APIKEY}&numOfRows=40&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=0200&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
+    console.log(res);
     return res.data.response.body.items.item;
   });
 
   const weeklyRes = await axios.get(`http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${APIKEY}&numOfRows=10&pageNo=&dataType=json&regId=11D20501&tmFc=${weeklyResDate}`).then((res) => {
+    console.log(res);
     return res.data.response.body.items.item[0];
   });
 
