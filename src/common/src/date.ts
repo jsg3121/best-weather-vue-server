@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import "dayjs/locale/ko";
-const TODAY = dayjs().locale("ko");
+const TODAY = dayjs(new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
 
 export const defaultDate = (): string => {
   return TODAY.format("YYYYMMDD");
@@ -18,18 +18,18 @@ export const changDateFormMiniDust = (): string => {
 export const changDateFormThreeHoursTime = (): string => {
   const hours = parseInt(TODAY.format("HH"), 10);
   if (hours % 3 === 2) {
-    const res = TODAY.format(`${3 * Math.floor(hours / 3) + 2}00`);
+    const res = TODAY.format(3 * Math.floor(hours / 3) + 2 > 10 ? `${3 * Math.floor(hours / 3) + 2}00` : `0${3 * Math.floor(hours / 3) + 2}00`);
     return res.toString();
   } else {
-    const res = TODAY.format(`${3 * Math.floor(hours / 3) - 1}00`);
+    const res = TODAY.format(3 * Math.floor(hours / 3) - 1 > 10 ? `${3 * Math.floor(hours / 3) - 1}00` : `0${3 * Math.floor(hours / 3) - 1}00`);
     return res.toString();
   }
 };
 
 export const checkWeeklyDate = () => {
   const date = TODAY.format("YYYYMMDD");
-  console.log(date);
 
   const time = parseInt(TODAY.format("HH"), 10);
+  console.log(time);
   return time >= 6 && time <= 17 ? `${date}0600` : `${date}1800`;
 };
