@@ -9,6 +9,7 @@ const BASE_TIME = defaultTime();
 export const getDailyWeather: dailyWeatherRequestProps = async (data) => {
   const { nx, ny } = data;
   const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtNcst?serviceKey=${APIKEY}&numOfRows=10&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
+    console.log(res);
     return res.data.response.body.items.item;
   });
 
