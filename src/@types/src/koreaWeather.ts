@@ -55,4 +55,4 @@ export type getSunSetRiseProps = {
   moonrise: string;
 };
 
-export type dailyWeatherRequestProps = (data: { nx?: number; ny?: number }) => Promise<object>;
+export type GeolocationProps = (data: { nx?: number; ny?: number }) => Promise<object>;

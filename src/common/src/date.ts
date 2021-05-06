@@ -30,6 +30,5 @@ export const checkWeeklyDate = () => {
   const date = TODAY.format("YYYYMMDD");
 
   const time = parseInt(TODAY.format("HH"), 10);
-  console.log(time);
   return time >= 6 && time <= 17 ? `${date}0600` : `${date}1800`;
 };
