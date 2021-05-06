@@ -5,7 +5,7 @@ import { weatherKorea } from "~/service";
 export const app = express();
 
 export const runServer = async (): Promise<void> => {
-  const PORT = 8989;
+  const PORT = process.env.PORT || 8989;
 
   app.use(cors());
   app.use(express.json());
