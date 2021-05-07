@@ -1,6 +1,6 @@
-import axios from "axios";
-import { GeolocationProps, getLivingInformationProps, getMaxMinTemperatureProps, getSunSetRiseProps, resultDailyDataProps, resultDailyTemperatureProps, returnDatilyDataProps, threeHourWeatherOption, threeHourWeatherOutput } from "~/@types";
-import { changDateFormMiniDust, changDateFormThreeHoursTime, checkWeeklyDate, defaultDate, defaultTime, formDataMiniDust } from "~/common";
+import axios, { AxiosResponse } from "axios";
+import { GeolocationProps, getLivingInformationProps, getMaxMinTemperatureProps, getSunSetRiseProps, resultDailyDataProps, resultDailyTemperatureProps, threeHourWeatherOption, threeHourWeatherOutput } from "~/@types";
+import { changDateFormThreeHoursTime, checkWeeklyDate, defaultDate, defaultTime } from "~/common";
 
 const APIKEY = "422JryGS9%2B676hcl7wOZ4jh5de2s99vCJr2NcRWV4YXkv9nQP8C0BFGDPVlBt55Fyy5VMJh%2ByRYBMkV%2BcciYZg%3D%3D";
 const BASE_DATE = defaultDate();
@@ -8,33 +8,21 @@ const BASE_TIME = defaultTime();
 
 export const getDailyWeather: GeolocationProps = async (data) => {
   const { nx, ny } = data;
-  const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtNcst?serviceKey=${APIKEY}&numOfRows=10&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
-    return res.data.response.body.items.item;
+  const nowTemperatures: Promise<AxiosResponse<resultDailyDataProps>> = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtNcst?serviceKey=${APIKEY}&numOfRows=10&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
+    const result = res.data.response.body.items.item;
+    return result.filter((item) => {
+      return item.category === "T1H" || item.category === "REH" || item.category === "RN1";
+    });
   });
 
-  let out: returnDatilyDataProps = {
-    nowTemperatures: "",
-    nowHumidity: "",
-    nowPrecipitation: "",
-  };
-
-  res.map((item: resultDailyDataProps) => {
-    switch (item.category) {
-      case "T1H":
-        out.nowTemperatures = item.obsrValue;
-        return;
-      case "REH":
-        out.nowHumidity = item.obsrValue;
-        return;
-      case "RN1":
-        out.nowPrecipitation = item.obsrValue;
-        return;
-      default:
-        return;
-    }
+  const newSky: Promise<AxiosResponse<resultDailyTemperatureProps>> = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst?serviceKey=${APIKEY}&numOfRows=50&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}&category=SKY`).then((res) => {
+    const result = res.data.response.body.items.item;
+    return result.filter((item: { category: string }) => {
+      return item.category === "SKY";
+    });
   });
-
-  return out;
+  const res = [nowTemperatures, newSky[0]];
+  return res;
 };
 
 export const getMaxMinTemperature: GeolocationProps = async (data) => {
@@ -165,24 +153,25 @@ export const threeHoursWeather: GeolocationProps = async (data) => {
 export const livingInfomation = async () => {
   const area = "서울";
   const encoding = encodeURIComponent(area);
-  const requestDate = changDateFormMiniDust();
+  // const requestDate = changDateFormMiniDust();
   const out: getLivingInformationProps[] = [];
 
-  const res = await axios.get(`http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?sidoName=${encoding}&pageNo=1&numOfRows=200&returnType=json&serviceKey=${APIKEY}&ver=1.0`).then((res) => {
+  const res = await axios.get(`http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?sidoName=${encoding}&pageNo=1&numOfRows=200&returnType=json&serviceKey=${APIKEY}&ver=1.3`).then((res) => {
     return res.data.response.body.items;
   });
   res.map((list: getLivingInformationProps) => {
     out.push({
       sidoName: list.sidoName,
       pm10Value: list.pm10Value,
+      pm25Value: list.pm25Value,
       o3Value: list.o3Value,
     });
   });
 
-  const minidust = await axios.get(`http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustWeekFrcstDspth?searchDate=${requestDate}&returnType=json&serviceKey=${APIKEY}&numOfRows=50&pageNo=1`).then((res) => {
-    return res.data.response.body.items;
-  });
-  const minimumDust = formDataMiniDust(minidust);
+  // const minidust = await axios.get(`http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustWeekFrcstDspth?searchDate=${requestDate}&returnType=json&serviceKey=${APIKEY}&numOfRows=50&pageNo=1`).then((res) => {
+  //   return res.data.response.body.items;
+  // });
+  // const minimumDust = formDataMiniDust(minidust);
 
   const uv = await axios.get(`http://apis.data.go.kr/1360000/LivingWthrIdxService01/getUVIdx?serviceKey=${APIKEY}&dataType=json&areaNo=1100000000&time=${BASE_DATE}${BASE_TIME.substr(0, 2)}`).then((res) => {
     return res.data.response.body.items.item[0];
@@ -195,7 +184,7 @@ export const livingInfomation = async () => {
     theDayAfterTomorrow: uv.theDayAfterTomorrow,
   };
 
-  return { minimumDust, out, uvValue };
+  return { out, uvValue };
 };
 
 export const sunRiseFall = async () => {

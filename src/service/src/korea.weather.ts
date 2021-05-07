@@ -7,7 +7,7 @@ export const weatherKorea = () => {
     res.end();
   });
 
-  app.get("/api/daily", async (req, res) => {
+  app.get("/api/ko/nowWeather", async (req, res) => {
     console.log("--------------------------------------------------");
     console.log("daily");
     console.log("--------------------------------------------------");
@@ -16,7 +16,7 @@ export const weatherKorea = () => {
     res.end();
   });
 
-  app.get("/api/weekly", async (req, res) => {
+  app.get("/api/ko/weekly", async (req, res) => {
     console.log("--------------------------------------------------");
     console.log("weekly");
     console.log("--------------------------------------------------");
@@ -25,7 +25,7 @@ export const weatherKorea = () => {
     res.end();
   });
 
-  app.get("/api/threeHours", async (req, res) => {
+  app.get("/api/ko/threeHours", async (req, res) => {
     console.log("--------------------------------------------------");
     console.log("threeHours");
     console.log("--------------------------------------------------");
@@ -34,7 +34,7 @@ export const weatherKorea = () => {
     res.end();
   });
 
-  app.get("/api/livingInformation", async (_, res) => {
+  app.get("/api/ko/livingInformation", async (_, res) => {
     console.log("--------------------------------------------------");
     console.log("livingInformation");
     console.log("--------------------------------------------------");
@@ -43,7 +43,7 @@ export const weatherKorea = () => {
     res.end();
   });
 
-  app.get("/api/sunRiseFall", async (_, res) => {
+  app.get("/api/ko/sunRiseFall", async (_, res) => {
     console.log("--------------------------------------------------");
     console.log("sunRiseFall");
     console.log("--------------------------------------------------");

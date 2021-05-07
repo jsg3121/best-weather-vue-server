@@ -18,11 +18,11 @@ export type resultDailyTemperatureProps = {
   ny: number;
 };
 
-export type returnDatilyDataProps = {
-  nowTemperatures: resultDailyDataProps["obsrValue"];
-  nowHumidity: resultDailyDataProps["obsrValue"];
-  nowPrecipitation: resultDailyDataProps["obsrValue"];
-};
+// export type returnDatilyDataProps = {
+//   nowTemperatures: resultDailyDataProps["obsrValue"];
+//   nowHumidity: resultDailyDataProps["obsrValue"];
+//   nowPrecipitation: resultDailyDataProps["obsrValue"];
+// };
 
 export type getMaxMinTemperatureProps = {
   maxTemperature: resultDailyTemperatureProps["fcstValue"];
@@ -45,6 +45,7 @@ export type threeHourWeatherOutput = {
 export type getLivingInformationProps = {
   sidoName: string;
   pm10Value: string;
+  pm25Value: string;
   o3Value: string;
 };
 
