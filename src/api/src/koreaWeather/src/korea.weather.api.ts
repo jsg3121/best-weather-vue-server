@@ -9,6 +9,7 @@ const BASE_TIME = defaultTime();
 export const getDailyWeather: GeolocationProps = async (data) => {
   const { nx, ny } = data;
   const nowTemperatures: Promise<AxiosResponse<resultDailyDataProps>> = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtNcst?serviceKey=${APIKEY}&numOfRows=10&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
+    console.log(res);
     const result = res.data.response.body.items.item;
     return result.filter((item) => {
       return item.category === "T1H" || item.category === "REH" || item.category === "RN1";
@@ -16,6 +17,7 @@ export const getDailyWeather: GeolocationProps = async (data) => {
   });
 
   const newSky: Promise<AxiosResponse<resultDailyTemperatureProps>> = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst?serviceKey=${APIKEY}&numOfRows=50&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}&category=SKY`).then((res) => {
+    console.log(res);
     const result = res.data.response.body.items.item;
     return result.filter((item: { category: string }) => {
       return item.category === "SKY";
@@ -34,14 +36,17 @@ export const getMaxMinTemperature: GeolocationProps = async (data) => {
   };
   const weeklyResDate = checkWeeklyDate();
   const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${APIKEY}&numOfRows=40&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=0200&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
+    console.log(res);
     return res.data.response.body.items.item;
   });
 
   const weeklyRes = await axios.get(`http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${APIKEY}&numOfRows=10&pageNo=&dataType=json&regId=11D20501&tmFc=${weeklyResDate}`).then((res) => {
+    console.log(res);
     return res.data.response.body.items.item[0];
   });
 
   const weeklyWeather = await axios.get(`http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${APIKEY}&numOfRows=10&pageNo=1&dataType=json&regId=11B00000&tmFc=${weeklyResDate}`).then((res) => {
+    console.log(res);
     return res.data.response.body.items.item[0];
   });
 
@@ -81,6 +86,7 @@ export const threeHoursWeather: GeolocationProps = async (data) => {
 
   const time = changDateFormThreeHoursTime();
   const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${APIKEY}&numOfRows=180&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${time}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
+    console.log(res);
     return res.data.response.body.items.item;
   });
 
@@ -157,6 +163,7 @@ export const livingInfomation = async () => {
   const out: getLivingInformationProps[] = [];
 
   const res = await axios.get(`http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?sidoName=${encoding}&pageNo=1&numOfRows=200&returnType=json&serviceKey=${APIKEY}&ver=1.3`).then((res) => {
+    console.log(res);
     return res.data.response.body.items;
   });
   res.map((list: getLivingInformationProps) => {
