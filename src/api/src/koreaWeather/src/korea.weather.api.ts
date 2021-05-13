@@ -3,17 +3,15 @@ import { GeolocationProps, getLivingInformationProps, getMaxMinTemperatureProps,
 import { changDateFormThreeHoursTime, checkWeeklyDate, defaultDate, defaultTime } from "~/common";
 
 const APIKEY = "422JryGS9%2B676hcl7wOZ4jh5de2s99vCJr2NcRWV4YXkv9nQP8C0BFGDPVlBt55Fyy5VMJh%2ByRYBMkV%2BcciYZg%3D%3D";
-const BASE_DATE = defaultDate();
-const BASE_TIME = defaultTime();
 
 export const getDailyWeather: GeolocationProps = async (data) => {
+  const BASE_DATE = defaultDate();
+  const BASE_TIME = defaultTime();
+
   const { nx, ny } = data;
 
   const nowTemperatures: Promise<AxiosResponse<resultDailyDataProps>> = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtNcst?serviceKey=${APIKEY}&numOfRows=10&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
     // console.log(res);
-    console.log(BASE_DATE);
-    console.log(BASE_TIME);
-
     const result = res.data.response.body.items.item;
     return result.filter((item) => {
       return item.category === "T1H" || item.category === "REH" || item.category === "RN1";
@@ -32,6 +30,7 @@ export const getDailyWeather: GeolocationProps = async (data) => {
 };
 
 export const getMaxMinTemperature: GeolocationProps = async (data) => {
+  const BASE_DATE = defaultDate();
   const { nx, ny } = data;
 
   const out: getMaxMinTemperatureProps = {
@@ -80,6 +79,7 @@ export const getMaxMinTemperature: GeolocationProps = async (data) => {
 
 export const threeHoursWeather: GeolocationProps = async (data) => {
   const { nx, ny } = data;
+  const BASE_DATE = defaultDate();
 
   const POP: threeHourWeatherOutput[] = [];
   const PTY: threeHourWeatherOutput[] = [];
@@ -161,6 +161,8 @@ export const threeHoursWeather: GeolocationProps = async (data) => {
 };
 
 export const livingInfomation = async () => {
+  const BASE_DATE = defaultDate();
+  const BASE_TIME = defaultTime();
   const area = "서울";
   const encoding = encodeURIComponent(area);
   // const requestDate = changDateFormMiniDust();
@@ -199,6 +201,7 @@ export const livingInfomation = async () => {
 };
 
 export const sunRiseFall = async () => {
+  const BASE_DATE = defaultDate();
   const area = "서울";
   const encoding = encodeURIComponent(area);
   const res = await axios.get(`http://apis.data.go.kr/B090041/openapi/service/RiseSetInfoService/getAreaRiseSetInfo?location=${encoding}&locdate=${BASE_DATE}&ServiceKey=${APIKEY}`).then((res) => {
