@@ -1,6 +1,8 @@
 import dayjs from "dayjs";
-import "dayjs/locale/ko";
-const TODAY = dayjs(new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
+import timezone from "dayjs/plugin/timezone";
+
+dayjs.extend(timezone);
+const TODAY = dayjs().tz("Asia/Seoul");
 
 export const defaultDate = (): string => {
   return TODAY.format("YYYYMMDD");
