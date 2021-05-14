@@ -24,10 +24,10 @@ export type resultDailyTemperatureProps = {
 //   nowPrecipitation: resultDailyDataProps["obsrValue"];
 // };
 
-export type getMaxMinTemperatureProps = {
-  maxTemperature: resultDailyTemperatureProps["fcstValue"];
-  minTemperature: resultDailyTemperatureProps["fcstValue"];
-};
+// export type getMaxMinTemperatureProps = {
+//   maxTemperature: resultDailyTemperatureProps["fcstValue"];
+//   minTemperature: resultDailyTemperatureProps["fcstValue"];
+// };
 
 export type threeHourWeatherOption = {
   category: string;

@@ -1,1 +1,2 @@
-export * from "./src/korea.weather";
+export * from "./src/koreaWeather";
+export * from "./src/openWeatherMap";
