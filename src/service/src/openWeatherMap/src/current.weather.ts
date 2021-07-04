@@ -1,5 +1,5 @@
 import { getCurrentWeatherOWM } from "~/api";
-import { app } from "~/server";
+import { app } from "~/index";
 
 export const openWeatherMapCurrent = () => {
   app.get("/api/open/current", async (_, res) => {

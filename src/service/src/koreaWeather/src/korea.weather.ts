@@ -1,5 +1,5 @@
 import { getDailyWeather, getMaxMinTemperature, livingInfomation, sunRiseFall, threeHoursWeather } from "~/api";
-import { app } from "~/server";
+import { app } from "~/index";
 
 export const weatherKorea = () => {
   app.get("/", async (_, res) => {
