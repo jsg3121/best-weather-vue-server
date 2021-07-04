@@ -1,18 +1,77 @@
 import { app } from "~/index";
+import locateData from "~/database/src/geolocate/data.json";
 
-const checkGeolocation = (locate: object): string => {
-  console.log(locate);
+type LocateType = {
+  latitude: string;
+  longitude: string;
+};
 
-  return "";
+type ReturnLocation = {
+  num: string;
+  country: string;
+  divisionCode: string;
+  depth1: string;
+  depth2: string | "";
+  depth3: string | "";
+  gridX: string;
+  gridY: string;
+  longitudeHour: string;
+  longitudeMin: string;
+  longitudeSec: string;
+  latitudeHour: string;
+  latitudeMin: string;
+  latitudeSec: string;
+  longitudePerSec: string;
+  latitudePerSec: string;
+  위치업데이트?: string;
+};
+
+const checkGeolocation = (locate: LocateType): ReturnLocation => {
+  const latitude: number = parseFloat(locate.latitude);
+  const longitude: number = parseFloat(locate.longitude);
+  console.log(latitude);
+  console.log(longitude);
+
+  let minLat = latitude;
+  let minLon = longitude;
+  let locateIdx = 0;
+
+  for (let i = 0; i < locateData.length; i++) {
+    let absLat = Math.abs(parseFloat(locateData[i].latitudePerSec) - latitude);
+    let absLon = Math.abs(parseFloat(locateData[i].longitudePerSec) - longitude);
+
+    if (absLat == minLat) {
+      if (absLon == minLon) {
+        locateIdx = i;
+      } else if (absLon < minLon) {
+        minLon = absLon;
+        locateIdx = i;
+      }
+    } else if (absLat < minLat) {
+      if (absLon == minLon) {
+        minLat = absLat;
+        locateIdx = i;
+      } else if (absLon < minLon) {
+        minLat = absLat;
+        minLon = absLon;
+        locateIdx = i;
+        console.log(`${locateData[locateIdx].depth1} ${locateData[locateIdx].depth2} ${locateData[locateIdx].depth3}`);
+      }
+    }
+  }
+
+  // #TODO: 리턴 타입 에러
+  return locateData[locateIdx];
 };
 
 export const geolocation = () => {
   // #TODO : check axios nethods 'post' dose not recieve request body
   app.get("/geolocation", async (req, res) => {
     console.log(req.query);
-    const location = await checkGeolocation(req.query);
+    const payload = req.query as LocateType;
+    const location = checkGeolocation(payload);
     console.log(location);
-    res.send("asdfasdf");
+    res.send(location);
     res.end();
   });
 };

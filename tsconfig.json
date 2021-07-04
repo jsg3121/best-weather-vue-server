@@ -38,6 +38,7 @@
     // Node.js의 경우 : Node
     // AMD, System, ES6의 경우 : Classic
     "baseUrl": ".", // non-absolute한 모듈 이름을 처리할 기준 디렉토리
+    "resolveJsonModule":true,
     "paths": {
       "~/*": [
         "src/*"
