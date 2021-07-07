@@ -23,7 +23,7 @@ type ReturnLocation = {
   latitudeSec: string;
   longitudePerSec: string;
   latitudePerSec: string;
-  위치업데이트?: string;
+  locationupdate?: string;
 };
 
 const checkGeolocation = (locate: LocateType): ReturnLocation => {
@@ -60,8 +60,9 @@ const checkGeolocation = (locate: LocateType): ReturnLocation => {
     }
   }
 
-  // #TODO: 리턴 타입 에러
-  return locateData[locateIdx];
+  const result = locateData[locateIdx] as ReturnLocation;
+
+  return result;
 };
 
 export const geolocation = () => {

@@ -16,7 +16,7 @@
     "latitudeSec": "44.996",
     "longitudePerSec": "127.1414918",
     "latitudePerSec": "37.4791657",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "2",
@@ -35,7 +35,7 @@
     "latitudeSec": "33.45",
     "longitudePerSec": "129.1424022",
     "latitudePerSec": "35.1592915",
-    "위치업데이트": "20160104"
+    "locationupdate": "20160104"
   },
   {
     "num": "3",
@@ -54,7 +54,7 @@
     "latitudeSec": "2.05",
     "longitudePerSec": "129.113375",
     "latitudePerSec": "35.21723611111111",
-    "위치업데이트": "20181011"
+    "locationupdate": "20181011"
   },
   {
     "num": "4",
@@ -73,7 +73,7 @@
     "latitudeSec": "29.1276",
     "longitudePerSec": "128.926502",
     "latitudePerSec": "35.108091",
-    "위치업데이트": "20180118"
+    "locationupdate": "20180118"
   },
   {
     "num": "5",
@@ -92,7 +92,7 @@
     "latitudeSec": "4.5131999",
     "longitudePerSec": "128.899758",
     "latitudePerSec": "35.084587",
-    "위치업데이트": "20180118"
+    "locationupdate": "20180118"
   },
   {
     "num": "6",
@@ -111,7 +111,7 @@
     "latitudeSec": "20.55",
     "longitudePerSec": "129.18267777777777",
     "latitudePerSec": "35.322375",
-    "위치업데이트": "20160104"
+    "locationupdate": "20160104"
   },
   {
     "num": "7",
@@ -130,7 +130,7 @@
     "latitudeSec": "4.32624",
     "longitudePerSec": "128.7224295",
     "latitudePerSec": "35.8678684",
-    "위치업데이트": "20200928"
+    "locationupdate": "20200928"
   },
   {
     "num": "8",
@@ -149,7 +149,7 @@
     "latitudeSec": "12.37800",
     "longitudePerSec": "128.711046",
     "latitudePerSec": "35.870105",
-    "위치업데이트": "20200928"
+    "locationupdate": "20200928"
   },
   {
     "num": "9",
@@ -168,7 +168,7 @@
     "latitudeSec": "46.91712",
     "longitudePerSec": "128.7109768",
     "latitudePerSec": "35.8796992",
-    "위치업데이트": "20200928"
+    "locationupdate": "20200928"
   },
   {
     "num": "10",
@@ -187,7 +187,7 @@
     "latitudeSec": "37.9536",
     "longitudePerSec": "128.459773",
     "latitudePerSec": "35.693876",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "11",
@@ -206,7 +206,7 @@
     "latitudeSec": "24.57",
     "longitudePerSec": "126.554234",
     "latitudePerSec": "37.489325",
-    "위치업데이트": "20180118"
+    "locationupdate": "20180118"
   },
   {
     "num": "12",
@@ -225,7 +225,7 @@
     "latitudeSec": "38.45",
     "longitudePerSec": "126.65268611111112",
     "latitudePerSec": "37.460680555555555",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "13",
@@ -244,7 +244,7 @@
     "latitudeSec": "36.91",
     "longitudePerSec": "126.64931111111112",
     "latitudePerSec": "37.46025277777778",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "14",
@@ -263,7 +263,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.6471814",
     "latitudePerSec": "37.4672428",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "15",
@@ -282,7 +282,7 @@
     "latitudeSec": "43.36",
     "longitudePerSec": "126.66124166666667",
     "latitudePerSec": "37.462044444444444",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "16",
@@ -301,7 +301,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.6599204",
     "latitudePerSec": "37.4562382",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "17",
@@ -320,7 +320,7 @@
     "latitudeSec": "8.36",
     "longitudePerSec": "126.64753055555556",
     "latitudePerSec": "37.45232222222222",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "18",
@@ -339,7 +339,7 @@
     "latitudeSec": "14.07",
     "longitudePerSec": "126.65396666666668",
     "latitudePerSec": "37.45390833333334",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "19",
@@ -358,7 +358,7 @@
     "latitudeSec": "58.97",
     "longitudePerSec": "126.64241944444446",
     "latitudePerSec": "37.44971388888889",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "20",
@@ -377,7 +377,7 @@
     "latitudeSec": "13.5",
     "longitudePerSec": "126.66623333333334",
     "latitudePerSec": "37.43708333333333",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "21",
@@ -396,7 +396,7 @@
     "latitudeSec": "37.57",
     "longitudePerSec": "126.66950833333334",
     "latitudePerSec": "37.44376944444444",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "22",
@@ -415,7 +415,7 @@
     "latitudeSec": "29.16",
     "longitudePerSec": "126.67589722222223",
     "latitudePerSec": "37.4581",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "23",
@@ -434,7 +434,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.6647547",
     "latitudePerSec": "37.4675264",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "24",
@@ -453,7 +453,7 @@
     "latitudeSec": "39.54",
     "longitudePerSec": "126.6787",
     "latitudePerSec": "37.46098333333334",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "25",
@@ -472,7 +472,7 @@
     "latitudeSec": "6.89",
     "longitudePerSec": "126.67475277777778",
     "latitudePerSec": "37.45191388888889",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "26",
@@ -491,7 +491,7 @@
     "latitudeSec": "31.51",
     "longitudePerSec": "126.67611111111111",
     "latitudePerSec": "37.44208611111111",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "27",
@@ -510,7 +510,7 @@
     "latitudeSec": "8.26",
     "longitudePerSec": "126.69236666666667",
     "latitudePerSec": "37.45229444444445",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "28",
@@ -529,7 +529,7 @@
     "latitudeSec": "47.05",
     "longitudePerSec": "126.68910833333334",
     "latitudePerSec": "37.46306944444445",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "29",
@@ -548,7 +548,7 @@
     "latitudeSec": "34.77",
     "longitudePerSec": "126.6915",
     "latitudePerSec": "37.45965833333334",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "30",
@@ -567,7 +567,7 @@
     "latitudeSec": "44.32",
     "longitudePerSec": "126.67971111111112",
     "latitudePerSec": "37.44564444444444",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "31",
@@ -586,7 +586,7 @@
     "latitudeSec": "48.57",
     "longitudePerSec": "126.69141944444445",
     "latitudePerSec": "37.446825",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "32",
@@ -605,7 +605,7 @@
     "latitudeSec": "29.1",
     "longitudePerSec": "126.69891111111112",
     "latitudePerSec": "37.44141666666666",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "33",
@@ -624,7 +624,7 @@
     "latitudeSec": "5.57",
     "longitudePerSec": "126.68709722222222",
     "latitudePerSec": "37.43488055555555",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "34",
@@ -643,7 +643,7 @@
     "latitudeSec": "17.19",
     "longitudePerSec": "126.634928",
     "latitudePerSec": "37.388109",
-    "위치업데이트": "20190115"
+    "locationupdate": "20190115"
   },
   {
     "num": "35",
@@ -662,7 +662,7 @@
     "latitudeSec": "50.18760",
     "longitudePerSec": "126.623231",
     "latitudePerSec": "37.413941",
-    "위치업데이트": "20210106"
+    "locationupdate": "20210106"
   },
   {
     "num": "36",
@@ -681,7 +681,7 @@
     "latitudeSec": "57.77",
     "longitudePerSec": "126.663375",
     "latitudePerSec": "37.599380555555555",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "37",
@@ -700,7 +700,7 @@
     "latitudeSec": "51.7",
     "longitudePerSec": "126.69097777777777",
     "latitudePerSec": "37.614361111111116",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "38",
@@ -719,7 +719,7 @@
     "latitudeSec": "28.01",
     "longitudePerSec": "126.69984444444445",
     "latitudePerSec": "37.59111388888889",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "39",
@@ -738,7 +738,7 @@
     "latitudeSec": "28.22",
     "longitudePerSec": "126.67731111111111",
     "latitudePerSec": "37.59117222222223",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "40",
@@ -757,7 +757,7 @@
     "latitudeSec": "51.69",
     "longitudePerSec": "126.637152",
     "latitudePerSec": "37.597691",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "41",
@@ -776,7 +776,7 @@
     "latitudeSec": "23.36004",
     "longitudePerSec": "126.8629158",
     "latitudePerSec": "35.2064889",
-    "위치업데이트": "20200928"
+    "locationupdate": "20200928"
   },
   {
     "num": "42",
@@ -795,7 +795,7 @@
     "latitudeSec": "12.45",
     "longitudePerSec": "127.307896",
     "latitudePerSec": "36.386791",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "43",
@@ -814,7 +814,7 @@
     "latitudeSec": "35.2680",
     "longitudePerSec": "129.306002",
     "latitudePerSec": "35.493130",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "44",
@@ -833,7 +833,7 @@
     "latitudeSec": "19.76100",
     "longitudePerSec": "129.1065147",
     "latitudePerSec": "35.5388225",
-    "위치업데이트": "20210106"
+    "locationupdate": "20210106"
   },
   {
     "num": "45",
@@ -851,7 +851,7 @@
     "latitudeSec": "11.5512",
     "longitudePerSec": "127.256899",
     "latitudePerSec": "36.486542",
-    "위치업데이트": "20180118"
+    "locationupdate": "20180118"
   },
   {
     "num": "46",
@@ -870,7 +870,7 @@
     "latitudeSec": "43.044",
     "longitudePerSec": "127.247612",
     "latitudePerSec": "36.5119569",
-    "위치업데이트": "20160704"
+    "locationupdate": "20160704"
   },
   {
     "num": "47",
@@ -889,7 +889,7 @@
     "latitudeSec": "11.1936",
     "longitudePerSec": "127.236841",
     "latitudePerSec": "36.519776",
-    "위치업데이트": "20170527"
+    "locationupdate": "20170527"
   },
   {
     "num": "48",
@@ -908,7 +908,7 @@
     "latitudeSec": "0.68",
     "longitudePerSec": "127.3011911",
     "latitudePerSec": "36.4835223",
-    "위치업데이트": "20181011"
+    "locationupdate": "20181011"
   },
   {
     "num": "49",
@@ -927,7 +927,7 @@
     "latitudeSec": "43.86",
     "longitudePerSec": "127.290412",
     "latitudePerSec": "36.478850",
-    "위치업데이트": "20170527"
+    "locationupdate": "20170527"
   },
   {
     "num": "50",
@@ -946,7 +946,7 @@
     "latitudeSec": "16.57",
     "longitudePerSec": "127.2795296",
     "latitudePerSec": "36.4712699",
-    "위치업데이트": "20181011"
+    "locationupdate": "20181011"
   },
   {
     "num": "51",
@@ -965,7 +965,7 @@
     "latitudeSec": "9.9864",
     "longitudePerSec": "127.076907",
     "latitudePerSec": "37.252774",
-    "위치업데이트": "20180118"
+    "locationupdate": "20180118"
   },
   {
     "num": "52",
@@ -984,7 +984,7 @@
     "latitudeSec": "16.14876",
     "longitudePerSec": "127.0588917",
     "latitudePerSec": "37.2378191",
-    "위치업데이트": "20190711"
+    "locationupdate": "20190711"
   },
   {
     "num": "53",
@@ -1003,7 +1003,7 @@
     "latitudeSec": "19.370760",
     "longitudePerSec": "127.0493384",
     "latitudePerSec": "37.2387141",
-    "위치업데이트": "20190711"
+    "locationupdate": "20190711"
   },
   {
     "num": "54",
@@ -1058,7 +1058,7 @@
     "latitudeSec": "5.65",
     "longitudePerSec": "127.1496548",
     "latitudePerSec": "37.4682355",
-    "위치업데이트": "20160104"
+    "locationupdate": "20160104"
   },
   {
     "num": "57",
@@ -1077,7 +1077,7 @@
     "latitudeSec": "19.12",
     "longitudePerSec": "127.1117084",
     "latitudePerSec": "37.7553122",
-    "위치업데이트": "20200113"
+    "locationupdate": "20200113"
   },
   {
     "num": "58",
@@ -1096,7 +1096,7 @@
     "latitudeSec": "46.54",
     "longitudePerSec": "127.04443333333333",
     "latitudePerSec": "37.74626111111111",
-    "위치업데이트": "20181011"
+    "locationupdate": "20181011"
   },
   {
     "num": "59",
@@ -1115,7 +1115,7 @@
     "latitudeSec": "46.701599",
     "longitudePerSec": "127.030622",
     "latitudePerSec": "37.746306",
-    "위치업데이트": "20170527"
+    "locationupdate": "20170527"
   },
   {
     "num": "60",
@@ -1133,7 +1133,7 @@
     "latitudeSec": "12.93",
     "longitudePerSec": "126.766",
     "latitudePerSec": "37.5035917",
-    "위치업데이트": "20160704"
+    "locationupdate": "20160704"
   },
   {
     "num": "61",
@@ -1152,7 +1152,7 @@
     "latitudeSec": "13.5",
     "longitudePerSec": "126.93610000000001",
     "latitudePerSec": "37.03708333333333",
-    "위치업데이트": "20161004"
+    "locationupdate": "20161004"
   },
   {
     "num": "62",
@@ -1171,7 +1171,7 @@
     "latitudeSec": "51.7621200000127",
     "longitudePerSec": "127.1330713",
     "latitudePerSec": "36.9977117",
-    "위치업데이트": "20190930"
+    "locationupdate": "20190930"
   },
   {
     "num": "63",
@@ -1190,7 +1190,7 @@
     "latitudeSec": "49.318799",
     "longitudePerSec": "126.851013",
     "latitudePerSec": "37.297033",
-    "위치업데이트": "20170817"
+    "locationupdate": "20170817"
   },
   {
     "num": "64",
@@ -1209,7 +1209,7 @@
     "latitudeSec": "23.139599",
     "longitudePerSec": "126.851873",
     "latitudePerSec": "37.289761",
-    "위치업데이트": "20170817"
+    "locationupdate": "20170817"
   },
   {
     "num": "65",
@@ -1228,7 +1228,7 @@
     "latitudeSec": "41.11800",
     "longitudePerSec": "126.820049",
     "latitudePerSec": "37.294755",
-    "위치업데이트": "20170817"
+    "locationupdate": "20170817"
   },
   {
     "num": "66",
@@ -1247,7 +1247,7 @@
     "latitudeSec": "37.736399",
     "longitudePerSec": "126.819066",
     "latitudePerSec": "37.327149",
-    "위치업데이트": "20170817"
+    "locationupdate": "20170817"
   },
   {
     "num": "67",
@@ -1266,7 +1266,7 @@
     "latitudeSec": "25.42799",
     "longitudePerSec": "126.837621",
     "latitudePerSec": "37.323730",
-    "위치업데이트": "20170817"
+    "locationupdate": "20170817"
   },
   {
     "num": "68",
@@ -1285,7 +1285,7 @@
     "latitudeSec": "59.9818799",
     "longitudePerSec": "126.790768",
     "latitudePerSec": "37.333283",
-    "위치업데이트": "20170817"
+    "locationupdate": "20170817"
   },
   {
     "num": "69",
@@ -1304,7 +1304,7 @@
     "latitudeSec": "53.702399",
     "longitudePerSec": "126.801759",
     "latitudePerSec": "37.331584",
-    "위치업데이트": "20170817"
+    "locationupdate": "20170817"
   },
   {
     "num": "70",
@@ -1323,7 +1323,7 @@
     "latitudeSec": "49.033199",
     "longitudePerSec": "126.786115",
     "latitudePerSec": "37.330287",
-    "위치업데이트": "20170817"
+    "locationupdate": "20170817"
   },
   {
     "num": "71",
@@ -1342,7 +1342,7 @@
     "latitudeSec": "59.29",
     "longitudePerSec": "126.895775",
     "latitudePerSec": "37.64980277777778",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "72",
@@ -1361,7 +1361,7 @@
     "latitudeSec": "15.95",
     "longitudePerSec": "127.16104444444446",
     "latitudePerSec": "37.60443055555556",
-    "위치업데이트": "20180118"
+    "locationupdate": "20180118"
   },
   {
     "num": "73",
@@ -1380,7 +1380,7 @@
     "latitudeSec": "23.75",
     "longitudePerSec": "127.17059722222223",
     "latitudePerSec": "37.60659722222223",
-    "위치업데이트": "20180118"
+    "locationupdate": "20180118"
   },
   {
     "num": "74",
@@ -1399,7 +1399,7 @@
     "latitudeSec": "37.79",
     "longitudePerSec": "127.152502",
     "latitudePerSec": "37.4771641",
-    "위치업데이트": "20160104"
+    "locationupdate": "20160104"
   },
   {
     "num": "75",
@@ -1418,7 +1418,7 @@
     "latitudeSec": "35.94",
     "longitudePerSec": "127.24459722222223",
     "latitudePerSec": "37.32665",
-    "위치업데이트": "20180118"
+    "locationupdate": "20180118"
   },
   {
     "num": "76",
@@ -1437,7 +1437,7 @@
     "latitudeSec": "17.51",
     "longitudePerSec": "127.1983",
     "latitudePerSec": "37.138197222222225",
-    "위치업데이트": "20180118"
+    "locationupdate": "20180118"
   },
   {
     "num": "77",
@@ -1456,7 +1456,7 @@
     "latitudeSec": "39.2030400000061",
     "longitudePerSec": "127.0737819",
     "latitudePerSec": "37.2775564",
-    "위치업데이트": "20200120"
+    "locationupdate": "20200120"
   },
   {
     "num": "78",
@@ -1475,7 +1475,7 @@
     "latitudeSec": "59.5602000000071",
     "longitudePerSec": "127.0896298",
     "latitudePerSec": "37.2665445",
-    "위치업데이트": "20200120"
+    "locationupdate": "20200120"
   },
   {
     "num": "79",
@@ -1494,7 +1494,7 @@
     "latitudeSec": "14.2041600000056",
     "longitudePerSec": "127.1061208",
     "latitudePerSec": "37.2539456",
-    "위치업데이트": "20200120"
+    "locationupdate": "20200120"
   },
   {
     "num": "80",
@@ -1513,7 +1513,7 @@
     "latitudeSec": "37.4620799999968",
     "longitudePerSec": "127.1283587",
     "latitudePerSec": "37.2770728",
-    "위치업데이트": "20200120"
+    "locationupdate": "20200120"
   },
   {
     "num": "81",
@@ -1532,7 +1532,7 @@
     "latitudeSec": "37.6985999999982",
     "longitudePerSec": "127.1283587",
     "latitudePerSec": "37.2771385",
-    "위치업데이트": "20200120"
+    "locationupdate": "20200120"
   },
   {
     "num": "82",
@@ -1551,7 +1551,7 @@
     "latitudeSec": "52.1774399999907",
     "longitudePerSec": "127.1473857",
     "latitudePerSec": "37.2811604",
-    "위치업데이트": "20200120"
+    "locationupdate": "20200120"
   },
   {
     "num": "83",
@@ -1570,7 +1570,7 @@
     "latitudeSec": "28.7",
     "longitudePerSec": "126.7077444444444",
     "latitudePerSec": "37.62463888888889",
-    "위치업데이트": "20170527"
+    "locationupdate": "20170527"
   },
   {
     "num": "84",
@@ -1589,7 +1589,7 @@
     "latitudeSec": "58.73",
     "longitudePerSec": "126.6739444444444",
     "latitudePerSec": "37.64964722222222",
-    "위치업데이트": "20170527"
+    "locationupdate": "20170527"
   },
   {
     "num": "85",
@@ -1608,7 +1608,7 @@
     "latitudeSec": "28.5539999999895",
     "longitudePerSec": "126.643823",
     "latitudePerSec": "37.641265",
-    "위치업데이트": "20190923"
+    "locationupdate": "20190923"
   },
   {
     "num": "86",
@@ -1627,7 +1627,7 @@
     "latitudeSec": "23.928",
     "longitudePerSec": "126.812249",
     "latitudePerSec": "37.289980",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "87",
@@ -1646,7 +1646,7 @@
     "latitudeSec": "22.6152",
     "longitudePerSec": "127.111575",
     "latitudePerSec": "37.206282",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "88",
@@ -1665,7 +1665,7 @@
     "latitudeSec": "5.23",
     "longitudePerSec": "127.08851944444444",
     "latitudePerSec": "37.1847861111111",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "89",
@@ -1684,7 +1684,7 @@
     "latitudeSec": "15.9563999",
     "longitudePerSec": "127.110505",
     "latitudePerSec": "37.171099",
-    "위치업데이트": "20190711"
+    "locationupdate": "20190711"
   },
   {
     "num": "90",
@@ -1703,7 +1703,7 @@
     "latitudeSec": "45.33",
     "longitudePerSec": "127.3462",
     "latitudePerSec": "37.345925",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "91",
@@ -1722,7 +1722,7 @@
     "latitudeSec": "59.14788",
     "longitudePerSec": "127.2691201",
     "latitudePerSec": "37.3997633",
-    "위치업데이트": "20210106"
+    "locationupdate": "20210106"
   },
   {
     "num": "92",
@@ -1741,7 +1741,7 @@
     "latitudeSec": "10.83396",
     "longitudePerSec": "127.2438873",
     "latitudePerSec": "37.4196761",
-    "위치업데이트": "20210106"
+    "locationupdate": "20210106"
   },
   {
     "num": "93",
@@ -1760,7 +1760,7 @@
     "latitudeSec": "31.03152",
     "longitudePerSec": "127.227479",
     "latitudePerSec": "37.3919532",
-    "위치업데이트": "20210106"
+    "locationupdate": "20210106"
   },
   {
     "num": "94",
@@ -1779,7 +1779,7 @@
     "latitudeSec": "20.31972",
     "longitudePerSec": "127.2276224",
     "latitudePerSec": "37.3889777",
-    "위치업데이트": "20210106"
+    "locationupdate": "20210106"
   },
   {
     "num": "95",
@@ -1798,7 +1798,7 @@
     "latitudeSec": "53.35",
     "longitudePerSec": "127.35539999999999",
     "latitudePerSec": "37.81481944444444",
-    "위치업데이트": "20160104"
+    "locationupdate": "20160104"
   },
   {
     "num": "96",
@@ -1817,7 +1817,7 @@
     "latitudeSec": "7.82",
     "longitudePerSec": "128.27084166666668",
     "latitudePerSec": "37.28550555555555",
-    "위치업데이트": "20170125"
+    "locationupdate": "20170125"
   },
   {
     "num": "97",
@@ -1836,7 +1836,7 @@
     "latitudeSec": "30.55644",
     "longitudePerSec": "128.032384",
     "latitudePerSec": "38.1084879",
-    "위치업데이트": "20210106"
+    "locationupdate": "20210106"
   },
   {
     "num": "98",
@@ -1855,7 +1855,7 @@
     "latitudeSec": "29.76",
     "longitudePerSec": "127.82012222222222",
     "latitudePerSec": "36.97493333333333",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "99",
@@ -1874,7 +1874,7 @@
     "latitudeSec": "43.57",
     "longitudePerSec": "128.2151167",
     "latitudePerSec": "37.16210172",
-    "위치업데이트": "20170125"
+    "locationupdate": "20170125"
   },
   {
     "num": "100",
@@ -1893,7 +1893,7 @@
     "latitudeSec": "21.66",
     "longitudePerSec": "128.2102254",
     "latitudePerSec": "37.13934885",
-    "위치업데이트": "20170125"
+    "locationupdate": "20170125"
   },
   {
     "num": "101",
@@ -1912,7 +1912,7 @@
     "latitudeSec": "39.26",
     "longitudePerSec": "127.51139722222223",
     "latitudePerSec": "36.91090555555555",
-    "위치업데이트": "20190711"
+    "locationupdate": "20190711"
   },
   {
     "num": "102",
@@ -1931,7 +1931,7 @@
     "latitudeSec": "49.7",
     "longitudePerSec": "126.69379722222223",
     "latitudePerSec": "36.64713888888889",
-    "위치업데이트": "20170817"
+    "locationupdate": "20170817"
   },
   {
     "num": "103",
@@ -1950,7 +1950,7 @@
     "latitudeSec": "34.88",
     "longitudePerSec": "127.1123861111111",
     "latitudePerSec": "35.809688888888886",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "104",
@@ -1969,7 +1969,7 @@
     "latitudeSec": "15.7864799999874",
     "longitudePerSec": "127.072262",
     "latitudePerSec": "35.8710518",
-    "위치업데이트": "20191001"
+    "locationupdate": "20191001"
   },
   {
     "num": "105",
@@ -1988,7 +1988,7 @@
     "latitudeSec": "14.7587999",
     "longitudePerSec": "127.061448",
     "latitudePerSec": "35.837433",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "106",
@@ -2007,7 +2007,7 @@
     "latitudeSec": "38.52",
     "longitudePerSec": "127.15841111111112",
     "latitudePerSec": "35.87736666666667",
-    "위치업데이트": "20160104"
+    "locationupdate": "20160104"
   },
   {
     "num": "107",
@@ -2026,7 +2026,7 @@
     "latitudeSec": "44.5",
     "longitudePerSec": "126.31441111111111",
     "latitudePerSec": "34.86236111111111",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "108",
@@ -2045,7 +2045,7 @@
     "latitudeSec": "0.42",
     "longitudePerSec": "128.43635555555556",
     "latitudePerSec": "36.16678333333333",
-    "위치업데이트": "20210106"
+    "locationupdate": "20210106"
   },
   {
     "num": "109",
@@ -2064,7 +2064,7 @@
     "latitudeSec": "54.41",
     "longitudePerSec": "128.386675",
     "latitudePerSec": "36.09844722222223",
-    "위치업데이트": "20210106"
+    "locationupdate": "20210106"
   },
   {
     "num": "110",
@@ -2083,7 +2083,7 @@
     "latitudeSec": "4.83",
     "longitudePerSec": "128.7914861111111",
     "latitudePerSec": "36.118008333333336",
-    "위치업데이트": "20210106"
+    "locationupdate": "20210106"
   },
   {
     "num": "111",
@@ -2102,7 +2102,7 @@
     "latitudeSec": "16.92",
     "longitudePerSec": "128.41885",
     "latitudePerSec": "36.771367",
-    "위치업데이트": "20160308"
+    "locationupdate": "20160308"
   },
   {
     "num": "112",
@@ -2121,7 +2121,7 @@
     "latitudeSec": "42.39",
     "longitudePerSec": "128.4431143",
     "latitudePerSec": "36.7451086",
-    "위치업데이트": "20160308"
+    "locationupdate": "20160308"
   },
   {
     "num": "113",
@@ -2140,7 +2140,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.5641375",
     "latitudePerSec": "35.1940929",
-    "위치업데이트": "20170125"
+    "locationupdate": "20170125"
   },
   {
     "num": "114",
@@ -2159,7 +2159,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.5786",
     "latitudePerSec": "35.208768",
-    "위치업데이트": "20170125"
+    "locationupdate": "20170125"
   },
   {
     "num": "115",
@@ -2178,7 +2178,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.57335",
     "latitudePerSec": "35.230185",
-    "위치업데이트": "20170125"
+    "locationupdate": "20170125"
   },
   {
     "num": "116",
@@ -2197,7 +2197,7 @@
     "latitudeSec": "48.78",
     "longitudePerSec": "128.111758",
     "latitudePerSec": "35.180217",
-    "위치업데이트": "20170125"
+    "locationupdate": "20170125"
   },
   {
     "num": "117",
@@ -2216,7 +2216,7 @@
     "latitudeSec": "10.24",
     "longitudePerSec": "128.12957500000002",
     "latitudePerSec": "35.18617777777777",
-    "위치업데이트": "20170527"
+    "locationupdate": "20170527"
   },
   {
     "num": "118",
@@ -2721,7 +2721,7 @@
     "latitudeSec": "33.52",
     "longitudePerSec": "127.01663333333333",
     "latitudePerSec": "37.55931111111111",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "146",
@@ -2740,7 +2740,7 @@
     "latitudeSec": "5.82",
     "longitudePerSec": "127.01030833333333",
     "latitudePerSec": "37.55161666666666",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "147",
@@ -2759,7 +2759,7 @@
     "latitudeSec": "58.77",
     "longitudePerSec": "127.01108611111111",
     "latitudePerSec": "37.54965833333333",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "148",
@@ -2778,7 +2778,7 @@
     "latitudeSec": "15.33",
     "longitudePerSec": "127.01678888888888",
     "latitudePerSec": "37.55425833333333",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "149",
@@ -2815,7 +2815,7 @@
     "latitudeSec": "26.02",
     "longitudePerSec": "127.02154166666666",
     "latitudePerSec": "37.557227777777776",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "151",
@@ -3338,7 +3338,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.020859",
     "latitudePerSec": "37.553188",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "180",
@@ -3375,7 +3375,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.013463",
     "latitudePerSec": "37.543717",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "182",
@@ -3808,7 +3808,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.0372169",
     "latitudePerSec": "37.5758185",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "206",
@@ -3827,7 +3827,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.0377843",
     "latitudePerSec": "37.5830767",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "207",
@@ -3954,7 +3954,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.0472767",
     "latitudePerSec": "37.5862586",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "214",
@@ -4855,7 +4855,7 @@
     "latitudeSec": "6.57",
     "longitudePerSec": "127.03101944444444",
     "latitudePerSec": "37.63515833333333",
-    "위치업데이트": "20190115"
+    "locationupdate": "20190115"
   },
   {
     "num": "264",
@@ -4874,7 +4874,7 @@
     "latitudeSec": "45.79",
     "longitudePerSec": "127.04094444444445",
     "latitudePerSec": "37.62938611111111",
-    "위치업데이트": "20190115"
+    "locationupdate": "20190115"
   },
   {
     "num": "265",
@@ -4893,7 +4893,7 @@
     "latitudeSec": "23.14",
     "longitudePerSec": "127.04868888888889",
     "latitudePerSec": "37.62309444444445",
-    "위치업데이트": "20190115"
+    "locationupdate": "20190115"
   },
   {
     "num": "266",
@@ -4912,7 +4912,7 @@
     "latitudeSec": "50.64",
     "longitudePerSec": "127.01929722222222",
     "latitudePerSec": "37.63073333333333",
-    "위치업데이트": "20190115"
+    "locationupdate": "20190115"
   },
   {
     "num": "267",
@@ -4931,7 +4931,7 @@
     "latitudeSec": "30.77",
     "longitudePerSec": "127.02204166666667",
     "latitudePerSec": "37.64188055555555",
-    "위치업데이트": "20190115"
+    "locationupdate": "20190115"
   },
   {
     "num": "268",
@@ -4950,7 +4950,7 @@
     "latitudeSec": "9.5",
     "longitudePerSec": "127.02531944444445",
     "latitudePerSec": "37.63597222222222",
-    "위치업데이트": "20190115"
+    "locationupdate": "20190115"
   },
   {
     "num": "269",
@@ -5347,7 +5347,7 @@
     "latitudeSec": "29.02",
     "longitudePerSec": "127.0737518",
     "latitudePerSec": "37.62472748",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "291",
@@ -5474,7 +5474,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.0687126",
     "latitudePerSec": "37.6421829",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "298",
@@ -7149,7 +7149,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.8418849",
     "latitudePerSec": "37.5482468",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "391",
@@ -7528,7 +7528,7 @@
     "latitudeSec": "55.826400000002",
     "longitudePerSec": "126.8107155",
     "latitudePerSec": "37.482174",
-    "위치업데이트": "20200106"
+    "locationupdate": "20200106"
   },
   {
     "num": "412",
@@ -7763,7 +7763,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.9093046",
     "latitudePerSec": "37.5146826",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "425",
@@ -7782,7 +7782,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.910691",
     "latitudePerSec": "37.5203985",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "426",
@@ -7855,7 +7855,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.89595",
     "latitudePerSec": "37.509475",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "430",
@@ -7874,7 +7874,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.8995421",
     "latitudePerSec": "37.5170965",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "431",
@@ -8433,7 +8433,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.9481357",
     "latitudePerSec": "37.4896244",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "462",
@@ -8488,7 +8488,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.94155",
     "latitudePerSec": "37.479151",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "465",
@@ -8507,7 +8507,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.9424278",
     "latitudePerSec": "37.4853086",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "466",
@@ -8580,7 +8580,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.9313",
     "latitudePerSec": "37.4797346",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "470",
@@ -8635,7 +8635,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.9180796",
     "latitudePerSec": "37.4854118",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "473",
@@ -8654,7 +8654,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.927075",
     "latitudePerSec": "37.487426",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "474",
@@ -8673,7 +8673,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.918842",
     "latitudePerSec": "37.461429",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "475",
@@ -8692,7 +8692,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.9078649",
     "latitudePerSec": "37.4826299",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "476",
@@ -8711,7 +8711,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.9369907",
     "latitudePerSec": "37.4706145",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "477",
@@ -8730,7 +8730,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.932963",
     "latitudePerSec": "37.470101",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "478",
@@ -8749,7 +8749,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.9155534",
     "latitudePerSec": "37.4761761",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "479",
@@ -8768,7 +8768,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.9216507",
     "latitudePerSec": "37.4709634",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "480",
@@ -9201,7 +9201,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.030713",
     "latitudePerSec": "37.530642",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "504",
@@ -9220,7 +9220,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.0493",
     "latitudePerSec": "37.5251083",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "505",
@@ -10319,7 +10319,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.1461684",
     "latitudePerSec": "37.5392169",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "566",
@@ -10986,7 +10986,7 @@
     "latitudeSec": "55.15",
     "longitudePerSec": "129.0527917",
     "latitudePerSec": "35.13198611",
-    "위치업데이트": "20150701"
+    "locationupdate": "20150701"
   },
   {
     "num": "603",
@@ -11005,7 +11005,7 @@
     "latitudeSec": "10.58",
     "longitudePerSec": "129.05830833333334",
     "latitudePerSec": "35.136272222222225",
-    "위치업데이트": "20160104"
+    "locationupdate": "20160104"
   },
   {
     "num": "604",
@@ -11636,7 +11636,7 @@
     "latitudeSec": "35.8",
     "longitudePerSec": "129.05839722222223",
     "latitudePerSec": "35.143277777777776",
-    "위치업데이트": "20160104"
+    "locationupdate": "20160104"
   },
   {
     "num": "639",
@@ -11709,7 +11709,7 @@
     "latitudeSec": "44.97",
     "longitudePerSec": "129.081561",
     "latitudePerSec": "35.2124914",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "643",
@@ -12142,7 +12142,7 @@
     "latitudeSec": "30.0",
     "longitudePerSec": "129.0758507",
     "latitudePerSec": "35.12499999",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "667",
@@ -12737,7 +12737,7 @@
     "latitudeSec": "19.39",
     "longitudePerSec": "129.15000833333335",
     "latitudePerSec": "35.22205277777778",
-    "위치업데이트": "20160104"
+    "locationupdate": "20160104"
   },
   {
     "num": "700",
@@ -13512,7 +13512,7 @@
     "latitudeSec": "9.42",
     "longitudePerSec": "128.8140333",
     "latitudePerSec": "35.05261667",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "743",
@@ -14323,7 +14323,7 @@
     "latitudeSec": "4.46",
     "longitudePerSec": "128.609131",
     "latitudePerSec": "35.86790482",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "788",
@@ -14882,7 +14882,7 @@
     "latitudeSec": "2.44",
     "longitudePerSec": "128.71313333333333",
     "latitudePerSec": "35.86734444444445",
-    "위치업데이트": "20200928"
+    "locationupdate": "20200928"
   },
   {
     "num": "819",
@@ -15675,7 +15675,7 @@
     "latitudeSec": "55.86",
     "longitudePerSec": "128.6058302",
     "latitudePerSec": "35.88218385",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "863",
@@ -15892,7 +15892,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.5762125",
     "latitudePerSec": "35.8901321",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "875",
@@ -15911,7 +15911,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.5754397",
     "latitudePerSec": "35.9480283",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "876",
@@ -16380,7 +16380,7 @@
     "latitudeSec": "34.59",
     "longitudePerSec": "128.549565",
     "latitudePerSec": "35.84294152",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "902",
@@ -16399,7 +16399,7 @@
     "latitudeSec": "20.5",
     "longitudePerSec": "128.572198",
     "latitudePerSec": "35.85569344",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "903",
@@ -16850,7 +16850,7 @@
     "latitudeSec": "11.91",
     "longitudePerSec": "128.46597777777777",
     "latitudePerSec": "35.78664166666667",
-    "위치업데이트": "20190115"
+    "locationupdate": "20190115"
   },
   {
     "num": "928",
@@ -16869,7 +16869,7 @@
     "latitudeSec": "39.53",
     "longitudePerSec": "128.4497861111111",
     "latitudePerSec": "35.694313888888885",
-    "위치업데이트": "20190115"
+    "locationupdate": "20190115"
   },
   {
     "num": "929",
@@ -17140,7 +17140,7 @@
     "latitudeSec": "36.21",
     "longitudePerSec": "126.4884015",
     "latitudePerSec": "37.49339138",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "944",
@@ -17591,7 +17591,7 @@
     "latitudeSec": "27.81",
     "longitudePerSec": "126.652082",
     "latitudePerSec": "37.39105764",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "969",
@@ -17610,7 +17610,7 @@
     "latitudeSec": "11.81",
     "longitudePerSec": "126.641639",
     "latitudePerSec": "37.40328",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "970",
@@ -17629,7 +17629,7 @@
     "latitudeSec": "54.02",
     "longitudePerSec": "126.6633667",
     "latitudePerSec": "37.38167222",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "971",
@@ -17936,7 +17936,7 @@
     "latitudeSec": "26.45",
     "longitudePerSec": "126.7521618",
     "latitudePerSec": "37.4240149",
-    "위치업데이트": "20190115"
+    "locationupdate": "20190115"
   },
   {
     "num": "988",
@@ -17973,7 +17973,7 @@
     "latitudeSec": "20.48",
     "longitudePerSec": "126.7293199",
     "latitudePerSec": "37.40568978",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "990",
@@ -17992,7 +17992,7 @@
     "latitudeSec": "15.21",
     "longitudePerSec": "126.7163943",
     "latitudePerSec": "37.40422435",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "991",
@@ -18011,7 +18011,7 @@
     "latitudeSec": "5.23",
     "longitudePerSec": "126.71834166666667",
     "latitudePerSec": "37.40145277777778",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "992",
@@ -18660,7 +18660,7 @@
     "latitudeSec": "33",
     "longitudePerSec": "126.7604",
     "latitudePerSec": "37.55916667",
-    "위치업데이트": "20150701"
+    "locationupdate": "20150701"
   },
   {
     "num": "1028",
@@ -18733,7 +18733,7 @@
     "latitudeSec": "55.1",
     "longitudePerSec": "126.653834",
     "latitudePerSec": "37.53197235",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1032",
@@ -18752,7 +18752,7 @@
     "latitudeSec": "55.08",
     "longitudePerSec": "126.6410139",
     "latitudePerSec": "37.53196667",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1033",
@@ -18771,7 +18771,7 @@
     "latitudeSec": "28.89",
     "longitudePerSec": "126.6295261",
     "latitudePerSec": "37.5246933",
-    "위치업데이트": "20160704"
+    "locationupdate": "20160704"
   },
   {
     "num": "1034",
@@ -18988,7 +18988,7 @@
     "latitudeSec": "34.6617600000087",
     "longitudePerSec": "126.6613294",
     "latitudePerSec": "37.5929616",
-    "위치업데이트": "20200106"
+    "locationupdate": "20200106"
   },
   {
     "num": "1046",
@@ -19295,7 +19295,7 @@
     "latitudeSec": "27.04",
     "longitudePerSec": "124.7186911",
     "latitudePerSec": "37.9741764",
-    "위치업데이트": "20160104"
+    "locationupdate": "20160104"
   },
   {
     "num": "1063",
@@ -19314,7 +19314,7 @@
     "latitudeSec": "32.16",
     "longitudePerSec": "124.7141",
     "latitudePerSec": "37.8256",
-    "위치업데이트": "20160104"
+    "locationupdate": "20160104"
   },
   {
     "num": "1064",
@@ -19999,7 +19999,7 @@
     "latitudeSec": "16.64",
     "longitudePerSec": "126.864704",
     "latitudePerSec": "35.17129",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1102",
@@ -20810,7 +20810,7 @@
     "latitudeSec": "33.01",
     "longitudePerSec": "126.879628",
     "latitudePerSec": "35.20917073",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1147",
@@ -21081,7 +21081,7 @@
     "latitudeSec": "49.56",
     "longitudePerSec": "126.825751",
     "latitudePerSec": "35.1971",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1162",
@@ -21208,7 +21208,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.8407192",
     "latitudePerSec": "35.195582",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1169",
@@ -21299,7 +21299,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.437938",
     "latitudePerSec": "36.323425",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1174",
@@ -21462,7 +21462,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.4374361",
     "latitudePerSec": "36.3445416",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1183",
@@ -21499,7 +21499,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.4221987",
     "latitudePerSec": "36.3405954",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1185",
@@ -21608,7 +21608,7 @@
     "latitudeSec": "20.05",
     "longitudePerSec": "127.412426",
     "latitudePerSec": "36.33890382",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1191",
@@ -22293,7 +22293,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.4000006",
     "latitudePerSec": "36.3534312",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1229",
@@ -22474,7 +22474,7 @@
     "latitudeSec": "23.41",
     "longitudePerSec": "127.3887774",
     "latitudePerSec": "36.42316994",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1239",
@@ -22493,7 +22493,7 @@
     "latitudeSec": "31.73",
     "longitudePerSec": "127.343296",
     "latitudePerSec": "36.342146",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1240",
@@ -22872,7 +22872,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "129.32405",
     "latitudePerSec": "35.557542",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1261",
@@ -22999,7 +22999,7 @@
     "latitudeSec": "27.63",
     "longitudePerSec": "129.3096972",
     "latitudePerSec": "35.57434167",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "1268",
@@ -23828,7 +23828,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.2890691",
     "latitudePerSec": "36.4800121",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1314",
@@ -23847,7 +23847,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.2890691",
     "latitudePerSec": "36.4800121",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1315",
@@ -23866,7 +23866,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.298399",
     "latitudePerSec": "36.604528",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1316",
@@ -23885,7 +23885,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.2737741",
     "latitudePerSec": "36.5418737",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1317",
@@ -23904,7 +23904,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.3268658",
     "latitudePerSec": "36.5590889",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1318",
@@ -23923,7 +23923,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.370376",
     "latitudePerSec": "36.527112",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1319",
@@ -23942,7 +23942,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.28035",
     "latitudePerSec": "36.463826",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1320",
@@ -23961,7 +23961,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.2056006",
     "latitudePerSec": "36.4967934",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1321",
@@ -23980,7 +23980,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.2716217",
     "latitudePerSec": "36.592587",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1322",
@@ -23999,7 +23999,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.1955125",
     "latitudePerSec": "36.6812513",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1323",
@@ -24018,7 +24018,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.2641625",
     "latitudePerSec": "36.6560904",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1324",
@@ -24037,7 +24037,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.1582525",
     "latitudePerSec": "36.7223175",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1325",
@@ -24056,7 +24056,7 @@
     "latitudeSec": "44.53",
     "longitudePerSec": "127.254625",
     "latitudePerSec": "36.47903611",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "1326",
@@ -24075,7 +24075,7 @@
     "latitudeSec": "2.32",
     "longitudePerSec": "127.2623972",
     "latitudePerSec": "36.51731111",
-    "위치업데이트": "20140507"
+    "locationupdate": "20140507"
   },
   {
     "num": "1327",
@@ -24094,7 +24094,7 @@
     "latitudeSec": "43.35",
     "longitudePerSec": "127.2482222",
     "latitudePerSec": "36.51204167",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "1328",
@@ -24112,7 +24112,7 @@
     "latitudeSec": "38.31828",
     "longitudePerSec": "127.2479133",
     "latitudePerSec": "36.4939773",
-    "위치업데이트": "20200928"
+    "locationupdate": "20200928"
   },
   {
     "num": "1329",
@@ -24473,7 +24473,7 @@
     "latitudeSec": "21.86",
     "longitudePerSec": "126.9521816",
     "latitudePerSec": "37.2727402",
-    "위치업데이트": "20160308"
+    "locationupdate": "20160308"
   },
   {
     "num": "1349",
@@ -24492,7 +24492,7 @@
     "latitudeSec": "58.41",
     "longitudePerSec": "126.9570883",
     "latitudePerSec": "37.2662253",
-    "위치업데이트": "20160308"
+    "locationupdate": "20160308"
   },
   {
     "num": "1350",
@@ -24925,7 +24925,7 @@
     "latitudeSec": "24.83",
     "longitudePerSec": "127.0476306",
     "latitudePerSec": "37.29023056",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "1374",
@@ -24944,7 +24944,7 @@
     "latitudeSec": "31.94",
     "longitudePerSec": "127.0701278",
     "latitudePerSec": "37.29220556",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "1375",
@@ -25269,7 +25269,7 @@
     "latitudeSec": "38.31",
     "longitudePerSec": "127.1574717",
     "latitudePerSec": "37.4439752",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1393",
@@ -25540,7 +25540,7 @@
     "latitudeSec": "41.22",
     "longitudePerSec": "127.111544444444",
     "latitudePerSec": "37.36145",
-    "위치업데이트": "20150701"
+    "locationupdate": "20150701"
   },
   {
     "num": "1408",
@@ -25757,7 +25757,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.1163879",
     "latitudePerSec": "37.4060718",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1420",
@@ -25776,7 +25776,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.1108405",
     "latitudePerSec": "37.3885291",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1421",
@@ -25795,7 +25795,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.1070525",
     "latitudePerSec": "37.3516471",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1422",
@@ -25814,7 +25814,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.111763",
     "latitudePerSec": "37.349365",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1423",
@@ -26679,7 +26679,7 @@
     "latitudeSec": "4.52",
     "longitudePerSec": "126.7890861111111",
     "latitudePerSec": "37.48458888888889",
-    "위치업데이트": "20190711"
+    "locationupdate": "20190711"
   },
   {
     "num": "1471",
@@ -26698,7 +26698,7 @@
     "latitudeSec": "29.76",
     "longitudePerSec": "126.79059722222222",
     "latitudePerSec": "37.4916",
-    "위치업데이트": "20190711"
+    "locationupdate": "20190711"
   },
   {
     "num": "1472",
@@ -26717,7 +26717,7 @@
     "latitudeSec": "6.07",
     "longitudePerSec": "126.7703",
     "latitudePerSec": "37.48501944444445",
-    "위치업데이트": "20190711"
+    "locationupdate": "20190711"
   },
   {
     "num": "1473",
@@ -26736,7 +26736,7 @@
     "latitudeSec": "11.7",
     "longitudePerSec": "126.76464166666666",
     "latitudePerSec": "37.50325",
-    "위치업데이트": "20190711"
+    "locationupdate": "20190711"
   },
   {
     "num": "1474",
@@ -26755,7 +26755,7 @@
     "latitudeSec": "51.89",
     "longitudePerSec": "126.75625555555555",
     "latitudePerSec": "37.49774722222222",
-    "위치업데이트": "20190711"
+    "locationupdate": "20190711"
   },
   {
     "num": "1475",
@@ -26774,7 +26774,7 @@
     "latitudeSec": "46.67",
     "longitudePerSec": "126.78111944444444",
     "latitudePerSec": "37.47963055555556",
-    "위치업데이트": "20190711"
+    "locationupdate": "20190711"
   },
   {
     "num": "1476",
@@ -26793,7 +26793,7 @@
     "latitudeSec": "48.1670399",
     "longitudePerSec": "126.7977451",
     "latitudePerSec": "37.4800464",
-    "위치업데이트": "20190711"
+    "locationupdate": "20190711"
   },
   {
     "num": "1477",
@@ -26812,7 +26812,7 @@
     "latitudeSec": "31.23",
     "longitudePerSec": "126.80907499999999",
     "latitudePerSec": "37.475341666666665",
-    "위치업데이트": "20190711"
+    "locationupdate": "20190711"
   },
   {
     "num": "1478",
@@ -26831,7 +26831,7 @@
     "latitudeSec": "50.14",
     "longitudePerSec": "126.80519722222222",
     "latitudePerSec": "37.51392777777778",
-    "위치업데이트": "20190711"
+    "locationupdate": "20190711"
   },
   {
     "num": "1479",
@@ -26850,7 +26850,7 @@
     "latitudeSec": "34.92",
     "longitudePerSec": "126.79406666666667",
     "latitudePerSec": "37.52636666666667",
-    "위치업데이트": "20190711"
+    "locationupdate": "20190711"
   },
   {
     "num": "1480",
@@ -29245,7 +29245,7 @@
     "latitudeSec": "47.7",
     "longitudePerSec": "127.14672222222222",
     "latitudePerSec": "37.64658333333333",
-    "위치업데이트": "20200106"
+    "locationupdate": "20200106"
   },
   {
     "num": "1613",
@@ -29390,7 +29390,7 @@
     "latitudeSec": "46.18",
     "longitudePerSec": "127.121868",
     "latitudePerSec": "37.646161",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1621",
@@ -29679,7 +29679,7 @@
     "latitudeSec": "18.9",
     "longitudePerSec": "126.7397944",
     "latitudePerSec": "37.38858333",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1637",
@@ -29788,7 +29788,7 @@
     "latitudeSec": "6.09",
     "longitudePerSec": "126.730890",
     "latitudePerSec": "37.368358",
-    "위치업데이트": "20190115"
+    "locationupdate": "20190115"
   },
   {
     "num": "1643",
@@ -29843,7 +29843,7 @@
     "latitudeSec": "46.43",
     "longitudePerSec": "126.7833389",
     "latitudePerSec": "37.37956389",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1646",
@@ -29862,7 +29862,7 @@
     "latitudeSec": "58.75",
     "longitudePerSec": "126.8158456",
     "latitudePerSec": "37.36631832",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1647",
@@ -30385,7 +30385,7 @@
     "latitudeSec": "32.97",
     "longitudePerSec": "127.1583293",
     "latitudePerSec": "37.5091585",
-    "위치업데이트": "20200420"
+    "locationupdate": "20200420"
   },
   {
     "num": "1676",
@@ -30440,7 +30440,7 @@
     "latitudeSec": "58.88",
     "longitudePerSec": "127.1960667",
     "latitudePerSec": "37.56635556",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "1679",
@@ -30459,7 +30459,7 @@
     "latitudeSec": "1.36",
     "longitudePerSec": "127.1859139",
     "latitudePerSec": "37.56704444",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "1680",
@@ -30694,7 +30694,7 @@
     "latitudeSec": "40.25",
     "longitudePerSec": "127.073792",
     "latitudePerSec": "37.277847",
-    "위치업데이트": "20200120"
+    "locationupdate": "20200120"
   },
   {
     "num": "1693",
@@ -30821,7 +30821,7 @@
     "latitudeSec": "9.72",
     "longitudePerSec": "127.15316666666668",
     "latitudePerSec": "37.26936666666666",
-    "위치업데이트": "20200120"
+    "locationupdate": "20200120"
   },
   {
     "num": "1700",
@@ -31344,7 +31344,7 @@
     "latitudeSec": "17.22",
     "longitudePerSec": "126.778369",
     "latitudePerSec": "37.77145077",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1729",
@@ -31363,7 +31363,7 @@
     "latitudeSec": "10.89",
     "longitudePerSec": "126.7469108",
     "latitudePerSec": "37.7530243",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1730",
@@ -31382,7 +31382,7 @@
     "latitudeSec": "27.05",
     "longitudePerSec": "126.7512624",
     "latitudePerSec": "37.72418055",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1731",
@@ -31401,7 +31401,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.7515577",
     "latitudePerSec": "37.723969",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1732",
@@ -31420,7 +31420,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.7512633",
     "latitudePerSec": "37.7241871",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1733",
@@ -32033,7 +32033,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.772777",
     "latitudePerSec": "37.603868",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1767",
@@ -32052,7 +32052,7 @@
     "latitudeSec": "26.8704",
     "longitudePerSec": "126.625369",
     "latitudePerSec": "37.657464",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "1768",
@@ -32161,7 +32161,7 @@
     "latitudeSec": "23.03",
     "longitudePerSec": "126.6713378",
     "latitudePerSec": "37.63973003",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1774",
@@ -32180,7 +32180,7 @@
     "latitudeSec": "47.26",
     "longitudePerSec": "126.6237155",
     "latitudePerSec": "37.64646146",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "1775",
@@ -32199,7 +32199,7 @@
     "latitudeSec": "5.98",
     "longitudePerSec": "126.6837083",
     "latitudePerSec": "37.65166111",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "1776",
@@ -32290,7 +32290,7 @@
     "latitudeSec": "42.65",
     "longitudePerSec": "126.8238333",
     "latitudePerSec": "37.21184722",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "1781",
@@ -32615,7 +32615,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.05871",
     "latitudePerSec": "37.2099706",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1799",
@@ -32634,7 +32634,7 @@
     "latitudeSec": "36.49",
     "longitudePerSec": "127.105225",
     "latitudePerSec": "37.21013611",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "1800",
@@ -32653,7 +32653,7 @@
     "latitudeSec": "48.3778800000101",
     "longitudePerSec": "127.0989459",
     "latitudePerSec": "37.1634383",
-    "위치업데이트": "20200106"
+    "locationupdate": "20200106"
   },
   {
     "num": "1801",
@@ -32780,7 +32780,7 @@
     "latitudeSec": "37.79",
     "longitudePerSec": "127.24702222222223",
     "latitudePerSec": "37.46049722222222",
-    "위치업데이트": "20160104"
+    "locationupdate": "20160104"
   },
   {
     "num": "1808",
@@ -32817,7 +32817,7 @@
     "latitudeSec": "33.20472",
     "longitudePerSec": "127.2559243",
     "latitudePerSec": "37.4258902",
-    "위치업데이트": "20210106"
+    "locationupdate": "20210106"
   },
   {
     "num": "1810",
@@ -35392,7 +35392,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.905612",
     "latitudePerSec": "37.74421",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "1953",
@@ -36653,7 +36653,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.570112",
     "latitudePerSec": "37.125632",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "2023",
@@ -36708,7 +36708,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.328387",
     "latitudePerSec": "37.236793",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "2026",
@@ -37051,7 +37051,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.7879137",
     "latitudePerSec": "37.3401817",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "2045",
@@ -37070,7 +37070,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.7205522",
     "latitudePerSec": "37.4706856",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "2046",
@@ -37917,7 +37917,7 @@
     "latitudeSec": "10.82",
     "longitudePerSec": "127.60618888888888",
     "latitudePerSec": "36.61967222222222",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2093",
@@ -37936,7 +37936,7 @@
     "latitudeSec": "59.7",
     "longitudePerSec": "127.66055555555556",
     "latitudePerSec": "36.633250000000004",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2094",
@@ -37955,7 +37955,7 @@
     "latitudeSec": "2.6",
     "longitudePerSec": "127.55101111111111",
     "latitudePerSec": "36.55072222222222",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2095",
@@ -37974,7 +37974,7 @@
     "latitudeSec": "2.39",
     "longitudePerSec": "127.51173055555556",
     "latitudePerSec": "36.58399722222222",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2096",
@@ -37993,7 +37993,7 @@
     "latitudeSec": "53.41",
     "longitudePerSec": "127.49835555555556",
     "latitudePerSec": "36.51483611111111",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2097",
@@ -38156,7 +38156,7 @@
     "latitudeSec": "14.14",
     "longitudePerSec": "127.4832888888889",
     "latitudePerSec": "36.63726111111111",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2106",
@@ -38175,7 +38175,7 @@
     "latitudeSec": "27.02",
     "longitudePerSec": "127.43584166666668",
     "latitudePerSec": "36.55750555555555",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2107",
@@ -38194,7 +38194,7 @@
     "latitudeSec": "1.01",
     "longitudePerSec": "127.42624166666667",
     "latitudePerSec": "36.48361388888889",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2108",
@@ -38213,7 +38213,7 @@
     "latitudeSec": "14.14",
     "longitudePerSec": "127.4832888888889",
     "latitudePerSec": "36.63726111111111",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2109",
@@ -38232,7 +38232,7 @@
     "latitudeSec": "43.57",
     "longitudePerSec": "127.47584166666667",
     "latitudePerSec": "36.628769444444444",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2110",
@@ -38251,7 +38251,7 @@
     "latitudeSec": "50.42",
     "longitudePerSec": "127.46094444444445",
     "latitudePerSec": "36.63067222222222",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2111",
@@ -38270,7 +38270,7 @@
     "latitudeSec": "29.3",
     "longitudePerSec": "127.47897777777779",
     "latitudePerSec": "36.624805555555554",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2112",
@@ -38289,7 +38289,7 @@
     "latitudeSec": "26.2",
     "longitudePerSec": "127.48068611111111",
     "latitudePerSec": "36.60727777777778",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2113",
@@ -38308,7 +38308,7 @@
     "latitudeSec": "20.97",
     "longitudePerSec": "127.49068611111112",
     "latitudePerSec": "36.605825",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2114",
@@ -38327,7 +38327,7 @@
     "latitudeSec": "55.35",
     "longitudePerSec": "127.48210833333333",
     "latitudePerSec": "36.615375",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2115",
@@ -38346,7 +38346,7 @@
     "latitudeSec": "51.94",
     "longitudePerSec": "127.47419722222223",
     "latitudePerSec": "36.61442777777778",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2116",
@@ -38365,7 +38365,7 @@
     "latitudeSec": "51.0",
     "longitudePerSec": "127.45008888888889",
     "latitudePerSec": "36.61416666666667",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2117",
@@ -38402,7 +38402,7 @@
     "latitudeSec": "22.73",
     "longitudePerSec": "127.32672222222222",
     "latitudePerSec": "36.60631388888889",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2119",
@@ -38421,7 +38421,7 @@
     "latitudeSec": "5.52",
     "longitudePerSec": "127.35941944444444",
     "latitudePerSec": "36.6182",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2120",
@@ -38440,7 +38440,7 @@
     "latitudeSec": "42.07",
     "longitudePerSec": "127.37775277777777",
     "latitudePerSec": "36.66168611111111",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2121",
@@ -38603,7 +38603,7 @@
     "latitudeSec": "39.5",
     "longitudePerSec": "127.48766388888889",
     "latitudePerSec": "36.644305555555555",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2130",
@@ -38622,7 +38622,7 @@
     "latitudeSec": "15.22",
     "longitudePerSec": "127.53777777777778",
     "latitudePerSec": "36.72089444444445",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2131",
@@ -38641,7 +38641,7 @@
     "latitudeSec": "21.95",
     "longitudePerSec": "127.45668888888889",
     "latitudePerSec": "36.73943055555556",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2132",
@@ -38660,7 +38660,7 @@
     "latitudeSec": "11.7",
     "longitudePerSec": "127.5444",
     "latitudePerSec": "36.736583333333336",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2133",
@@ -38679,7 +38679,7 @@
     "latitudeSec": "39.5",
     "longitudePerSec": "127.48766388888889",
     "latitudePerSec": "36.644305555555555",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2134",
@@ -38698,7 +38698,7 @@
     "latitudeSec": "19.33",
     "longitudePerSec": "127.48485277777777",
     "latitudePerSec": "36.655369444444446",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2135",
@@ -38717,7 +38717,7 @@
     "latitudeSec": "16.17",
     "longitudePerSec": "127.49428888888889",
     "latitudePerSec": "36.654491666666665",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2136",
@@ -38736,7 +38736,7 @@
     "latitudeSec": "49.35",
     "longitudePerSec": "127.49253055555556",
     "latitudePerSec": "36.66370833333333",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2137",
@@ -38755,7 +38755,7 @@
     "latitudeSec": "28.67",
     "longitudePerSec": "127.48330833333334",
     "latitudePerSec": "36.69129722222222",
-    "위치업데이트": "20140701"
+    "locationupdate": "20140701"
   },
   {
     "num": "2138",
@@ -38900,7 +38900,7 @@
     "latitudeSec": "34.02",
     "longitudePerSec": "127.85918888888888",
     "latitudePerSec": "37.02611666666667",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "2146",
@@ -39405,7 +39405,7 @@
     "latitudeSec": "5.27",
     "longitudePerSec": "128.2170332",
     "latitudePerSec": "37.13479744",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "2174",
@@ -39424,7 +39424,7 @@
     "latitudeSec": "58.2",
     "longitudePerSec": "128.2017991",
     "latitudePerSec": "37.13283217",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "2175",
@@ -39443,7 +39443,7 @@
     "latitudeSec": "20.64",
     "longitudePerSec": "128.20274444444442",
     "latitudePerSec": "37.139066666666665",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "2176",
@@ -41406,7 +41406,7 @@
     "latitudeSec": "36.75",
     "longitudePerSec": "127.108528",
     "latitudePerSec": "36.810208",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "2285",
@@ -41425,7 +41425,7 @@
     "latitudeSec": "33.92",
     "longitudePerSec": "127.1522345",
     "latitudePerSec": "36.8427561",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "2286",
@@ -41444,7 +41444,7 @@
     "latitudeSec": "14.41",
     "longitudePerSec": "127.13792",
     "latitudePerSec": "36.837336",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "2287",
@@ -41751,7 +41751,7 @@
     "latitudeSec": "16.78",
     "longitudePerSec": "127.154963",
     "latitudePerSec": "36.471329",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "2304",
@@ -41842,7 +41842,7 @@
     "latitudeSec": "48.04812",
     "longitudePerSec": "126.4497627",
     "latitudePerSec": "36.3633467",
-    "위치업데이트": "20200928"
+    "locationupdate": "20200928"
   },
   {
     "num": "2309",
@@ -42131,7 +42131,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.0669858",
     "latitudePerSec": "36.7799422",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "2325",
@@ -43050,7 +43050,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "127.242188",
     "latitudePerSec": "36.300467",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "2376",
@@ -43123,7 +43123,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "126.6901643",
     "latitudePerSec": "36.9030195",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "2380",
@@ -45248,7 +45248,7 @@
     "latitudeSec": "14.1696",
     "longitudePerSec": "127.097882",
     "latitudePerSec": "35.803936",
-    "위치업데이트": "20180705"
+    "locationupdate": "20180705"
   },
   {
     "num": "2498",
@@ -46941,7 +46941,7 @@
     "latitudeSec": "42.86",
     "longitudePerSec": "126.8524522",
     "latitudePerSec": "35.56190576",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "2592",
@@ -47788,7 +47788,7 @@
     "latitudeSec": "57.95",
     "longitudePerSec": "126.876811",
     "latitudePerSec": "35.799431",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "2639",
@@ -49931,7 +49931,7 @@
     "latitudeSec": "37.53",
     "longitudePerSec": "126.4475935",
     "latitudePerSec": "34.81042535",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "2758",
@@ -51264,7 +51264,7 @@
     "latitudeSec": "20.83",
     "longitudePerSec": "126.789441666667",
     "latitudePerSec": "35.0224527777778",
-    "위치업데이트": "20140507"
+    "locationupdate": "20140507"
   },
   {
     "num": "2832",
@@ -51589,7 +51589,7 @@
     "latitudeSec": "27.91",
     "longitudePerSec": "127.02993333333333",
     "latitudePerSec": "35.17441944444444",
-    "위치업데이트": "20190416"
+    "locationupdate": "20190416"
   },
   {
     "num": "2850",
@@ -52850,7 +52850,7 @@
     "latitudeSec": "54.25",
     "longitudePerSec": "127.13438611111111",
     "latitudePerSec": "35.16506944444444",
-    "위치업데이트": "20200106"
+    "locationupdate": "20200106"
   },
   {
     "num": "2920",
@@ -52887,7 +52887,7 @@
     "latitudeSec": "15.11",
     "longitudePerSec": "127.09795555555556",
     "latitudePerSec": "35.004197222222224",
-    "위치업데이트": "20200106"
+    "locationupdate": "20200106"
   },
   {
     "num": "2922",
@@ -53878,7 +53878,7 @@
     "latitudeSec": "12.13",
     "longitudePerSec": "126.44358611111112",
     "latitudePerSec": "34.820036111111115",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "2977",
@@ -55391,7 +55391,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "129.5555306",
     "latitudePerSec": "36.0808541",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3061",
@@ -55410,7 +55410,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "129.3569633",
     "latitudePerSec": "36.0140192",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3062",
@@ -55429,7 +55429,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "129.3714474",
     "latitudePerSec": "36.0232859",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3063",
@@ -55718,7 +55718,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "129.3640625",
     "latitudePerSec": "36.0318403",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3079",
@@ -56547,7 +56547,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.127875",
     "latitudePerSec": "36.1222487",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3125",
@@ -56566,7 +56566,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.1095406",
     "latitudePerSec": "36.1252893",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3126",
@@ -56657,7 +56657,7 @@
     "latitudeSec": "28.09",
     "longitudePerSec": "128.181725",
     "latitudePerSec": "36.12446944",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "3131",
@@ -58296,7 +58296,7 @@
     "latitudeSec": "48.3",
     "longitudePerSec": "128.21079999999998",
     "latitudePerSec": "36.46341666666667",
-    "위치업데이트": "20200106"
+    "locationupdate": "20200106"
   },
   {
     "num": "3222",
@@ -59017,7 +59017,7 @@
     "latitudeSec": "25.16",
     "longitudePerSec": "128.76210833333334",
     "latitudePerSec": "35.84032222222223",
-    "위치업데이트": "20200106"
+    "locationupdate": "20200106"
   },
   {
     "num": "3262",
@@ -59774,7 +59774,7 @@
     "latitudeSec": "14.19",
     "longitudePerSec": "129.16166666666666",
     "latitudePerSec": "36.35394166666667",
-    "위치업데이트": "20190416"
+    "locationupdate": "20190416"
   },
   {
     "num": "3304",
@@ -60405,7 +60405,7 @@
     "latitudeSec": "49.95",
     "longitudePerSec": "128.2679028",
     "latitudePerSec": "35.73054167",
-    "위치업데이트": "20150701"
+    "locationupdate": "20150701"
   },
   {
     "num": "3339",
@@ -61468,7 +61468,7 @@
     "latitudeSec": "7.87",
     "longitudePerSec": "129.2471861",
     "latitudePerSec": "36.93551944",
-    "위치업데이트": "20150701"
+    "locationupdate": "20150701"
   },
   {
     "num": "3398",
@@ -61487,7 +61487,7 @@
     "latitudeSec": "47.18",
     "longitudePerSec": "129.3822111",
     "latitudePerSec": "36.91310556",
-    "위치업데이트": "20150701"
+    "locationupdate": "20150701"
   },
   {
     "num": "3399",
@@ -61578,7 +61578,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "131.8648471",
     "latitudePerSec": "37.2414386",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3404",
@@ -61615,7 +61615,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.6401544",
     "latitudePerSec": "35.2540033",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3406",
@@ -61634,7 +61634,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.682513",
     "latitudePerSec": "35.284725",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3407",
@@ -61653,7 +61653,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.6070384",
     "latitudePerSec": "35.3477816",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3408",
@@ -61672,7 +61672,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.7077811",
     "latitudePerSec": "35.332427",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3409",
@@ -61691,7 +61691,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.6229495",
     "latitudePerSec": "35.2621267",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3410",
@@ -61710,7 +61710,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.6123236",
     "latitudePerSec": "35.2578111",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3411",
@@ -61729,7 +61729,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.6402341",
     "latitudePerSec": "35.2535471",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3412",
@@ -61748,7 +61748,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.6673448",
     "latitudePerSec": "35.2519644",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3413",
@@ -61767,7 +61767,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.6841286",
     "latitudePerSec": "35.2362277",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3414",
@@ -61786,7 +61786,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.7029401",
     "latitudePerSec": "35.1983844",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3415",
@@ -61805,7 +61805,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.6695125",
     "latitudePerSec": "35.2359429",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3416",
@@ -61824,7 +61824,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.673695",
     "latitudePerSec": "35.2210983",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3417",
@@ -61843,7 +61843,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.687212",
     "latitudePerSec": "35.216268",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3418",
@@ -61862,7 +61862,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.708712",
     "latitudePerSec": "35.215843",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3419",
@@ -61881,7 +61881,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.700594",
     "latitudePerSec": "35.2131393",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3420",
@@ -61900,7 +61900,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.6950205",
     "latitudePerSec": "35.1897409",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3421",
@@ -61919,7 +61919,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.6271625",
     "latitudePerSec": "35.2053096",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3422",
@@ -61938,7 +61938,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.567863",
     "latitudePerSec": "35.196874",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3423",
@@ -61957,7 +61957,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.580887",
     "latitudePerSec": "35.119699",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3424",
@@ -61976,7 +61976,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.488325",
     "latitudePerSec": "35.115182",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3425",
@@ -61995,7 +61995,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.467412",
     "latitudePerSec": "35.115474",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3426",
@@ -62014,7 +62014,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.418987",
     "latitudePerSec": "35.10289",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3427",
@@ -62033,7 +62033,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.5770118",
     "latitudePerSec": "35.1388574",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3428",
@@ -62052,7 +62052,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.57205",
     "latitudePerSec": "35.169568",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3429",
@@ -62071,7 +62071,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.5577505",
     "latitudePerSec": "35.1793142",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3430",
@@ -62090,7 +62090,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.558175",
     "latitudePerSec": "35.184685",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3431",
@@ -62109,7 +62109,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.564137",
     "latitudePerSec": "35.199526",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3432",
@@ -62128,7 +62128,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.5654462",
     "latitudePerSec": "35.2055381",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3433",
@@ -62147,7 +62147,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.566238",
     "latitudePerSec": "35.214335",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3434",
@@ -62166,7 +62166,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.5791278",
     "latitudePerSec": "35.2109247",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3435",
@@ -62185,7 +62185,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.5859895",
     "latitudePerSec": "35.2160999",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3436",
@@ -62204,7 +62204,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.579706",
     "latitudePerSec": "35.220932",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3437",
@@ -62223,7 +62223,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.507625",
     "latitudePerSec": "35.24681",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3438",
@@ -62242,7 +62242,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.5742472",
     "latitudePerSec": "35.2182626",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3439",
@@ -62261,7 +62261,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.569238",
     "latitudePerSec": "35.218901",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3440",
@@ -62280,7 +62280,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.561637",
     "latitudePerSec": "35.233076",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3441",
@@ -62299,7 +62299,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.586212",
     "latitudePerSec": "35.23231",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3442",
@@ -62318,7 +62318,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.583925",
     "latitudePerSec": "35.229201",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3443",
@@ -62337,7 +62337,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.5839889",
     "latitudePerSec": "35.2422167",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3444",
@@ -62356,7 +62356,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.586195",
     "latitudePerSec": "35.2410453",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3445",
@@ -62375,7 +62375,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.593525",
     "latitudePerSec": "35.2493833",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3446",
@@ -62394,7 +62394,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.598388",
     "latitudePerSec": "35.24901",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3447",
@@ -62413,7 +62413,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.6024625",
     "latitudePerSec": "35.2175954",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3448",
@@ -62432,7 +62432,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.710081",
     "latitudePerSec": "35.13306",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3449",
@@ -62451,7 +62451,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.660338",
     "latitudePerSec": "35.15054",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3450",
@@ -62470,7 +62470,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.6603153",
     "latitudePerSec": "35.1585489",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3451",
@@ -62489,7 +62489,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.6773763",
     "latitudePerSec": "35.1538996",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3452",
@@ -62508,7 +62508,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.686838",
     "latitudePerSec": "35.154357",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3453",
@@ -62527,7 +62527,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.6895627",
     "latitudePerSec": "35.154983",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3454",
@@ -62546,7 +62546,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.7000326",
     "latitudePerSec": "35.1586454",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3455",
@@ -62565,7 +62565,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.6999119",
     "latitudePerSec": "35.1493421",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3456",
@@ -62584,7 +62584,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.7054364",
     "latitudePerSec": "35.1470924",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3457",
@@ -62603,7 +62603,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.7037445",
     "latitudePerSec": "35.1433466",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3458",
@@ -62622,7 +62622,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.707313",
     "latitudePerSec": "35.137599",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3459",
@@ -62641,7 +62641,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.7496332",
     "latitudePerSec": "35.111338",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3460",
@@ -62660,7 +62660,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.7826923",
     "latitudePerSec": "35.1258956",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3461",
@@ -62679,7 +62679,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.814835",
     "latitudePerSec": "35.1012816",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3462",
@@ -63004,7 +63004,7 @@
     "latitudeSec": "50.5524",
     "longitudePerSec": "128.084786",
     "latitudePerSec": "35.180709",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "3480",
@@ -63023,7 +63023,7 @@
     "latitudeSec": "44.67",
     "longitudePerSec": "128.078257",
     "latitudePerSec": "35.195742",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "3481",
@@ -63060,7 +63060,7 @@
     "latitudeSec": "54.83",
     "longitudePerSec": "128.075111",
     "latitudePerSec": "35.198564",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "3483",
@@ -63205,7 +63205,7 @@
     "latitudeSec": "58.62",
     "longitudePerSec": "128.135843",
     "latitudePerSec": "35.182951",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "3491",
@@ -63458,7 +63458,7 @@
     "latitudeSec": "25.1",
     "longitudePerSec": "128.4005325",
     "latitudePerSec": "34.82363943",
-    "위치업데이트": "20140319"
+    "locationupdate": "20140319"
   },
   {
     "num": "3505",
@@ -63729,7 +63729,7 @@
     "latitudeSec": "26.25",
     "longitudePerSec": "128.08186388888888",
     "latitudePerSec": "34.940625",
-    "위치업데이트": "20200428"
+    "locationupdate": "20200428"
   },
   {
     "num": "3520",
@@ -64774,7 +64774,7 @@
     "latitudeSec": "0.0",
     "longitudePerSec": "128.6462865",
     "latitudePerSec": "34.887941",
-    "위치업데이트": "20150908"
+    "locationupdate": "20150908"
   },
   {
     "num": "3578",
@@ -65333,7 +65333,7 @@
     "latitudeSec": "31.69",
     "longitudePerSec": "128.5185639",
     "latitudePerSec": "35.30880278",
-    "위치업데이트": "20150310"
+    "locationupdate": "20150310"
   },
   {
     "num": "3609",
