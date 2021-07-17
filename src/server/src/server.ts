@@ -3,7 +3,7 @@ import { serverWake } from "~/cron/src/serverWake";
 import { geolocation, openWeatherMapCurrent, weatherKorea } from "~/service";
 
 export const runServer = async (): Promise<void> => {
-  const PORT = process.env.PORT;
+  const PORT = process.env.PORT || 8989;
 
   app.listen(PORT, () => {
     console.log("server start!!");
