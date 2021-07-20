@@ -55,7 +55,6 @@ const checkGeolocation = (locate: LocateType): ReturnLocation => {
         minLat = absLat;
         minLon = absLon;
         locateIdx = i;
-        console.log(`${locateData[locateIdx].depth1} ${locateData[locateIdx].depth2} ${locateData[locateIdx].depth3}`);
       }
     }
   }
