@@ -2,11 +2,6 @@ import { getDailyWeather, getMaxMinTemperature, livingInfomation, sunRiseFall, t
 import { app } from "~/index";
 
 export const weatherKorea = () => {
-  app.get("/", async (_, res) => {
-    res.send("server start");
-    res.end();
-  });
-
   app.get("/api/ko/nowWeather", async (req, res) => {
     console.log("--------------------------------------------------");
     console.log("daily");
