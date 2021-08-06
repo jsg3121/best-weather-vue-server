@@ -80,12 +80,10 @@ export const threeHoursWeather: GeolocationProps = async (data) => {
   const { nx, ny } = data;
   const BASE_DATE = defaultDate();
 
-  const POP: threeHourWeatherOutput[] = [];
+  const R06: threeHourWeatherOutput[] = [];
   const PTY: threeHourWeatherOutput[] = [];
   const SKY: threeHourWeatherOutput[] = [];
   const T3H: threeHourWeatherOutput[] = [];
-  const VEC: threeHourWeatherOutput[] = [];
-  const WSD: threeHourWeatherOutput[] = [];
 
   const time = changDateFormThreeHoursTime();
   const res = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=180&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${time}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
@@ -94,9 +92,9 @@ export const threeHoursWeather: GeolocationProps = async (data) => {
 
   res.map((item: threeHourWeatherOption) => {
     switch (item.category) {
-      case "POP":
+      case "R06":
         {
-          POP.push({
+          R06.push({
             date: item.fcstDate,
             time: item.fcstTime,
             value: item.fcstValue,
@@ -130,30 +128,12 @@ export const threeHoursWeather: GeolocationProps = async (data) => {
           });
         }
         return;
-      case "VEC":
-        {
-          VEC.push({
-            date: item.fcstDate,
-            time: item.fcstTime,
-            value: item.fcstValue,
-          });
-        }
-        return;
-      case "WSD":
-        {
-          WSD.push({
-            date: item.fcstDate,
-            time: item.fcstTime,
-            value: item.fcstValue,
-          });
-        }
-        return;
       default:
         return;
     }
   });
 
-  const out = { POP, PTY, SKY, T3H, VEC, WSD };
+  const out = { R06, PTY, SKY, T3H };
 
   return out;
 };
