@@ -4,8 +4,8 @@ import { changDateFormThreeHoursTime, checkWeeklyDate, defaultDate, defaultTime 
 import { KOREA_WEATHER_API_KEY } from "~/common/src/global";
 
 export const getDailyWeather: GeolocationProps = async (data) => {
-  const BASE_DATE = defaultDate();
   const BASE_TIME = defaultTime();
+  const BASE_DATE = defaultDate();
 
   const { nx, ny } = data;
 

@@ -12,7 +12,7 @@ export const defaultDate = (): string => {
 
 export const defaultTime = (): string => {
   const TODAY = dayjs(new Date()).tz("Asia/Seoul");
-  return TODAY.subtract(1, "hour").format("HH00");
+  return TODAY.minute() < 45 ? TODAY.subtract(1, "hour").format("HHmm") : TODAY.format("HHmm");
 };
 
 export const changDateFormMiniDust = (): string => {
