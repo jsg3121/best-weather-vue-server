@@ -81,6 +81,7 @@ export const threeHoursWeather: GeolocationProps = async (data) => {
   const BASE_DATE = defaultDate();
 
   const R06: threeHourWeatherOutput[] = [];
+  const S06: threeHourWeatherOutput[] = [];
   const PTY: threeHourWeatherOutput[] = [];
   const SKY: threeHourWeatherOutput[] = [];
   const T3H: threeHourWeatherOutput[] = [];
@@ -95,6 +96,15 @@ export const threeHoursWeather: GeolocationProps = async (data) => {
       case "R06":
         {
           R06.push({
+            date: item.fcstDate,
+            time: item.fcstTime,
+            value: item.fcstValue,
+          });
+        }
+        return;
+      case "S06":
+        {
+          S06.push({
             date: item.fcstDate,
             time: item.fcstTime,
             value: item.fcstValue,
@@ -133,7 +143,7 @@ export const threeHoursWeather: GeolocationProps = async (data) => {
     }
   });
 
-  const out = { R06, PTY, SKY, T3H };
+  const out = { R06, PTY, SKY, T3H, S06 };
 
   return out;
 };
