@@ -44,36 +44,26 @@ export const getDailyWeather: GeolocationProps = async (data) => {
   return currentWeather;
 };
 
-export const getMaxMinTemperature: GeolocationProps = async (data) => {
-  const BASE_DATE = defaultDate();
+export const getMaxMinTemperature: GeolocationProps = async () => {
   const WEEKLY_RES_DATE = checkWeeklyDate();
-
-  const { nx, ny } = data;
-
-  const res: Promise<AxiosResponse<resultDailyTemperatureProps>>[] = await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=40&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=0200&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
-    const result = res.data.response.body.items.item;
-    return result.filter((item: resultDailyTemperatureProps) => {
-      return item.category === "TMX" || item.category === "TMN";
-    });
-  });
 
   const weeklyRes = await axios.get(`http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=&dataType=json&regId=11D20501&tmFc=${WEEKLY_RES_DATE}`).then((res) => {
     return res.data.response.body.items.item[0];
   });
 
-  const weeklyWeather = await axios.get(`http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=1&dataType=json&regId=11B00000&tmFc=${WEEKLY_RES_DATE}`).then((res) => {
+  const weeklyWeather = await axios.get(`http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=100&pageNo=1&dataType=json&regId=11B00000&tmFc=${WEEKLY_RES_DATE}`).then((res) => {
     return res.data.response.body.items.item[0];
   });
 
   const weekOut = {
-    day3: { min: weeklyRes.taMin3, max: weeklyRes.taMax3, rnstAM: weeklyWeather.rnSt3Am, rnstPM: weeklyWeather.rnSt3PM, wfAm: weeklyWeather.wf3Am, wfPM: weeklyWeather.wf3PM },
-    day4: { min: weeklyRes.taMin4, max: weeklyRes.taMax4, rnstAM: weeklyWeather.rnSt4Am, rnstPM: weeklyWeather.rnSt4PM, wfAm: weeklyWeather.wf4Am, wfPM: weeklyWeather.wf4PM },
-    day5: { min: weeklyRes.taMin5, max: weeklyRes.taMax5, rnstAM: weeklyWeather.rnSt5Am, rnstPM: weeklyWeather.rnSt5PM, wfAm: weeklyWeather.wf5Am, wfPM: weeklyWeather.wf5PM },
-    day6: { min: weeklyRes.taMin6, max: weeklyRes.taMax6, rnstAM: weeklyWeather.rnSt6Am, rnstPM: weeklyWeather.rnSt6PM, wfAm: weeklyWeather.wf6Am, wfPM: weeklyWeather.wf6PM },
-    day7: { min: weeklyRes.taMin7, max: weeklyRes.taMax7, rnstAM: weeklyWeather.rnSt7Am, rnstPM: weeklyWeather.rnSt7PM, wfAm: weeklyWeather.wf7Am, wfPM: weeklyWeather.wf7PM },
+    day3: { min: weeklyRes.taMin3, max: weeklyRes.taMax3, rnstAm: weeklyWeather.rnSt3Am, rnstPm: weeklyWeather.rnSt3Pm, wfAm: weeklyWeather.wf3Am, wfPm: weeklyWeather.wf3Pm, dateNum: 3 },
+    day4: { min: weeklyRes.taMin4, max: weeklyRes.taMax4, rnstAm: weeklyWeather.rnSt4Am, rnstPm: weeklyWeather.rnSt4Pm, wfAm: weeklyWeather.wf4Am, wfPm: weeklyWeather.wf4Pm, dateNum: 4 },
+    day5: { min: weeklyRes.taMin5, max: weeklyRes.taMax5, rnstAm: weeklyWeather.rnSt5Am, rnstPm: weeklyWeather.rnSt5Pm, wfAm: weeklyWeather.wf5Am, wfPm: weeklyWeather.wf5Pm, dateNum: 5 },
+    day6: { min: weeklyRes.taMin6, max: weeklyRes.taMax6, rnstAm: weeklyWeather.rnSt6Am, rnstPm: weeklyWeather.rnSt6Pm, wfAm: weeklyWeather.wf6Am, wfPm: weeklyWeather.wf6Pm, dateNum: 6 },
+    day7: { min: weeklyRes.taMin7, max: weeklyRes.taMax7, rnstAm: weeklyWeather.rnSt7Am, rnstPm: weeklyWeather.rnSt7Pm, wfAm: weeklyWeather.wf7Am, wfPm: weeklyWeather.wf7Pm, dateNum: 7 },
   };
 
-  return { res, weekOut };
+  return { weekOut };
 };
 
 export const threeHoursWeather: GeolocationProps = async (data) => {
