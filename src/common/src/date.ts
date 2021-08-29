@@ -40,3 +40,11 @@ export const checkWeeklyDate = () => {
   const time = parseInt(TODAY.format("HH"), 10);
   return time >= 6 && time <= 17 ? `${date}0600` : `${date}1800`;
 };
+
+export const calcDate = () => {
+  const TODAY = dayjs(new Date()).tz("Asia/Seoul");
+  const date = TODAY.format("YYYYMMDD");
+  const time = parseInt(TODAY.format("HH"), 10);
+
+  return time < 5 ? TODAY.subtract(1, "day").format("YYYYMMDD") : date;
+};
