@@ -29,8 +29,6 @@ type ReturnLocation = {
 const checkGeolocation = (locate: LocateType): ReturnLocation => {
   const latitude: number = parseFloat(locate.latitude);
   const longitude: number = parseFloat(locate.longitude);
-  console.log(latitude);
-  console.log(longitude);
 
   let minLat = latitude;
   let minLon = longitude;

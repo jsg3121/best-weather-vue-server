@@ -1,9 +1,11 @@
+import { geolocation, weatherKorea } from "~/service";
 import { app } from "../../index";
-import { serverWake } from "~/cron/src/serverWake";
-import { geolocation, openWeatherMapCurrent, weatherKorea } from "~/service";
 
-export const runServer = async (): Promise<void> => {
-  const PORT = 80;
+type RunServer = () => Promise<void>;
+type Port = 80;
+
+export const runServer: RunServer = async (): Promise<void> => {
+  const PORT: Port = 80;
 
   app.listen(PORT, () => {
     console.log("server start!!");
@@ -11,7 +13,5 @@ export const runServer = async (): Promise<void> => {
   });
 
   weatherKorea();
-  openWeatherMapCurrent();
   geolocation();
-  serverWake();
 };
