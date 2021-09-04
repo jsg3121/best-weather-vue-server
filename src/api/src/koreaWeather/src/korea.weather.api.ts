@@ -94,7 +94,6 @@ export const getMaxMinTemperature: GeolocationProps = async (data) => {
         tmxSky: sky[7].fcstValue,
       },
     };
-    table(data);
     return data;
   });
 
@@ -105,7 +104,6 @@ export const getMaxMinTemperature: GeolocationProps = async (data) => {
     day6: { min: weeklyRes.taMin6, max: weeklyRes.taMax6, rnstAm: weeklyWeather.rnSt6Am, rnstPm: weeklyWeather.rnSt6Pm, wfAm: weeklyWeather.wf6Am, wfPm: weeklyWeather.wf6Pm, dateNum: 6 },
     day7: { min: weeklyRes.taMin7, max: weeklyRes.taMax7, rnstAm: weeklyWeather.rnSt7Am, rnstPm: weeklyWeather.rnSt7Pm, wfAm: weeklyWeather.wf7Am, wfPm: weeklyWeather.wf7Pm, dateNum: 7 },
   };
-  console.table(weekOut);
 
   return { tomorrowMinMax, weekOut };
 };
@@ -191,22 +189,20 @@ export const livingInfomation = async () => {
   const out: getLivingInformationProps[] = [];
 
   const res = await axios.get(`http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?sidoName=${encoding}&pageNo=1&numOfRows=200&returnType=json&serviceKey=${KOREA_WEATHER_API_KEY}&ver=1.3`).then((res) => {
-    console.log(res);
     return res.data.response.body.items;
   });
   res.map((list: getLivingInformationProps) => {
     out.push({
       sidoName: list.sidoName,
-      pm10Value: list.pm10Value,
-      pm25Value: list.pm25Value,
-      o3Value: list.o3Value,
+      pm10Grade1h: list.pm10Grade1h,
+      pm25Grade1h: list.pm25Grade1h,
+      o3Grade: list.o3Grade,
+      dataTime: list.dataTime,
+      stationName: list.stationName,
     });
   });
 
-  // const minidust = await axios.get(`http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustWeekFrcstDspth?searchDate=${requestDate}&returnType=json&serviceKey=${APIKEY}&numOfRows=50&pageNo=1`).then((res) => {
-  //   return res.data.response.body.items;
-  // });
-  // const minimumDust = formDataMiniDust(minidust);
+  table(out);
 
   const uv = await axios.get(`http://apis.data.go.kr/1360000/LivingWthrIdxService01/getUVIdx?serviceKey=${KOREA_WEATHER_API_KEY}&dataType=json&areaNo=1100000000&time=${BASE_DATE}${BASE_TIME.substr(0, 2)}`).then((res) => {
     return res.data.response.body.items.item[0];
@@ -215,9 +211,8 @@ export const livingInfomation = async () => {
   const uvValue = {
     date: uv.date,
     today: uv.today,
-    tomorrow: uv.tomorrow,
-    theDayAfterTomorrow: uv.theDayAfterTomorrow,
   };
+  table(uvValue);
 
   return { out, uvValue };
 };

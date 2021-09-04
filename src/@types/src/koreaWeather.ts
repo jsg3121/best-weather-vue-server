@@ -44,9 +44,11 @@ export type threeHourWeatherOutput = {
 
 export type getLivingInformationProps = {
   sidoName: string;
-  pm10Value: string;
-  pm25Value: string;
-  o3Value: string;
+  pm10Grade1h: string;
+  pm25Grade1h: string;
+  o3Grade: string;
+  dataTime: string;
+  stationName: string;
 };
 
 export type getSunSetRiseProps = {
