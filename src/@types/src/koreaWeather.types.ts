@@ -18,17 +18,6 @@ export type resultDailyTemperatureProps = {
   ny: number;
 };
 
-// export type returnDatilyDataProps = {
-//   nowTemperatures: resultDailyDataProps["obsrValue"];
-//   nowHumidity: resultDailyDataProps["obsrValue"];
-//   nowPrecipitation: resultDailyDataProps["obsrValue"];
-// };
-
-// export type getMaxMinTemperatureProps = {
-//   maxTemperature: resultDailyTemperatureProps["fcstValue"];
-//   minTemperature: resultDailyTemperatureProps["fcstValue"];
-// };
-
 export type threeHourWeatherOption = {
   category: string;
   fcstDate: string;
@@ -58,4 +47,33 @@ export type getSunSetRiseProps = {
   moonrise: string;
 };
 
-export type GeolocationProps = (data: { nx?: number; ny?: number }) => Promise<object>;
+export interface ParamsInterface {
+  nx: number;
+  ny: number;
+}
+
+export interface ResponseDailyWeather {
+  reh: resultDailyDataProps["obsrValue"];
+  rn1: resultDailyDataProps["obsrValue"];
+  t1h: resultDailyDataProps["obsrValue"];
+  vec: resultDailyDataProps["obsrValue"];
+  wsd: resultDailyDataProps["obsrValue"];
+  sky: string;
+  tmn: resultDailyTemperatureProps["fcstValue"];
+  tmx: resultDailyTemperatureProps["fcstValue"];
+}
+
+export type ResultWeeklyTemperature = {
+  taMin3: string;
+  taMax3: string;
+  taMin4: string;
+  taMax4: string;
+  taMin5: string;
+  taMax5: string;
+  taMin6: string;
+  taMax6: string;
+  taMin7: string;
+  taMax7: string;
+};
+
+export type GeolocationProps<T, K> = (data: T) => Promise<K>;
