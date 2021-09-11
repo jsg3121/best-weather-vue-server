@@ -1,20 +1,18 @@
-import { getMaxMinTemperature, livingInfomation, threeHoursWeather } from "~/api";
+import { ParamsInterface } from "~/@types";
+import { livingInfomation, threeHoursWeather } from "~/api";
 import { getDailyWeather } from "~/api/src/koreaWeather/src/korea.weather.daily";
+import { getMaxMinTemperature } from "~/api/src/koreaWeather/src/korea.weather.minMax";
 import { app } from "~/index";
 
 type WeatherKoreaType = () => Promise<void>;
 
 export const weatherKorea: WeatherKoreaType = async (): Promise<void> => {
-  app.get("/api/ko/get/weather/korea", async (req, res): Promise<void> => {
+  app.get("/api/ko/get/weather/korea", async (req: { query: ParamsInterface }, res): Promise<void> => {
     const daily = await getDailyWeather(req.query);
     const minMax = await getMaxMinTemperature(req.query);
     const threeHours = await threeHoursWeather(req.query);
     const atoms = await livingInfomation();
 
-    console.log(daily);
-    console.log(minMax);
-    console.log(threeHours);
-    console.log(atoms);
     res.send({ daily, minMax, threeHours, atoms });
   });
 };

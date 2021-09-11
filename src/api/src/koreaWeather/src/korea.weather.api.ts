@@ -1,11 +1,11 @@
 import axios from "axios";
 import { table } from "console";
 import dayjs from "dayjs";
-import { GeolocationProps, getLivingInformationProps, getSunSetRiseProps, threeHourWeatherOption, threeHourWeatherOutput } from "~/@types";
+import { GeolocationProps, getLivingInformationProps, getSunSetRiseProps, ParamsInterface, threeHourWeatherOption, threeHourWeatherOutput } from "~/@types";
 import { calcDate, changDateFormThreeHoursTime, checkWeeklyDate, defaultDate, defaultTime } from "~/common";
 import { KOREA_WEATHER_API_KEY } from "~/common/src/global";
 
-export const getMaxMinTemperature: GeolocationProps = async (data) => {
+export const getMaxMinTemperature: GeolocationProps<ParamsInterface, any> = async (data) => {
   const WEEKLY_RES_DATE = checkWeeklyDate();
   const { nx, ny } = data;
   const DATE = calcDate();
@@ -67,7 +67,7 @@ export const getMaxMinTemperature: GeolocationProps = async (data) => {
   return { tomorrowMinMax, weekOut };
 };
 
-export const threeHoursWeather: GeolocationProps = async (data) => {
+export const threeHoursWeather: GeolocationProps<ParamsInterface, any> = async (data) => {
   const { nx, ny } = data;
   const BASE_DATE = defaultDate();
 

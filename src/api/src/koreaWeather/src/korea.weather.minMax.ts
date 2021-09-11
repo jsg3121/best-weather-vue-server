@@ -1,8 +1,9 @@
 import axios, { AxiosResponse } from "axios";
 import dayjs from "dayjs";
-import { GeolocationProps, ParamsInterface, ResultWeeklyTemperature } from "~/@types";
+import { GeolocationProps, ParamsInterface } from "~/@types";
 import { calcDate, checkWeeklyDate } from "~/common";
 import { KOREA_WEATHER_API_KEY } from "~/common/src/global";
+import pick from "lodash";
 
 export const getMaxMinTemperature: GeolocationProps<ParamsInterface, any> = async (data) => {
   const WEEKLY_RES_DATE = checkWeeklyDate();
@@ -10,12 +11,14 @@ export const getMaxMinTemperature: GeolocationProps<ParamsInterface, any> = asyn
   const DATE = calcDate();
 
   const weeklyRes: Promise<AxiosResponse<any>> = await axios.get(`http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=&dataType=json&regId=11D20501&tmFc=${WEEKLY_RES_DATE}`).then((res) => {
-    return res.data.response.body.items.item[0];
+    const data = res.data.response.body.items.item[0];
+    const weekly = data.pick(data, ["taMin3", "taMax3", "taMin4", "taMax4", "taMin5", "taMax5", "taMin6", "taMax6", "taMin7", "taMax7"]);
+    return weekly;
   });
 
-  const weeklyWeather = await axios.get(`http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=100&pageNo=1&dataType=json&regId=11B00000&tmFc=${WEEKLY_RES_DATE}`).then((res) => {
-    return res.data.response.body.items.item[0];
-  });
+  // const weeklyWeather = await axios.get(`http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=100&pageNo=1&dataType=json&regId=11B00000&tmFc=${WEEKLY_RES_DATE}`).then((res) => {
+  //   return res.data.response.body.items.item[0];
+  // });
 
   // 8시 이전일 때 전날 11시,
   // 8시 이후일 때 현재 11시\
