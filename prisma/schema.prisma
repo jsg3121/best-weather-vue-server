@@ -2,85 +2,36 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider          = "mysql"
-  url               = env("DATABASE_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
   provider = "prisma-client-js"
 }
 
-model WeatherKoDaily {
-  id                        Int      @id @default(autoincrement())
-  date                      DateTime
-  // nowTemperatures           Int      @map("now_temperatures") // 현재 기온
-  // nowSkyState               String   @map("now_sky_state") // 현재 하늘상태
-  // nowHumidity               String   @map("now_humidity") // 현재 습도
-  // nowPrecipitation          String   @map("now_precipitation") // 현재 강수량
-  todayPrecipitationPercent Int      @map("today_precipitation_percent") // 3시간 및 당일 강수 확률
-  todayPrecipitationshape   String   @map("today_precipitation_shape") // 3시간 및 당일 강수 형태
-  todayMinimumTemperatures  String   @map("today_minimum_temperatures") // 당일 죄저기온
-  todayMaximumTemperatures  String   @map("today_maximum_temperatures") // 당일 최고기온
-  todayFindDust             String   @map("today_find_dust") // 당일 미세먼지
-  todayOzon                 String   @map("today_ozon") // 당일 오존
-  todayUltraFindDust        String   @map("today_ultra_find_dust") // 당일 초미세먼지
-  todayUVIndex              String   @map("today_uv_index") // 당일 자외선지수
-  skyStateOnThreeHours      String   @map("sky_state_on_three_hours") // 3시간 하늘상태
-  temperaturesOnThreeHours  String   @map("temperatures_on_three_hours") // 3시간 기온
-  windDirectionOnThreeHours String   @map("wind_direction_on_three_hours") // 3시간 풍향
-  windSpeedOnThreeHours     String   @map("wind_speed_on_three_hours") // 3시간 풍속
+model Post {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title     String   @db.VarChar(255)
+  content   String?
+  published Boolean  @default(false)
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
 }
 
-model WeatherKoWeekly {
-  id                         Int      @id @default(autoincrement())
-  date                       DateTime
-  weeklyWeather              String   @map("weekly_weather") // 주간 날씨
-  weeklyMinimumTemperature   String   @map("weekly_minimum_temperature") // 주간 최저기온
-  weeklyMaximumTemperature   String   @map("weekly_maximum_temperature") // 주간 최고기온
-  weeklyPrecipitationPercent String   @map("weekly_precipitation_percent") // 주간 강수확률
+model Profile {
+  id     Int     @id @default(autoincrement())
+  bio    String?
+  user   User    @relation(fields: [userId], references: [id])
+  userId Int     @unique
 }
 
-model WeatherKoWeeklyHistory {
-  id                          Int      @id @default(autoincrement())
-  date                        DateTime
-  historyWeather              String   @map("history_weather") // 주간 날씨
-  historyMinimumTemperature   String   @map("history_minimum_temperature") // 주간 최저기온
-  historyMaximumTemperature   String   @map("history_maximum_temperature") // 주간 최고기온
-  historyPrecipitationPercent String   @map("history_precipitation_percent") // 주간 강수확률
+model User {
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  name    String?
+  posts   Post[]
+  profile Profile?
 }
-
-// model HistoryWeatherKo {
-//   id             Int       @id @default(autoincrement())
-//   date           DateTime
-//   content        Json
-//   historyContent WeatherKo @relation(fields: [content], references: [content])
-// }
-
-// model OpenWeatherMap {
-//   id                    Int                     @id @default(autoincrement())
-//   date                  DateTime
-//   content               Json
-//   HistoryOpenWeatherMap HistoryOpenWeatherMap[]
-// }
-
-// model HistoryOpenWeatherMap {
-//   id             Int            @id @default(autoincrement())
-//   date           DateTime
-//   content        Json
-//   historyContent OpenWeatherMap @relation(fields: [content], references: [content])
-// }
-
-// model AccuWeather {
-//   id                 Int                  @id @default(autoincrement())
-//   date               DateTime
-//   content            Json
-//   HistoryAccuWeather HistoryAccuWeather[]
-// }
-
-// model HistoryAccuWeather {
-//   id             Int         @id @default(autoincrement())
-//   date           DateTime
-//   content        Json
-//   historyContent AccuWeather @relation(fields: [content], references: [content])
-// }
