@@ -75,8 +75,10 @@ export const migrationLocate = async () => {
   console.log("지역정보 database init....");
 
   const initData: any = [];
+  console.log("add initData array");
 
-  data.map((item: JsonDataType) => {
+  data.map((item: JsonDataType, index: number) => {
+    console.log(`${index} data 추출....`);
     initData.push({
       fullLocation: `${item.depth1} ${item.depth2} ${item.depth3} `,
       location1: item.depth2 ? item.depth2 : "",
