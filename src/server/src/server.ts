@@ -1,8 +1,16 @@
 import { app } from "../../index";
-import { serverWake } from "~/cron/src/serverWake";
 import { geolocation, openWeatherMapCurrent, weatherKorea } from "~/service";
+import { migrationLocate } from "~/database";
+
+const serverSetting = {
+  initLocationData: true,
+};
 
 export const runServer = async (): Promise<void> => {
+  if (serverSetting.initLocationData) {
+    await migrationLocate();
+  }
+
   const PORT = 80;
 
   app.listen(PORT, () => {
@@ -13,5 +21,4 @@ export const runServer = async (): Promise<void> => {
   weatherKorea();
   openWeatherMapCurrent();
   geolocation();
-  serverWake();
 };
