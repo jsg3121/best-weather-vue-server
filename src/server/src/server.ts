@@ -3,7 +3,7 @@ import { geolocation, openWeatherMapCurrent, weatherKorea } from "~/service";
 import { migrationLocate } from "~/database";
 
 const serverSetting = {
-  initLocationData: true,
+  initLocationData: false,
 };
 
 export const runServer = async (): Promise<void> => {
