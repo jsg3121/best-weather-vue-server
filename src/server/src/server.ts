@@ -7,16 +7,16 @@ const serverSetting = {
 };
 
 export const runServer = async (): Promise<void> => {
-  if (serverSetting.initLocationData) {
-    await migrationLocate();
-  }
-
   const PORT = 80;
 
   app.listen(PORT, () => {
     console.log("server start!!");
     console.log(PORT);
   });
+
+  if (serverSetting.initLocationData) {
+    await migrationLocate();
+  }
 
   weatherKorea();
   openWeatherMapCurrent();
