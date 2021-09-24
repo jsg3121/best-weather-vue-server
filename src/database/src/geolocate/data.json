@@ -1,1 +1,21 @@
-﻿[{}]
+﻿[
+  {
+    "num": "1",
+    "country": "kor",
+    "divisionCode": "1171064700",
+    "depth1": "서울특별시",
+    "depth2": "송파구",
+    "depth3": "위례동",
+    "gridX": "63",
+    "gridY": "125",
+    "longitudeHour": "127",
+    "longitudeMin": "8",
+    "longitudeSec": "29.37",
+    "latitudeHour": "37",
+    "latitudeMin": "28",
+    "latitudeSec": "44.996",
+    "longitudePerSec": "127.1414918",
+    "latitudePerSec": "37.4791657",
+    "locationupdate": "20150908"
+  }
+]
