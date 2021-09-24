@@ -12,11 +12,60 @@ generator client {
 
 model weather_geolocation {
   id               Int    @id @default(autoincrement())
-  fullLocation     String @db.VarChar(255)
-  location1        String @db.VarChar(255)
-  location2        String @db.VarChar(255)
-  locationCode     String @db.VarChar(255)
-  positionNx       Float
-  positionNy       Float
-  locationEncoding String @db.VarChar(255)
+  fullLocation     String @db.VarChar(50)
+  location1        String @db.VarChar(30)
+  location2        String @db.VarChar(30)
+  locationCode     String @db.VarChar(50)
+  positionNx       Float  @db.Float
+  positionNy       Float  @db.Float
+  locationEncoding String @db.VarChar(100)
+}
+
+model weather_daily {
+  id                 Int      @id @default(autoincrement())
+  updateTime         DateTime @default(now())
+  location           String   @db.VarChar(50)
+  precipitationState String   @db.VarChar(10)
+  windDriections     String   @db.VarChar(10)
+  skyStatus          String   @db.VarChar(10)
+  temperature        Int      @db.TinyInt
+  humidity           Int      @db.TinyInt
+  precipitation1Hour Int      @db.TinyInt
+  minTemperature     Int      @db.TinyInt
+  maxTemperature     Int      @db.TinyInt
+}
+
+model weather_three_hours {
+  id                    Int      @id @default(autoincrement())
+  updateTime            DateTime @default(now())
+  location              String   @db.VarChar(50)
+  precipitationState    String   @db.VarChar(10)
+  skyStatus             String   @db.VarChar(10)
+  threeHoursTemperature String   @db.VarChar(10)
+  precipitation6Hour    Int      @db.TinyInt
+  snowLoad6Hour         Int      @db.TinyInt
+}
+
+model weather_atmos {
+  id                Int      @id @default(autoincrement())
+  updateTime        DateTime @default(now())
+  location          String   @db.VarChar(50)
+  measuringStation  String   @db.VarChar(10)
+  dust1Hours        Int      @db.TinyInt
+  minimumDust1Hours Int      @db.TinyInt
+  ozonRate          Int      @db.TinyInt
+  uvRate            Int      @db.TinyInt
+}
+
+model weather_weekly {
+  id         Int      @id @default(autoincrement())
+  location   String   @db.VarChar(50)
+  updateTime DateTime @default(now())
+  day1       String   @db.VarChar(255)
+  day2       String   @db.VarChar(255)
+  day3       String   @db.VarChar(255)
+  day4       String   @db.VarChar(255)
+  day5       String   @db.VarChar(255)
+  day6       String   @db.VarChar(255)
+  day7       String   @db.VarChar(255)
 }
