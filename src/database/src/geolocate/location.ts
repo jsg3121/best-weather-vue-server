@@ -91,17 +91,26 @@ export const migrationLocate = async () => {
   });
 
   const init = async () => {
-    await Promise.all(
-      initData.map(async (item, index: number) => {
-        await prisma.weather_geolocation.create({
-          data: item,
-        });
+    console.log("add database table init...");
+    // await initData.map(async (item, index: number) => {
+    //   await prisma.weather_geolocation.create({
+    //     data: item,
+    //   });
 
-        if (index % 200 === 0) {
-          console.log(`${index} data init...`);
-        }
-      })
-    );
+    //   if (index % 200 === 0) {
+    //     console.log(`${index} data init...`);
+    //   }
+    // });
+    for (let i = 0; i < initData.length; i++) {
+      if (i % 200 === 0) {
+        console.log(`${i} data init...`);
+      }
+      await prisma.weather_geolocation.create({
+        data: initData[i],
+      });
+    }
+
+    console.log("init closed....");
   };
 
   await init()

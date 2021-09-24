@@ -11,8 +11,8 @@
     "build:types": "tsc -p tsconfig.json --emitDeclarationOnly",
     "build:js": "babel src --out-dir build --extensions \".ts\" --source-maps inline",
     "start:dev": "node -r esm build/index.js",
-    "start": "pm2 start ecosystem.config.js --env production",
-    "prisma": "npx prisma migrate dev --name init"
+    "prisma": "npx prisma migrate dev --name init",
+    "start": "pm2 start ecosystem.config.js --env production"
   },
   "keywords": [],
   "author": "",
