@@ -1,8 +1,7 @@
 import { app } from "../../index";
-import { geolocation, openWeatherMapCurrent, weatherKorea } from "~/service";
+import { geolocation, getCurrentTemperature, openWeatherMapCurrent, weatherKorea } from "~/service";
 import { migrationLocate } from "~/database";
 import { getDailyWeather } from "~/service/src/koreaWeather/src/korea.daily.weather";
-import { getCurrentTemperature } from "~/service/src/currentTemperature/src/getCurrent";
 
 const serverSetting = {
   initLocationData: false,
@@ -27,5 +26,6 @@ export const runServer = async (): Promise<void> => {
 
   if (process.env.NODE_ENV === "development") {
     getCurrentTemperature();
+    geolocation();
   }
 };
