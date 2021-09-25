@@ -1,3 +1,5 @@
-import { PrismaClient } from "@prisma/client";
+import { getDailyWeather } from "~/service/src/koreaWeather/src/korea.daily.weather";
 
-export const weeklyWeatherKoreaDatabase = (data) => {};
+export const weeklyWeatherKoreaDatabase = () => {
+  getDailyWeather();
+};
