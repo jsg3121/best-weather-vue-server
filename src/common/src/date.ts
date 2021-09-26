@@ -48,3 +48,26 @@ export const calcDate = () => {
 
   return time < 5 ? TODAY.subtract(1, "day").format("YYYYMMDD") : date;
 };
+
+/**
+ * 현재 날씨 상태 정보 시간 요청
+ * @format "HHmm"
+ * @return {string}
+ */
+export const getCurrentTime = (): string => {
+  const TODAY = dayjs(new Date()).tz("Asia/Seoul");
+  return TODAY.format("HHmm");
+};
+
+/**
+ * 현재 날씨 상태 정보 날짜 요청
+ * @format "YYYYMMDD"
+ * @return {string}
+ */
+export const getCurrentDate = (): string => {
+  const TODAY = dayjs(new Date()).tz("Asia/Seoul");
+  // if (TODAY.hour() == 0) {
+  //   return TODAY.minute() < 45 ? TODAY.subtract(1, "date").format("YYYYMMDD") : TODAY.format("YYYYMMDD");
+  // }
+  return TODAY.format("YYYYMMDD");
+};
