@@ -4,7 +4,23 @@ import { resultDailyDataProps, resultDailyTemperatureProps } from "~/@types";
 import { getCurrentDate, getCurrentTime } from "~/common";
 import { KOREA_WEATHER_API_KEY } from "~/common/src/global";
 
-export const currentApi = async () => {
+type ReturnCurrentApi = {
+  humidity: string;
+  precipitation: string;
+  temperature: string;
+  windDirection: string;
+  windSpeed: string;
+  sky: string;
+  minTemp: string;
+  maxTemp: string;
+};
+
+/**
+ * 현재 날씨 정보 요청 api 취합 데이터
+ *
+ * @returns {Promise<ReturnCurrentApi>}
+ */
+export const currentApi = async (): Promise<ReturnCurrentApi> => {
   const nx = 60;
   const ny = 127;
   const BASE_TIME = getCurrentTime();
@@ -88,5 +104,5 @@ export const currentApi = async () => {
     });
   });
 
-  return data;
+  return data as ReturnCurrentApi;
 };

@@ -40,11 +40,4 @@ export type getLivingInformationProps = {
   stationName: string;
 };
 
-export type getSunSetRiseProps = {
-  sunset: string;
-  sunrise: string;
-  moonset: string;
-  moonrise: string;
-};
-
 export type GeolocationProps = (data: { nx?: number; ny?: number }) => Promise<object>;

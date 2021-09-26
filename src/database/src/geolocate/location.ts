@@ -3,16 +3,6 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-// type InitDataType = {
-//   fullLocation: string;
-//   location1?: string;
-//   location2?: string;
-//   locationCode: string;
-//   positionNx: number;
-//   positionNy: number;
-//   locationEncoding: string;
-// };
-
 type JsonDataType = {
   num: string;
   country?: string;

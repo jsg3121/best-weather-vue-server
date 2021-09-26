@@ -9,7 +9,7 @@ type LocateType = {
 
 const prisma = new PrismaClient();
 
-const checkGeolocation = async (locate: LocateType): Promise<WeatherGeolocationTypes["fullLocation"]> => {
+const checkGeolocation = async (locate: LocateType): Promise<WeatherGeolocationTypes> => {
   const latitude: number = parseFloat(locate.latitude);
   const longitude: number = parseFloat(locate.longitude);
   console.log(latitude);
@@ -29,7 +29,6 @@ const checkGeolocation = async (locate: LocateType): Promise<WeatherGeolocationT
   `;
 
   return await location.then((data) => {
-    console.log(data[0]);
     return data[0];
   });
 };
@@ -37,7 +36,6 @@ const checkGeolocation = async (locate: LocateType): Promise<WeatherGeolocationT
 export const geolocation = () => {
   // #TODO : check axios nethods 'post' dose not recieve request body
   app.get("/geolocation", async (req, res) => {
-    console.log(req.query);
     const payload = req.query as LocateType;
     const location = await checkGeolocation(payload);
     res.send(location);

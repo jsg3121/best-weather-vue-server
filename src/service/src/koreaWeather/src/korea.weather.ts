@@ -1,16 +1,7 @@
-import { getDailyWeather, getMaxMinTemperature, livingInfomation, sunRiseFall, threeHoursWeather } from "~/api";
+import { getMaxMinTemperature, livingInfomation, threeHoursWeather } from "~/api";
 import { app } from "~/index";
 
 export const weatherKorea = () => {
-  app.get("/api/ko/nowWeather", async (req, res) => {
-    console.log("--------------------------------------------------");
-    console.log("daily");
-    console.log("--------------------------------------------------");
-    const data = await getDailyWeather(req.query);
-    res.send(data);
-    res.end();
-  });
-
   app.get("/api/ko/weekly", async (req, res) => {
     console.log("--------------------------------------------------");
     console.log("weekly");
@@ -34,15 +25,6 @@ export const weatherKorea = () => {
     console.log("livingInformation");
     console.log("--------------------------------------------------");
     const data = await livingInfomation();
-    res.send(data);
-    res.end();
-  });
-
-  app.get("/api/ko/sunRiseFall", async (_, res) => {
-    console.log("--------------------------------------------------");
-    console.log("sunRiseFall");
-    console.log("--------------------------------------------------");
-    const data = await sunRiseFall();
     res.send(data);
     res.end();
   });
