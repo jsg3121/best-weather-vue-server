@@ -18,6 +18,8 @@ model weather_geolocation {
   locationCode     String @db.VarChar(50)
   positionNx       Float  @db.Float
   positionNy       Float  @db.Float
+  gridX            Float  @db.Float
+  gridY            Float  @db.Float
   locationEncoding String @db.VarChar(100)
 }
 

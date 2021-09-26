@@ -84,8 +84,10 @@ export const migrationLocate = async () => {
       location1: item.depth2 ? item.depth2 : "",
       location2: item.depth3 ? item.depth3 : "",
       locationCode: item.divisionCode,
-      positionNx: Number(item.longitudePerSec),
-      positionNy: Number(item.latitudePerSec),
+      positionNx: Number(item.latitudePerSec),
+      positionNy: Number(item.longitudePerSec),
+      gridX: Number(item.gridX),
+      gridY: Number(item.gridY),
       locationEncoding: encodingFormat(item.depth1),
     });
   });

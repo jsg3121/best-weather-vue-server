@@ -18,17 +18,6 @@ export type resultDailyTemperatureProps = {
   ny: number;
 };
 
-// export type returnDatilyDataProps = {
-//   nowTemperatures: resultDailyDataProps["obsrValue"];
-//   nowHumidity: resultDailyDataProps["obsrValue"];
-//   nowPrecipitation: resultDailyDataProps["obsrValue"];
-// };
-
-// export type getMaxMinTemperatureProps = {
-//   maxTemperature: resultDailyTemperatureProps["fcstValue"];
-//   minTemperature: resultDailyTemperatureProps["fcstValue"];
-// };
-
 export type threeHourWeatherOption = {
   category: string;
   fcstDate: string;

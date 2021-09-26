@@ -22,14 +22,15 @@ const checkGeolocation = async (locate: LocateType): Promise<WeatherGeolocationT
     SELECT wg.*
     FROM (SELECT *
           FROM weather_geolocation
-          ORDER BY ABS(positionNy - ${minLat})
+          ORDER BY ABS(positionNy - ${minLon})
           ) wg
-    ORDER BY ABS(positionNx - ${minLon})
+    ORDER BY ABS(positionNx - ${minLat})
     LIMIT 1;
   `;
 
   return await location.then((data) => {
-    return data[0].fullLocation;
+    console.log(data[0]);
+    return data[0];
   });
 };
 
