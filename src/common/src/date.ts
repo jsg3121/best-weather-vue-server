@@ -33,14 +33,6 @@ export const changDateFormThreeHoursTime = (): string => {
   }
 };
 
-export const checkWeeklyDate = () => {
-  const TODAY = dayjs(new Date()).tz("Asia/Seoul");
-  const date = TODAY.format("YYYYMMDD");
-
-  const time = parseInt(TODAY.format("HH"), 10);
-  return time >= 6 && time <= 17 ? `${date}0600` : `${date}1800`;
-};
-
 export const calcDate = () => {
   const TODAY = dayjs(new Date()).tz("Asia/Seoul");
   const date = TODAY.format("YYYYMMDD");
@@ -66,8 +58,43 @@ export const getCurrentTime = (): string => {
  */
 export const getCurrentDate = (): string => {
   const TODAY = dayjs(new Date()).tz("Asia/Seoul");
-  // if (TODAY.hour() == 0) {
-  //   return TODAY.minute() < 45 ? TODAY.subtract(1, "date").format("YYYYMMDD") : TODAY.format("YYYYMMDD");
-  // }
   return TODAY.format("YYYYMMDD");
+};
+
+/**
+ * 내일, 모레 최저, 최고기온 정보를 위한 날짜 요청
+ * @returns {string}
+ */
+export const getWeeklyDate = (): string => {
+  const TODAY = dayjs(new Date()).tz("Asia/Seoul");
+  if (parseInt(TODAY.format("HH"), 10) < 5) {
+    return TODAY.subtract(1, "day").format("YYYYMMDD");
+  } else {
+    return TODAY.format("YYYYMMDD");
+  }
+};
+
+/**
+ * 내일 모레 최저, 최고기온 정보를 위한 시간
+ * @returns {string}
+ */
+export const getWeeklyTime = (): string => {
+  const TODAY = dayjs(new Date()).tz("Asia/Seoul");
+  if (parseInt(TODAY.format("HH"), 10) < 5) {
+    return "2300";
+  } else {
+    return "0500";
+  }
+};
+
+/**
+ * 3일 후 부터 날씨 정보 요청 시간
+ * @returns {string}
+ */
+export const getWeeklyDateAfter3 = () => {
+  const TODAY = dayjs(new Date()).tz("Asia/Seoul");
+  const date = TODAY.format("YYYYMMDD");
+
+  const time = parseInt(TODAY.format("HH"), 10);
+  return time >= 6 && time <= 17 ? `${date}0600` : `${date}1800`;
 };

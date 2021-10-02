@@ -1,10 +1,10 @@
 import axios from "axios";
 import { set } from "lodash";
-import { resultDailyDataProps, resultDailyTemperatureProps } from "~/@types";
+import { resultDailyDataProps, minMaxSkyProps } from "~/@types";
 import { getCurrentDate, getCurrentTime } from "~/common";
 import { KOREA_WEATHER_API_KEY } from "~/common/src/global";
 
-type ReturnCurrentApi = {
+type ReturnCurrentWeather = {
   humidity: string;
   precipitation: string;
   temperature: string;
@@ -18,9 +18,9 @@ type ReturnCurrentApi = {
 /**
  * 현재 날씨 정보 요청 api 취합 데이터
  *
- * @returns {Promise<ReturnCurrentApi>}
+ * @returns {Promise<ReturnCurrentWeather>}
  */
-export const currentApi = async (): Promise<ReturnCurrentApi> => {
+export const currentWeather = async (): Promise<ReturnCurrentWeather> => {
   const nx = 60;
   const ny = 127;
   const BASE_TIME = getCurrentTime();
@@ -30,6 +30,14 @@ export const currentApi = async (): Promise<ReturnCurrentApi> => {
 
   /**
    * 현재 기상 정보 요청 api
+   * T1H : 현재 기온
+   * REH : 습도
+   * RN1 : 1시간 강수량
+   * VEC : 풍향
+   * WSD : 풍속
+   * SKY : 하늘상태
+   * TMX : 최고기온
+   * TMN : 최저기온
    *
    * @param {number} nx gridX
    * @param {number} ny gridY
@@ -73,7 +81,7 @@ export const currentApi = async (): Promise<ReturnCurrentApi> => {
    */
   await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=50&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
     const result = res.data.response.body.items.item;
-    return result.map((item: resultDailyTemperatureProps) => {
+    return result.map((item: minMaxSkyProps) => {
       if (item.category === "SKY") {
         set(data, "sky", item.fcstValue);
       }
@@ -90,7 +98,7 @@ export const currentApi = async (): Promise<ReturnCurrentApi> => {
    */
   await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=40&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=0200&nx=${nx ? nx : 60}&ny=${ny ? ny : 127}`).then((res) => {
     const result = res.data.response.body.items.item;
-    return result.map((item: resultDailyTemperatureProps) => {
+    return result.map((item: minMaxSkyProps) => {
       switch (item.category) {
         case "TMX":
           set(data, "maxTemp", item.fcstValue);
@@ -104,5 +112,5 @@ export const currentApi = async (): Promise<ReturnCurrentApi> => {
     });
   });
 
-  return data as ReturnCurrentApi;
+  return data as ReturnCurrentWeather;
 };

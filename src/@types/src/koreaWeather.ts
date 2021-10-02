@@ -7,7 +7,7 @@ export type resultDailyDataProps = {
   obsrValue: string;
 };
 
-export type resultDailyTemperatureProps = {
+export type minMaxSkyProps = {
   baseDate: string;
   baseTime: string;
   category: string;
@@ -18,26 +18,21 @@ export type resultDailyTemperatureProps = {
   ny: number;
 };
 
-export type threeHourWeatherOption = {
-  category: string;
-  fcstDate: string;
-  fcstTime: string;
-  fcstValue: string;
+type DayProps = {
+  minTemperature: string;
+  minTemperatureTime: string;
+  maxTemperature: string;
+  maxTemperatureTime: string;
+  skyValue: string;
+  ptyValue: string;
 };
 
-export type threeHourWeatherOutput = {
-  date: threeHourWeatherOption["fcstDate"];
-  time: threeHourWeatherOption["fcstTime"];
-  value: threeHourWeatherOption["fcstValue"];
+export type WeeklyProps = {
+  day1: DayProps;
+  day2: DayProps;
+  day3: DayProps;
+  day4: DayProps;
+  day5: DayProps;
+  day6: DayProps;
+  day7: DayProps;
 };
-
-export type getLivingInformationProps = {
-  sidoName: string;
-  pm10Grade1h: string;
-  pm25Grade1h: string;
-  o3Grade: string;
-  dataTime: string;
-  stationName: string;
-};
-
-export type GeolocationProps = (data: { nx?: number; ny?: number }) => Promise<object>;
