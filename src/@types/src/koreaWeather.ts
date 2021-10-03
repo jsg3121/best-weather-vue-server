@@ -1,4 +1,4 @@
-export type resultDailyDataProps = {
+export type ResultDailyDataProps = {
   baseDate: string;
   baseTime: string;
   category: string;
@@ -7,7 +7,7 @@ export type resultDailyDataProps = {
   obsrValue: string;
 };
 
-export type minMaxSkyProps = {
+export type MinMaxSkyProps = {
   baseDate: string;
   baseTime: string;
   category: string;
@@ -18,21 +18,9 @@ export type minMaxSkyProps = {
   ny: number;
 };
 
-type DayProps = {
-  minTemperature: string;
-  minTemperatureTime: string;
-  maxTemperature: string;
-  maxTemperatureTime: string;
-  skyValue: string;
-  ptyValue: string;
-};
-
-export type WeeklyProps = {
-  day1: DayProps;
-  day2: DayProps;
-  day3: DayProps;
-  day4: DayProps;
-  day5: DayProps;
-  day6: DayProps;
-  day7: DayProps;
+export type ResultWeeklyDataProps = {
+  minTemperature: number;
+  maxTemperature: number;
+  skyAm: string;
+  skyPm: string;
 };

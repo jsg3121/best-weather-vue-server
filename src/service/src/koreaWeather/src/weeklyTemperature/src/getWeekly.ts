@@ -6,10 +6,12 @@ import { app } from "~/index";
  */
 export const getWeeklyTemperature = async () => {
   app.get("/service/weekly", async (_, res) => {
+    console.time("total");
     const data = await weeklyWeather().then((res) => {
       return res;
     });
     res.send(data);
     res.end();
+    console.timeEnd("total");
   });
 };
