@@ -7,6 +7,8 @@ type JsonDataType = {
   num: string;
   country?: string;
   divisionCode: string;
+  weeklyTemperature: string;
+  weeklySky: string;
   depth1: string;
   depth2?: string;
   depth3?: string;
@@ -71,9 +73,12 @@ export const migrationLocate = async () => {
     console.log(`${index} data 추출....`);
     initData.push({
       fullLocation: `${item.depth1} ${item.depth2} ${item.depth3} `,
-      location1: item.depth2 ? item.depth2 : "",
-      location2: item.depth3 ? item.depth3 : "",
+      location1: item.depth1 ? item.depth1 : "",
+      location2: item.depth2 ? item.depth2 : "",
+      location3: item.depth3 ? item.depth3 : "",
       locationCode: item.divisionCode,
+      weeklyLocatioCode: item.weeklyTemperature,
+      weeklySkyLocationCode: item.weeklySky,
       positionNx: Number(item.latitudePerSec),
       positionNy: Number(item.longitudePerSec),
       gridX: Number(item.gridX),

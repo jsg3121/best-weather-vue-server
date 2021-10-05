@@ -3,7 +3,7 @@ import { geolocation, getCurrentTemperature, getWeeklyTemperature } from "~/serv
 import { app } from "../../index";
 
 const serverSetting = {
-  initLocationData: false,
+  initLocationData: true,
 };
 
 export const runServer = async (): Promise<void> => {
