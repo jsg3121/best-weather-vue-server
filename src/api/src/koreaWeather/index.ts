@@ -1,1 +1,3 @@
-export * from "./src/korea.weather.current.api";
+export * from "./src/currentWeather";
+export * from "./src/weeklyWeather";
+export * from "./src/threeHours";

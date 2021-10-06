@@ -1,13 +1,4 @@
-export type ResultDailyDataProps = {
-  baseDate: string;
-  baseTime: string;
-  category: string;
-  nx: number;
-  ny: number;
-  obsrValue: string;
-};
-
-export type MinMaxSkyProps = {
+export type CurrentStatusProps = {
   baseDate: string;
   baseTime: string;
   category: string;
@@ -16,6 +7,15 @@ export type MinMaxSkyProps = {
   fcstValue: string;
   nx: number;
   ny: number;
+};
+
+export type ResultDailyDataProps = {
+  baseDate: string;
+  baseTime: string;
+  category: string;
+  nx: number;
+  ny: number;
+  obsrValue: string;
 };
 
 export type ResultWeeklyDataProps = {

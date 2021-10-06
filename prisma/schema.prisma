@@ -11,16 +11,19 @@ generator client {
 }
 
 model weather_geolocation {
-  id               Int    @id @default(autoincrement())
-  fullLocation     String @db.VarChar(50)
-  location1        String @db.VarChar(30)
-  location2        String @db.VarChar(30)
-  locationCode     String @db.VarChar(50)
-  positionNx       Float  @db.Float
-  positionNy       Float  @db.Float
-  gridX            Float  @db.Float
-  gridY            Float  @db.Float
-  locationEncoding String @db.VarChar(100)
+  id                    Int    @id @default(autoincrement())
+  fullLocation          String @db.VarChar(50)
+  location1             String @db.VarChar(30)
+  location2             String @db.VarChar(30)
+  location3             String @db.VarChar(30)
+  locationCode          String @db.VarChar(50)
+  weeklyLocatioCode     String @db.VarChar(50)
+  weeklySkyLocationCode String @db.VarChar(50)
+  positionNx            Float  @db.Float
+  positionNy            Float  @db.Float
+  gridX                 Float  @db.Float
+  gridY                 Float  @db.Float
+  locationEncoding      String @db.VarChar(100)
 }
 
 model weather_daily {

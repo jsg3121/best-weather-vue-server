@@ -1,5 +1,5 @@
 import { migrationLocate } from "~/database";
-import { geolocation, getCurrentTemperature, getWeeklyTemperature } from "~/service";
+import { geolocation, getCurrentTemperature, getThreeHours, getWeeklyTemperature } from "~/service";
 import { app } from "../../index";
 
 const serverSetting = {
@@ -21,6 +21,7 @@ export const runServer = async (): Promise<void> => {
   geolocation();
   getCurrentTemperature();
   getWeeklyTemperature();
+  getThreeHours();
 
   if (process.env.NODE_ENV === "development") {
     geolocation();
