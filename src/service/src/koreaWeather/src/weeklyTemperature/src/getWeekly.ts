@@ -1,4 +1,4 @@
-import { weeklyWeather } from "~/api/src/koreaWeather/src/korea.wather.weekly.api";
+import { weeklyWeather } from "~/api";
 import { app } from "~/index";
 
 /**

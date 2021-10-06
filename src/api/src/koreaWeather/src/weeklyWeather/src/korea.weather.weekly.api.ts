@@ -1,7 +1,7 @@
 import axios from "axios";
 import dayjs from "dayjs";
 import { get, omit, set } from "lodash";
-import { MinMaxSkyProps, ResultWeeklyDataProps } from "~/@types";
+import { CurrentStatusProps, ResultWeeklyDataProps } from "~/@types";
 import { getWeeklyDate, getWeeklyDateAfter3, getWeeklyTime } from "~/common";
 import { KOREA_WEATHER_API_KEY } from "~/common/src/global";
 
@@ -55,7 +55,7 @@ export const weeklyWeather = async (): Promise<ResultWeeklyDataProps> => {
   const AFTER3 = getWeeklyDateAfter3();
 
   const data = {};
-  const atmos: Array<MinMaxSkyProps> = [];
+  const atmos: Array<CurrentStatusProps> = [];
   /**
    * 주간 기온 요청 api
    * 00시 ~ 5시 이전이면 전날 23시에서 요청
@@ -63,7 +63,7 @@ export const weeklyWeather = async (): Promise<ResultWeeklyDataProps> => {
    */
   await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=500&pageNo=1&dataType=json&base_date=${DATE}&base_time=${TIME}&nx=${nx}&ny=${ny}`).then((res) => {
     const result = res.data.response.body.items.item;
-    result.map((item: MinMaxSkyProps) => {
+    result.map((item: CurrentStatusProps) => {
       if (item.fcstDate === dayjs(DATE).add(1, "day").format("YYYYMMDD")) {
         if (item.category === "TMN") {
           set(data, "day1.minTemperature", parseInt(item.fcstValue, 10));
@@ -90,7 +90,7 @@ export const weeklyWeather = async (): Promise<ResultWeeklyDataProps> => {
     });
   });
 
-  atmos.map((item: MinMaxSkyProps) => {
+  atmos.map((item: CurrentStatusProps) => {
     if (item.fcstDate === dayjs(DATE).add(1, "day").format("YYYYMMDD")) {
       if (item.fcstTime === get(data, "day1.minTemperatureTime")) {
         if (item.category === "SKY") {
