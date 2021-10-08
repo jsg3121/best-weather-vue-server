@@ -1,1 +1,1 @@
-export * from "./src/getWeekly";
+export * from "./src/getWeekly.service";

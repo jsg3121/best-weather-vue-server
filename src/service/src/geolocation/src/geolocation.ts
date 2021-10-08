@@ -34,7 +34,6 @@ const checkGeolocation = async (locate: LocateType): Promise<WeatherGeolocationT
 };
 
 export const geolocation = () => {
-  // #TODO : check axios nethods 'post' dose not recieve request body
   app.get("/geolocation", async (req, res) => {
     const payload = req.query as LocateType;
     const location = await checkGeolocation(payload);

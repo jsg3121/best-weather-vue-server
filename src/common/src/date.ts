@@ -4,28 +4,8 @@ import utc from "dayjs/plugin/utc";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
-
-export const defaultTime = (): string => {
-  const TODAY = dayjs(new Date()).tz("Asia/Seoul");
-  return TODAY.minute() < 45 ? TODAY.subtract(1, "hour").format("HHmm") : TODAY.format("HHmm");
-};
-
-export const changDateFormMiniDust = (): string => {
-  const TODAY = dayjs(new Date()).tz("Asia/Seoul");
-  const output = TODAY.subtract(3, "day").format("YYYY-MM-DD");
-  return output;
-};
-
-export const calcDate = () => {
-  const TODAY = dayjs(new Date()).tz("Asia/Seoul");
-  const date = TODAY.format("YYYYMMDD");
-  const time = parseInt(TODAY.format("HH"), 10);
-
-  return time < 5 ? TODAY.subtract(1, "day").format("YYYYMMDD") : date;
-};
-
 /**
- * * 현재 날씨 상태 정보 시간 요청
+ * ! 현재 날씨 상태 정보 시간 요청
  * @format "HHmm"
  * @return {string}
  */
@@ -35,7 +15,7 @@ export const getCurrentTime = (): string => {
 };
 
 /**
- * * 현재 날씨 상태 정보 날짜 요청
+ * ! 현재 날씨 상태 정보 날짜 요청
  * @format "YYYYMMDD"
  * @return {string}
  */
@@ -45,7 +25,7 @@ export const getCurrentDate = (): string => {
 };
 
 /**
- * * 내일, 모레 최저, 최고기온 정보를 위한 날짜 요청
+ * ! 내일, 모레 최저, 최고기온 정보를 위한 날짜 요청
  * @format "YYYYMMDD"
  * @returns {string}
  */
@@ -59,7 +39,7 @@ export const getWeeklyDate = (): string => {
 };
 
 /**
- * * 내일 모레 최저, 최고기온 정보를 위한 시간
+ * ! 내일 모레 최저, 최고기온 정보를 위한 시간
  * @format "HHmm"
  * @returns {string}
  */
@@ -73,7 +53,7 @@ export const getWeeklyTime = (): string => {
 };
 
 /**
- * * 3일 후 부터 날씨 정보 요청 시간
+ * ! 3일 후 부터 날씨 정보 요청 시간
  * @format "YYYYMMDDHHmm"
  * @returns {string}
  */
@@ -86,7 +66,7 @@ export const getWeeklyDateAfter3 = () => {
 };
 
 /**
- * * 3시간 단위 기온 정보
+ * ! 3시간 단위 기온 정보
  * @format "HHmm"
  * @returns {string}
  */
@@ -94,10 +74,28 @@ export const changDateFormThreeHoursTime = (): string => {
   const TODAY = dayjs(new Date()).tz("Asia/Seoul");
   const hours = parseInt(TODAY.format("HH"), 10);
   if (hours % 3 === 2) {
-    const res = TODAY.format(3 * Math.floor(hours / 3) + 2 > 10 ? `${3 * Math.floor(hours / 3) + 2}00` : `0${3 * Math.floor(hours / 3) + 2}00`);
+    const res = TODAY.format(
+      3 * Math.floor(hours / 3) + 2 > 10
+        ? `${3 * Math.floor(hours / 3) + 2}00`
+        : `0${3 * Math.floor(hours / 3) + 2}00`
+    );
     return res.toString();
   } else {
-    const res = TODAY.format(3 * Math.floor(hours / 3) - 1 > 10 ? `${3 * Math.floor(hours / 3) - 1}00` : `0${3 * Math.floor(hours / 3) - 1}00`);
+    const res = TODAY.format(
+      3 * Math.floor(hours / 3) - 1 > 10
+        ? `${3 * Math.floor(hours / 3) - 1}00`
+        : `0${3 * Math.floor(hours / 3) - 1}00`
+    );
     return res.toString();
   }
+};
+
+/**
+ * ! 대기환경(오존) 상태
+ * @returns
+ */
+export const getAtmosDate = (): string => {
+  const TODAY = dayjs(new Date()).tz("Asia/Seoul").format("YYYYMMDD06");
+
+  return TODAY;
 };

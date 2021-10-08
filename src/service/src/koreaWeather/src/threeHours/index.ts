@@ -1,1 +1,1 @@
-export * from "./src/getThreeHours";
+export * from "./src/getThreeHours.service";

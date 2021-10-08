@@ -1,2 +1,2 @@
 export * from "./src/date";
-export * from "./src/changeForm";
+export * from "./src/global";
