@@ -1,1 +1,1 @@
-export * from "./src/getCurrent";
+export * from "./src/getCurrent.service";
