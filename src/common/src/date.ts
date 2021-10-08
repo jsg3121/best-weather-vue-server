@@ -6,21 +6,33 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 /**
  * ! 현재 날씨 상태 정보 시간 요청
+ *
+ * * 30분 이전일 때 전 시간 return
+ *
  * @format "HHmm"
  * @return {string}
  */
 export const getCurrentTime = (): string => {
   const TODAY = dayjs(new Date()).tz("Asia/Seoul");
+  if (TODAY.minute() <= 30) {
+    return TODAY.subtract(1, "hour").format("HHmm");
+  }
   return TODAY.format("HHmm");
 };
 
 /**
  * ! 현재 날씨 상태 정보 날짜 요청
+ *
+ * * 30분 이전일 때 요청 시간이 00시면 전날 23시로 return
+ *
  * @format "YYYYMMDD"
  * @return {string}
  */
 export const getCurrentDate = (): string => {
   const TODAY = dayjs(new Date()).tz("Asia/Seoul");
+  if (TODAY.minute() <= 30 && TODAY.hour() === 0) {
+    return TODAY.subtract(1, "date").format("YYYYMMDD");
+  }
   return TODAY.format("YYYYMMDD");
 };
 
