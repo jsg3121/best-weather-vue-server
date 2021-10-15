@@ -1,3 +1,4 @@
+import { env } from "~/common";
 import { migrationLocate } from "~/database";
 import {
   geolocation,
@@ -10,7 +11,7 @@ import {
 import { app } from "../../index";
 
 const serverSetting = {
-  initLocationData: false,
+  initLocationData: env("INIT_DATABASE"),
 };
 
 export const runServer = async (): Promise<void> => {
