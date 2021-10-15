@@ -1,5 +1,5 @@
 import { set } from "lodash";
-import { OpenWeatherDataProps } from "~/@types/src/openWeather.types";
+import { OpenWeatherDataProps } from "~/@types";
 
 type CurrentType = OpenWeatherDataProps["current"];
 type TodayType = OpenWeatherDataProps["daily"][0];
@@ -17,7 +17,7 @@ type ReturnCurrentOpenWeather = {
 /**
  * current정보를 위한 데이터만 가공하여 반환
  *
- * * Return data options
+ * * ***Return data options***
  * - temp: 현재 기온
  * - humidity: 현재 습도
  * - wind_speed: 풍속
