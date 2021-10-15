@@ -3,6 +3,7 @@ import {
   geolocation,
   getAtmos,
   getCurrentTemperature,
+  getOpenWeatherService,
   getThreeHours,
   getWeeklyTemperature,
 } from "~/service";
@@ -29,4 +30,5 @@ export const runServer = async (): Promise<void> => {
   getWeeklyTemperature();
   getThreeHours();
   getAtmos();
+  getOpenWeatherService();
 };
