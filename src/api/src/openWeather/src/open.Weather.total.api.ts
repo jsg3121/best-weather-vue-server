@@ -15,7 +15,11 @@ export const openWeather = async () => {
     console.log(hourly);
     console.log(daily);
     console.log(current);
-    return JSON.stringify(res.data, null, 2);
+    return {
+      current: current,
+      daily: daily,
+      hourly: hourly,
+    };
   });
   return data;
 };
