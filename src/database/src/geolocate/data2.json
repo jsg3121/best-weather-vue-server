@@ -1,0 +1,23 @@
+﻿[
+  {
+    "num": "1",
+    "country": "kor",
+    "divisionCode": "1100000000",
+    "weeklyTemperature": "11B10101",
+    "weeklySky": "11B00000",
+    "depth1": "서울특별시",
+    "depth2": "",
+    "depth3": "",
+    "gridX": "60",
+    "gridY": "127",
+    "longitudeHour": "126",
+    "longitudeMin": "58",
+    "longitudeSec": "48.03",
+    "latitudeHour": "37",
+    "latitudeMin": "33",
+    "latitudeSec": "48.85",
+    "longitudePerSec": "126.98000833333333",
+    "latitudePerSec": "37.56356944444444",
+    "위치업데이트": "20150908"
+  }
+]
