@@ -12,8 +12,6 @@ const prisma = new PrismaClient();
 const checkGeolocation = async (locate: LocateType): Promise<WeatherGeolocationTypes> => {
   const latitude: number = parseFloat(locate.latitude);
   const longitude: number = parseFloat(locate.longitude);
-  console.log(latitude);
-  console.log(longitude);
 
   let minLat = latitude;
   let minLon = longitude;
@@ -22,9 +20,9 @@ const checkGeolocation = async (locate: LocateType): Promise<WeatherGeolocationT
     SELECT wg.*
     FROM (SELECT *
           FROM weather_geolocation
-          ORDER BY ABS(positionNy - ${minLon})
+          ORDER BY ABS(positionNx - ${minLat})
           ) wg
-    ORDER BY ABS(positionNx - ${minLat})
+    ORDER BY ABS(positionNy - ${minLon})
     LIMIT 1;
   `;
 
@@ -36,7 +34,10 @@ const checkGeolocation = async (locate: LocateType): Promise<WeatherGeolocationT
 export const geolocation = () => {
   app.get("/geolocation", async (req, res) => {
     const payload = req.query as LocateType;
+    console.log(payload);
+
     const location = await checkGeolocation(payload);
+    console.log(location);
     res.send(location);
     res.end();
   });
