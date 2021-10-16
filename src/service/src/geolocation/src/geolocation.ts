@@ -20,9 +20,9 @@ const checkGeolocation = async (locate: LocateType): Promise<WeatherGeolocationT
     SELECT wg.*
     FROM (SELECT *
           FROM weather_geolocation
-          ORDER BY ABS(positionNx - ${minLat})
+          ORDER BY ABS(positionNy - ${minLon})
           ) wg
-    ORDER BY ABS(positionNy - ${minLon})
+    ORDER BY ABS(positionNx - ${minLat})
     LIMIT 1;
   `;
 
