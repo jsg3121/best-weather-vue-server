@@ -1,8 +1,24 @@
+import { env } from "~/common";
+import { migrationLocate } from "~/database";
+import {
+  geolocation,
+  getAtmos,
+  getCurrentTemperature,
+  getOpenWeatherService,
+  getThreeHours,
+  getWeeklyTemperature,
+} from "~/service";
 import { app } from "../../index";
-import { serverWake } from "~/cron/src/serverWake";
-import { geolocation, openWeatherMapCurrent, weatherKorea } from "~/service";
+
+const serverSetting = {
+  initLocationData: env("INIT_DATABASE"),
+};
 
 export const runServer = async (): Promise<void> => {
+  if (serverSetting.initLocationData) {
+    await migrationLocate();
+  }
+
   const PORT = 80;
 
   app.listen(PORT, () => {
@@ -10,8 +26,10 @@ export const runServer = async (): Promise<void> => {
     console.log(PORT);
   });
 
-  weatherKorea();
-  openWeatherMapCurrent();
   geolocation();
-  serverWake();
+  getCurrentTemperature();
+  getWeeklyTemperature();
+  getThreeHours();
+  getAtmos();
+  getOpenWeatherService();
 };

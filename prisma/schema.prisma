@@ -10,28 +10,67 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  title     String   @db.VarChar(255)
-  content   String?
-  published Boolean  @default(false)
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
+model weather_geolocation {
+  id                    Int    @id @default(autoincrement())
+  fullLocation          String @db.VarChar(50)
+  location1             String @db.VarChar(30)
+  location2             String @db.VarChar(30)
+  location3             String @db.VarChar(30)
+  locationCode          String @db.VarChar(50)
+  weeklyLocatioCode     String @db.VarChar(50)
+  weeklySkyLocationCode String @db.VarChar(50)
+  positionNx            Float  @db.Double
+  positionNy            Float  @db.Double
+  gridX                 Float  @db.Double
+  gridY                 Float  @db.Double
+  locationEncoding      String @db.VarChar(100)
 }
 
-model Profile {
-  id     Int     @id @default(autoincrement())
-  bio    String?
-  user   User    @relation(fields: [userId], references: [id])
-  userId Int     @unique
-}
+// model weather_daily {
+//   id                 Int      @id @default(autoincrement())
+//   updateTime         DateTime @default(now())
+//   location           String   @db.VarChar(50)
+//   precipitationState String   @db.VarChar(10)
+//   windDriections     String   @db.VarChar(10)
+//   skyStatus          String   @db.VarChar(10)
+//   temperature        Int      @db.TinyInt
+//   humidity           Int      @db.TinyInt
+//   precipitation1Hour Int      @db.TinyInt
+//   minTemperature     Int      @db.TinyInt
+//   maxTemperature     Int      @db.TinyInt
+// }
 
-model User {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String?
-  posts   Post[]
-  profile Profile?
-}
+// model weather_three_hours {
+//   id                    Int      @id @default(autoincrement())
+//   updateTime            DateTime @default(now())
+//   location              String   @db.VarChar(50)
+//   precipitationState    String   @db.VarChar(10)
+//   skyStatus             String   @db.VarChar(10)
+//   threeHoursTemperature String   @db.VarChar(10)
+//   precipitation6Hour    Int      @db.TinyInt
+//   snowLoad6Hour         Int      @db.TinyInt
+// }
+
+// model weather_atmos {
+//   id                Int      @id @default(autoincrement())
+//   updateTime        DateTime @default(now())
+//   location          String   @db.VarChar(50)
+//   measuringStation  String   @db.VarChar(10)
+//   dust1Hours        Int      @db.TinyInt
+//   minimumDust1Hours Int      @db.TinyInt
+//   ozonRate          Int      @db.TinyInt
+//   uvRate            Int      @db.TinyInt
+// }
+
+// model weather_weekly {
+//   id         Int      @id @default(autoincrement())
+//   location   String   @db.VarChar(50)
+//   updateTime DateTime @default(now())
+//   day1       String   @db.VarChar(255)
+//   day2       String   @db.VarChar(255)
+//   day3       String   @db.VarChar(255)
+//   day4       String   @db.VarChar(255)
+//   day5       String   @db.VarChar(255)
+//   day6       String   @db.VarChar(255)
+//   day7       String   @db.VarChar(255)
+// }
