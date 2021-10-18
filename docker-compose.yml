@@ -3,7 +3,7 @@ version: "3.1" # docker-compose 문서에 대한 버전을 지정
 
 services: # 컨테이너를 실행하기 위해 정의함
   mysql: #services 내부에 컨테이너의 이름을 지정함 => docker ps하면 나오는 name
-    image: mysql:5.6 # 컨테이너에 사용될 이미지
+    image: mysql:8.0 # 컨테이너에 사용될 이미지
     container_name: ${CONTAINER_NAME_DB}
     restart: always
     environment:
