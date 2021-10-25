@@ -84,7 +84,7 @@ export const getWeeklyDateAfter3 = () => {
  */
 export const changDateFormThreeHoursTime = (): string => {
   const TODAY = dayjs(new Date()).tz("Asia/Seoul");
-  const hours = parseInt(TODAY.format("HH"), 10);
+  const hours = parseInt(TODAY.subtract(3, "hours").format("HH"), 10);
   if (hours % 3 === 2) {
     const res = TODAY.format(
       3 * Math.floor(hours / 3) + 2 > 10
