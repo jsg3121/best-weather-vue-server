@@ -57,11 +57,21 @@ export const getWeeklyDate = (): string => {
  */
 export const getWeeklyTime = (): string => {
   const TODAY = dayjs(new Date()).tz("Asia/Seoul");
-  if (parseInt(TODAY.format("HH"), 10) < 5) {
-    return "2300";
-  } else {
-    return "0500";
+  const arr = [2, 5, 8, 11, 14, 17, 20, 23];
+  let result = "";
+  for (let i = 0; i < arr.length; i++) {
+    const time = parseInt(TODAY.format("HH"), 10);
+    if (time < 2) {
+      result = "2300";
+    } else {
+      if (time > arr[i]) {
+        String(arr[i]).length === 1 ? (result = `0${arr[i]}00`) : (result = `${arr[i]}00`);
+      }
+    }
   }
+  console.log("1!!@#!@$!@$!@#$");
+  console.log(result);
+  return result;
 };
 
 /**

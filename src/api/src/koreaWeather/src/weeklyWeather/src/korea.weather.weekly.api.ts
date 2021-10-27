@@ -60,7 +60,7 @@ export const weeklyWeather = async (): Promise<ResultWeeklyDataProps> => {
   const DATE = getWeeklyDate();
   const TIME = getWeeklyTime();
   const AFTER3 = getWeeklyDateAfter3();
-
+  console.log(nx, ny, TIME);
   const data = {};
   const atmos: Array<CurrentStatusProps> = [];
   /**
@@ -68,34 +68,62 @@ export const weeklyWeather = async (): Promise<ResultWeeklyDataProps> => {
    * ! 00시 ~ 5시 이전이면 전날 23시에서 요청
    * ! 그 외의 경우는 현재 시간에서 요청 가능
    */
-  await axios.get(`http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=500&pageNo=1&dataType=json&base_date=${DATE}&base_time=${TIME}&nx=${nx}&ny=${ny}`).then((res) => {
-    const result = res.data.response.body.items.item;
-    result.map((item: CurrentStatusProps) => {
-      if (item.fcstDate === dayjs(DATE).add(1, "day").format("YYYYMMDD")) {
-        if (item.category === "TMN") {
-          set(data, "day1.minTemperature", parseInt(item.fcstValue, 10));
-          set(data, "day1.minTemperatureTime", item.fcstTime);
-        } else if (item.category === "TMX") {
-          set(data, "day1.maxTemperature", parseInt(item.fcstValue, 10));
-          set(data, "day1.maxTemperatureTime", item.fcstTime);
-        }
-        if (item.category === "SKY" || item.category === "PTY") {
-          atmos.push(item);
-        }
-      } else if (item.fcstDate === dayjs(DATE).add(2, "day").format("YYYYMMDD")) {
-        if (item.category === "TMN") {
-          set(data, "day2.minTemperature", parseInt(item.fcstValue, 10));
-          set(data, "day2.minTemperatureTime", item.fcstTime);
-        } else if (item.category === "TMX") {
-          set(data, "day2.maxTemperature", parseInt(item.fcstValue, 10));
-          set(data, "day2.maxTemperatureTime", item.fcstTime);
-        }
-        if (item.category === "SKY" || item.category === "PTY") {
-          atmos.push(item);
-        }
-      }
+  const tomorrowData = await axios
+    .get(
+      `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=1000&pageNo=1&dataType=json&base_date=${DATE}&base_time=${TIME}&nx=${nx}&ny=${ny}`
+      // `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=422JryGS9%2B676hcl7wOZ4jh5de2s99vCJr2NcRWV4YXkv9nQP8C0BFGDPVlBt55Fyy5VMJh%2ByRYBMkV%2BcciYZg%3D%3D&numOfRows=1000&pageNo=1&dataType=json&base_date=20211027&base_time=0200&nx=60&ny=127`
+    )
+    .then((res) => {
+      return res.data.response.body.items.item;
     });
-  });
+
+  /**
+   * ! 3시간 단위 예보
+   *
+   * * ***Return data options***
+   * - PTY : 강수 형태 (비, 눈 등)
+   * - SKY : 하늘 상태
+   * - T3H : 3시간 기온
+   */
+  const hourlyData = tomorrowData
+    .filter((item: CurrentStatusProps) => {
+      return item.category === "PTY" || item.category === "SKY" || item.category === "TMP";
+    })
+    .map((item: CurrentStatusProps) => {
+      return omit(item, ["baseDate", "baseTime", "nx", "ny"]);
+    });
+
+  for (let i = 0; i < tomorrowData.length; i++) {
+    if (tomorrowData[i].fcstDate === dayjs(DATE).add(1, "day").format("YYYYMMDD")) {
+      if (tomorrowData[i].category === "TMN") {
+        set(data, "day1.minTemperature", parseInt(tomorrowData[i].fcstValue, 10));
+        set(data, "day1.minTemperatureTime", tomorrowData[i].fcstTime);
+      } else if (tomorrowData[i].category === "TMX") {
+        set(data, "day1.maxTemperature", parseInt(tomorrowData[i].fcstValue, 10));
+        set(data, "day1.maxTemperatureTime", tomorrowData[i].fcstTime);
+      }
+      if (
+        (tomorrowData[i].fcstTime === "0600" || tomorrowData[i].fcstTime === "1500") &&
+        (tomorrowData[i].category === "SKY" || tomorrowData[i].category === "PTY")
+      ) {
+        atmos.push(tomorrowData[i]);
+      }
+    } else if (tomorrowData[i].fcstDate === dayjs(DATE).add(2, "day").format("YYYYMMDD")) {
+      if (tomorrowData[i].category === "TMN") {
+        set(data, "day2.minTemperature", parseInt(tomorrowData[i].fcstValue, 10));
+        set(data, "day2.minTemperatureTime", tomorrowData[i].fcstTime);
+      } else if (tomorrowData[i].category === "TMX") {
+        set(data, "day2.maxTemperature", parseInt(tomorrowData[i].fcstValue, 10));
+        set(data, "day2.maxTemperatureTime", tomorrowData[i].fcstTime);
+      }
+      if (
+        (tomorrowData[i].fcstTime === "0600" || tomorrowData[i].fcstTime === "1500") &&
+        (tomorrowData[i].category === "SKY" || tomorrowData[i].category === "PTY")
+      ) {
+        atmos.push(tomorrowData[i]);
+      }
+    }
+  }
 
   atmos.map((item: CurrentStatusProps) => {
     if (item.fcstDate === dayjs(DATE).add(1, "day").format("YYYYMMDD")) {
@@ -131,40 +159,63 @@ export const weeklyWeather = async (): Promise<ResultWeeklyDataProps> => {
     }
   });
 
-  await axios.get(`http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=&dataType=json&regId=11B00000&tmFc=${AFTER3}`).then((res) => {
-    const result = res.data.response.body.items.item[0];
-    set(data, `day3.minTemperature`, result.taMin3);
-    set(data, `day3.maxTemperature`, result.taMax3);
-    set(data, `day4.minTemperature`, result.taMin4);
-    set(data, `day4.maxTemperature`, result.taMax4);
-    set(data, `day5.minTemperature`, result.taMin5);
-    set(data, `day5.maxTemperature`, result.taMax5);
-    set(data, `day6.minTemperature`, result.taMin6);
-    set(data, `day6.maxTemperature`, result.taMax6);
-    set(data, `day7.minTemperature`, result.taMin7);
-    set(data, `day7.maxTemperature`, result.taMax7);
-  });
+  await axios
+    .get(
+      `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=&dataType=json&regId=11D20501&tmFc=${AFTER3}`
+    )
+    .then((res) => {
+      const result = res.data.response.body.items.item[0];
+      set(data, `day3.minTemperature`, result.taMin3);
+      set(data, `day3.maxTemperature`, result.taMax3);
+      set(data, `day4.minTemperature`, result.taMin4);
+      set(data, `day4.maxTemperature`, result.taMax4);
+      set(data, `day5.minTemperature`, result.taMin5);
+      set(data, `day5.maxTemperature`, result.taMax5);
+      set(data, `day6.minTemperature`, result.taMin6);
+      set(data, `day6.maxTemperature`, result.taMax6);
+      set(data, `day7.minTemperature`, result.taMin7);
+      set(data, `day7.maxTemperature`, result.taMax7);
+    });
 
-  await axios.get(`http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=100&pageNo=1&dataType=json&regId=11B00000&tmFc=${AFTER3}`).then((res) => {
-    const result = res.data.response.body.items.item[0];
-    set(data, "day3.skyAm", result.wf3Am);
-    set(data, "day3.skyPm", result.wf3Pm);
-    set(data, "day4.skyAm", result.wf4Am);
-    set(data, "day4.skyPm", result.wf4Pm);
-    set(data, "day5.skyAm", result.wf5Am);
-    set(data, "day5.skyPm", result.wf5Pm);
-    set(data, "day6.skyAm", result.wf6Am);
-    set(data, "day6.skyPm", result.wf6Pm);
-    set(data, "day7.skyAm", result.wf7Am);
-    set(data, "day7.skyPm", result.wf7Pm);
-  });
+  await axios
+    .get(
+      `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=100&pageNo=1&dataType=json&regId=11B00000&tmFc=${AFTER3}`
+    )
+    .then((res) => {
+      const result = res.data.response.body.items.item[0];
+      set(data, "day3.skyAm", result.wf3Am);
+      set(data, "day3.skyPm", result.wf3Pm);
+      set(data, "day4.skyAm", result.wf4Am);
+      set(data, "day4.skyPm", result.wf4Pm);
+      set(data, "day5.skyAm", result.wf5Am);
+      set(data, "day5.skyPm", result.wf5Pm);
+      set(data, "day6.skyAm", result.wf6Am);
+      set(data, "day6.skyPm", result.wf6Pm);
+      set(data, "day7.skyAm", result.wf7Am);
+      set(data, "day7.skyPm", result.wf7Pm);
+    });
 
   set(data, "day1.skyAm", changeValue(get(data, "day1.skyValueAm"), get(data, "day1.ptyValueAm")));
   set(data, "day1.skyPm", changeValue(get(data, "day1.skyValuePm"), get(data, "day1.ptyValuePm")));
   set(data, "day2.skyAm", changeValue(get(data, "day2.skyValueAm"), get(data, "day2.ptyValueAm")));
   set(data, "day2.skyPm", changeValue(get(data, "day2.skyValuePm"), get(data, "day2.ptyValuePm")));
 
-  const result = omit(data, ["day1.minTemperatureTime", "day1.maxTemperatureTime", "day1.ptyValueAm", "day1.skyValueAm", "day1.ptyValuePm", "day1.skyValuePm", "day2.minTemperatureTime", "day2.maxTemperatureTime", "day2.ptyValueAm", "day2.skyValueAm", "day2.ptyValuePm", "day2.skyValuePm"]);
+  const weeklyData = omit(data, [
+    "day1.minTemperatureTime",
+    "day1.maxTemperatureTime",
+    "day1.ptyValueAm",
+    "day1.skyValueAm",
+    "day1.ptyValuePm",
+    "day1.skyValuePm",
+    "day2.minTemperatureTime",
+    "day2.maxTemperatureTime",
+    "day2.ptyValueAm",
+    "day2.skyValueAm",
+    "day2.ptyValuePm",
+    "day2.skyValuePm",
+  ]) as ResultWeeklyDataProps["weeklyData"];
 
-  return result as ResultWeeklyDataProps;
+  console.log(hourlyData);
+
+  return { weeklyData, hourlyData };
 };

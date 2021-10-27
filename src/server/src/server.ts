@@ -1,13 +1,6 @@
 import { env } from "~/common";
 import { migrationLocate } from "~/database";
-import {
-  geolocation,
-  getAtmos,
-  getCurrentTemperature,
-  getOpenWeatherService,
-  getThreeHours,
-  getWeeklyTemperature,
-} from "~/service";
+import { geolocation, getOpenWeatherService, requestApi } from "~/service";
 import { app } from "../../index";
 
 const serverSetting = {
@@ -25,11 +18,7 @@ export const runServer = async (): Promise<void> => {
     console.log("server start!!");
     console.log(PORT);
   });
-
+  requestApi();
   geolocation();
-  getCurrentTemperature();
-  getWeeklyTemperature();
-  getThreeHours();
-  getAtmos();
   getOpenWeatherService();
 };

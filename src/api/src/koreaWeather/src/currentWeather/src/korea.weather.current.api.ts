@@ -49,7 +49,7 @@ export const currentWeather = async (): Promise<ReturnCurrentWeather> => {
    */
   await axios
     .get(
-      `http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtNcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}&nx=${
+      `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}&nx=${
         nx ? nx : 60
       }&ny=${ny ? ny : 127}`
     )
@@ -89,7 +89,7 @@ export const currentWeather = async (): Promise<ReturnCurrentWeather> => {
    */
   await axios
     .get(
-      `http://apis.data.go.kr/1360000/VilageFcstInfoService/getUltraSrtFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=50&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}&nx=${
+      `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=25&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}&nx=${
         nx ? nx : 60
       }&ny=${ny ? ny : 127}`
     )
@@ -110,7 +110,25 @@ export const currentWeather = async (): Promise<ReturnCurrentWeather> => {
    */
   await axios
     .get(
-      `http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=40&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=0200&nx=${
+      `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=25&pageNo=2&dataType=json&base_date=${BASE_DATE}&base_time=0200&nx=${
+        nx ? nx : 60
+      }&ny=${ny ? ny : 127}`
+    )
+    .then((res) => {
+      const result = res.data.response.body.items.item;
+      return result.map((item: CurrentStatusProps) => {
+        switch (item.category) {
+          case "TMN":
+            set(data, "minTemp", item.fcstValue);
+            break;
+          default:
+            break;
+        }
+      });
+    });
+  await axios
+    .get(
+      `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=25&pageNo=7&dataType=json&base_date=${BASE_DATE}&base_time=0200&nx=${
         nx ? nx : 60
       }&ny=${ny ? ny : 127}`
     )
@@ -120,9 +138,6 @@ export const currentWeather = async (): Promise<ReturnCurrentWeather> => {
         switch (item.category) {
           case "TMX":
             set(data, "maxTemp", item.fcstValue);
-            break;
-          case "TMN":
-            set(data, "minTemp", item.fcstValue);
             break;
           default:
             break;

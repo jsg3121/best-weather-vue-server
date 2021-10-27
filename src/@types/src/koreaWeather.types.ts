@@ -19,10 +19,18 @@ export type ResultDailyDataProps = {
 };
 
 export type ResultWeeklyDataProps = {
-  minTemperature: number;
-  maxTemperature: number;
-  skyAm: string;
-  skyPm: string;
+  weeklyData: {
+    minTemperature: number;
+    maxTemperature: number;
+    skyAm: string;
+    skyPm: string;
+  };
+  hourlyData: {
+    category: string;
+    fcstDate: string;
+    fcstTime: string;
+    fcstValue: string;
+  };
 };
 
 export type ResultDustDataProps = {
