@@ -18,7 +18,7 @@ export const runServer = async (): Promise<void> => {
     console.log("server start!!");
     console.log(PORT);
   });
-  requestApi();
   geolocation();
+  requestApi();
   getOpenWeatherService();
 };
