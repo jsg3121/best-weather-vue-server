@@ -1,4 +1,4 @@
-import { currentWeather, weeklyWeather } from "~/api";
+import { currentWeather, atmosStatus, weeklyWeather } from "~/api";
 import { app } from "~/index";
 
 export const requestApi = () => {
@@ -38,5 +38,20 @@ export const requestApi = () => {
     console.log(data);
     res.send(data);
     res.end();
+  });
+
+  /**
+   * ! 대기환경 정보 제공 api 요청
+   * ! dust : 미세먼지, 초미세먼지
+   * ! uv : 자외선
+   */
+  app.get("/service/atmos", async (_, res) => {
+    console.time("dust");
+    const data = await atmosStatus().then((res) => {
+      return res;
+    });
+    res.send(data);
+    res.end();
+    console.timeEnd("dust");
   });
 };

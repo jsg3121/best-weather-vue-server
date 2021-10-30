@@ -17,9 +17,15 @@ type ReturnUvData = Pick<ResultUvDataProps, "today">;
 export const uvService = async (): Promise<ReturnUvData> => {
   const BASE_DATE = getAtmosDate();
 
-  const data = await axios.get(`http://apis.data.go.kr/1360000/LivingWthrIdxService01/getUVIdx?serviceKey=${KOREA_WEATHER_API_KEY}&dataType=json&areaNo=1100000000&time=${BASE_DATE}`).then((res) => {
-    return res.data.response.body.items.item[0].today;
-  });
+  const data = await axios
+    .get(
+      `http://apis.data.go.kr/1360000/LivingWthrIdxService01/getUVIdx?serviceKey=${KOREA_WEATHER_API_KEY}&dataType=json&areaNo=1100000000&time=${BASE_DATE}`
+    )
+    .then((res) => {
+      return res.data.response.body.items.item[0].today;
+    });
+
+  console.log(data);
 
   return data;
 };

@@ -69,8 +69,6 @@ export const getWeeklyTime = (): string => {
       }
     }
   }
-  console.log("1!!@#!@$!@$!@#$");
-  console.log(result);
   return result;
 };
 

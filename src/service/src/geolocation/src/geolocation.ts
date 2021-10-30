@@ -17,9 +17,7 @@ const checkGeolocation = async (locate: LocateType): Promise<WeatherGeolocationT
   let minLon = longitude;
 
   const location: PrismaPromise<WeatherGeolocationTypes> = prisma.$queryRaw`
-  SELECT
-	*,
-	( 6371 * acos( cos( radians(${minLat}) ) * cos( radians(positionNx) ) * cos( radians(positionNy) - radians(${minLon}) ) + sin( radians(${minLat}) ) * sin( radians(positionNx) ) ) ) AS distance
+  SELECT *,	( 6371 * acos( cos( radians(${minLat}) ) * cos( radians(positionNx) ) * cos( radians(positionNy) - radians(${minLon}) ) + sin( radians(${minLat}) ) * sin( radians(positionNx) ) ) ) AS distance
   FROM
     weather_geolocation wg 
   ORDER BY distance LIMIT 1;

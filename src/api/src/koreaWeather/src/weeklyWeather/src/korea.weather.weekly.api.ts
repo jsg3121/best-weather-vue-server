@@ -60,7 +60,6 @@ export const weeklyWeather = async (): Promise<ResultWeeklyDataProps> => {
   const DATE = getWeeklyDate();
   const TIME = getWeeklyTime();
   const AFTER3 = getWeeklyDateAfter3();
-  console.log(nx, ny, TIME);
   const data = {};
   const atmos: Array<CurrentStatusProps> = [];
   /**
@@ -214,8 +213,6 @@ export const weeklyWeather = async (): Promise<ResultWeeklyDataProps> => {
     "day2.ptyValuePm",
     "day2.skyValuePm",
   ]) as ResultWeeklyDataProps["weeklyData"];
-
-  console.log(hourlyData);
 
   return { weeklyData, hourlyData };
 };
