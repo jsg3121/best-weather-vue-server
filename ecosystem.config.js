@@ -3,7 +3,6 @@ module.exports = {
     {
       name: "app",
       script: "./build/index.js",
-      max_memory_restart: "50M",
       instances: "2",
       env: {
         NODE_ENV: "development",
