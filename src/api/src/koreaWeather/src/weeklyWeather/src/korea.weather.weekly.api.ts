@@ -5,6 +5,13 @@ import { CurrentStatusProps, ResultWeeklyDataProps } from "~/@types";
 import { getWeeklyDate, getWeeklyDateAfter3, getWeeklyTime } from "~/common";
 import { KOREA_WEATHER_API_KEY } from "~/common";
 
+export type WeeklyDataProps = {
+  nx: string;
+  ny: string;
+  locationCode: string;
+  skyCode: string;
+};
+
 /**
  * ! day1, day2 대기 상태 변경
  * @param {string} sky 하늘 상태
@@ -54,9 +61,8 @@ const changeValue = (sky: string, pty: string): string => {
  *
  * @returns {Promise<ResultWeeklyDataProps>}
  */
-export const weeklyWeather = async (): Promise<ResultWeeklyDataProps> => {
-  const nx = 60;
-  const ny = 127;
+export const weeklyWeather = async (props: WeeklyDataProps): Promise<ResultWeeklyDataProps> => {
+  const { nx, ny, locationCode, skyCode } = props;
   const DATE = getWeeklyDate();
   const TIME = getWeeklyTime();
   const AFTER3 = getWeeklyDateAfter3();
@@ -160,7 +166,7 @@ export const weeklyWeather = async (): Promise<ResultWeeklyDataProps> => {
 
   await axios
     .get(
-      `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=&dataType=json&regId=11D20501&tmFc=${AFTER3}`
+      `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=&dataType=json&regId=${locationCode}&tmFc=${AFTER3}`
     )
     .then((res) => {
       const result = res.data.response.body.items.item[0];
@@ -178,7 +184,7 @@ export const weeklyWeather = async (): Promise<ResultWeeklyDataProps> => {
 
   await axios
     .get(
-      `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=100&pageNo=1&dataType=json&regId=11B00000&tmFc=${AFTER3}`
+      `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=100&pageNo=1&dataType=json&regId=${skyCode}&tmFc=${AFTER3}`
     )
     .then((res) => {
       const result = res.data.response.body.items.item[0];

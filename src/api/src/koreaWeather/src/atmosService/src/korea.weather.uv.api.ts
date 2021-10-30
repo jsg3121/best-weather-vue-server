@@ -25,7 +25,5 @@ export const uvService = async (): Promise<ReturnUvData> => {
       return res.data.response.body.items.item[0].today;
     });
 
-  console.log(data);
-
   return data;
 };
