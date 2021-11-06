@@ -2,8 +2,7 @@ import axios from "axios";
 import dayjs from "dayjs";
 import { get, omit, set } from "lodash";
 import { CurrentStatusProps, ResultWeeklyDataProps } from "~/@types";
-import { getWeeklyDate, getWeeklyDateAfter3, getWeeklyTime } from "~/common";
-import { KOREA_WEATHER_API_KEY } from "~/common";
+import { getWeeklyDate, getWeeklyDateAfter3, getWeeklyTime, KOREA_WEATHER_API_KEY } from "~/common";
 
 export type WeeklyDataProps = {
   nx: string;
@@ -12,43 +11,43 @@ export type WeeklyDataProps = {
   skyCode: string;
 };
 
-/**
- * ! day1, day2 대기 상태 변경
- * @param {string} sky 하늘 상태
- * @param {string} pty 강수 상태
- * @returns {string}
- */
-const changeValue = (sky: string, pty: string): string => {
-  switch (pty) {
-    case "0":
-      switch (sky) {
-        case "0":
-          return "맑음";
-        case "3":
-          return "구름 많음";
-        case "4":
-          return "흐림";
-        default:
-          return "구름 많음";
-      }
-    case "1":
-      return "비";
-    case "2":
-      return "비";
-    case "3":
-      return "눈";
-    case "4":
-      return "비";
-    case "5":
-      return "비";
-    case "6":
-      return "비";
-    case "7":
-      return "눈";
-    default:
-      return "";
-  }
-};
+// /**
+//  * ! day1, day2 대기 상태 변경
+//  * @param {string} sky 하늘 상태
+//  * @param {string} pty 강수 상태
+//  * @returns {string}
+//  */
+// const changeValue = (sky: string, pty: string): string => {
+//   switch (pty) {
+//     case "0":
+//       switch (sky) {
+//         case "0":
+//           return "맑음";
+//         case "3":
+//           return "구름 많음";
+//         case "4":
+//           return "흐림";
+//         default:
+//           return "구름 많음";
+//       }
+//     case "1":
+//       return "비";
+//     case "2":
+//       return "비";
+//     case "3":
+//       return "눈";
+//     case "4":
+//       return "비";
+//     case "5":
+//       return "비";
+//     case "6":
+//       return "비";
+//     case "7":
+//       return "눈";
+//     default:
+//       return "";
+//   }
+// };
 
 /**
  * ! 주간 기상 정보 데이터 요청
@@ -65,70 +64,169 @@ export const weeklyWeather = async (props: WeeklyDataProps): Promise<ResultWeekl
   const { nx, ny, locationCode, skyCode } = props;
   const DATE = getWeeklyDate();
   const TIME = getWeeklyTime();
+
   const AFTER3 = getWeeklyDateAfter3();
   const data = {};
   const atmos: Array<CurrentStatusProps> = [];
+  console.log(AFTER3, locationCode, skyCode, nx, ny);
+
   /**
    * ! 주간 기온 요청 api
    * ! 00시 ~ 5시 이전이면 전날 23시에서 요청
    * ! 그 외의 경우는 현재 시간에서 요청 가능
    */
-  const tomorrowData = await axios
-    .get(
-      `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=1000&pageNo=1&dataType=json&base_date=${DATE}&base_time=${TIME}&nx=${nx}&ny=${ny}`
-      // `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=422JryGS9%2B676hcl7wOZ4jh5de2s99vCJr2NcRWV4YXkv9nQP8C0BFGDPVlBt55Fyy5VMJh%2ByRYBMkV%2BcciYZg%3D%3D&numOfRows=1000&pageNo=1&dataType=json&base_date=20211027&base_time=0200&nx=60&ny=127`
-    )
-    .then((res) => {
-      return res.data.response.body.items.item;
+  // const tomorrowData = await axios
+  //   .get(
+  //     `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=1&dataType=json&base_date=${DATE}&base_time=${TIME}&nx=${nx}&ny=${ny}`
+  //     // `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=422JryGS9%2B676hcl7wOZ4jh5de2s99vCJr2NcRWV4YXkv9nQP8C0BFGDPVlBt55Fyy5VMJh%2ByRYBMkV%2BcciYZg%3D%3D&numOfRows=1000&pageNo=1&dataType=json&base_date=20211027&base_time=0200&nx=60&ny=127`
+  //   )
+  //   .then((res) => {
+  //     console.table(res.data.response.body.items.item);
+  //     return res.data.response.body.items.item;
+  //   });
+
+  // for (let i = 0; i < 10; i++) {
+  //   axios
+  //     .get(
+  //       `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=1&dataType=json&base_date=20211106&base_time=0500&nx=${nx}&ny=${ny}`
+  //       // `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=1000&pageNo=1&dataType=json&base_date=${DATE}&base_time=${TIME}&nx=${nx}&ny=${ny}`
+  //       // `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=422JryGS9%2B676hcl7wOZ4jh5de2s99vCJr2NcRWV4YXkv9nQP8C0BFGDPVlBt55Fyy5VMJh%2ByRYBMkV%2BcciYZg%3D%3D&numOfRows=1000&pageNo=1&dataType=json&base_date=20211027&base_time=0200&nx=60&ny=127`
+  //     )
+  //     .then((res) => {
+  //       console.table(res.data.response.body.items.item);
+  //       return res.data.response.body.items.item;
+  //     });
+  // }
+
+  // /**
+  //  * ! 3시간 단위 예보
+  //  *
+  //  * * ***Return data options***
+  //  * - PTY : 강수 형태 (비, 눈 등)
+  //  * - SKY : 하늘 상태
+  //  * - TMP : 1시간 기온
+  //  */
+  // const hourlyData = tomorrowData
+  //   .filter((item: CurrentStatusProps) => {
+  //     return item.category === "PTY" || item.category === "SKY" || item.category === "TMP";
+  //   })
+  //   .map((item: CurrentStatusProps) => {
+  //     return omit(item, ["baseDate", "baseTime", "nx", "ny"]);
+  //   });
+  const hourlyData = {
+    category: "string",
+    fcstDate: "string",
+    fcstTime: "string",
+    fcstValue: "string",
+  };
+
+  const timeData = {
+    time02: [448, 339, 738, 629],
+    time05: [411, 302, 701, 592],
+    time08: [375, 266, 665, 556],
+    time11: [339, 230, 629, 520],
+    time14: [302, 193, 592, 483],
+    time17: [266, 157, 556, 447],
+    time20: [230, 121, 520, 411],
+    time23: [194, 85, 484, 374],
+  };
+
+  const getApiData = async (val: number): Promise<CurrentStatusProps> => {
+    return await axios
+      .get(
+        `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=1&pageNo=${val}&dataType=json&base_date=${DATE}&base_time=${TIME}&nx=${nx}&ny=${ny}`
+      )
+      .then((res) => {
+        return res.data.response.body.items.item[0];
+      });
+  };
+
+  const getData = async (data: Array<number>): Promise<Array<CurrentStatusProps>> => {
+    const addArray = (arr) => {
+      for (const i of arr) {
+        console.log(arr[i]);
+      }
+    };
+    addArray(data);
+    const result = await Promise.all([
+      getApiData(data[0]),
+      getApiData(data[1]),
+      getApiData(data[2]),
+      getApiData(data[3]),
+      getApiData(data[4]),
+      getApiData(data[5]),
+      getApiData(data[6]),
+      getApiData(data[7]),
+      getApiData(data[8]),
+      getApiData(data[9]),
+      getApiData(data[10]),
+      getApiData(data[11]),
+    ]).then((res) => {
+      return res;
     });
 
-  /**
-   * ! 3시간 단위 예보
-   *
-   * * ***Return data options***
-   * - PTY : 강수 형태 (비, 눈 등)
-   * - SKY : 하늘 상태
-   * - T3H : 3시간 기온
-   */
-  const hourlyData = tomorrowData
-    .filter((item: CurrentStatusProps) => {
-      return item.category === "PTY" || item.category === "SKY" || item.category === "TMP";
-    })
-    .map((item: CurrentStatusProps) => {
-      return omit(item, ["baseDate", "baseTime", "nx", "ny"]);
-    });
+    return result;
+  };
 
-  for (let i = 0; i < tomorrowData.length; i++) {
-    if (tomorrowData[i].fcstDate === dayjs(DATE).add(1, "day").format("YYYYMMDD")) {
-      if (tomorrowData[i].category === "TMN") {
-        set(data, "day1.minTemperature", parseInt(tomorrowData[i].fcstValue, 10));
-        set(data, "day1.minTemperatureTime", tomorrowData[i].fcstTime);
-      } else if (tomorrowData[i].category === "TMX") {
-        set(data, "day1.maxTemperature", parseInt(tomorrowData[i].fcstValue, 10));
-        set(data, "day1.maxTemperatureTime", tomorrowData[i].fcstTime);
-      }
-      if (
-        (tomorrowData[i].fcstTime === "0600" || tomorrowData[i].fcstTime === "1500") &&
-        (tomorrowData[i].category === "SKY" || tomorrowData[i].category === "PTY")
-      ) {
-        atmos.push(tomorrowData[i]);
-      }
-    } else if (tomorrowData[i].fcstDate === dayjs(DATE).add(2, "day").format("YYYYMMDD")) {
-      if (tomorrowData[i].category === "TMN") {
-        set(data, "day2.minTemperature", parseInt(tomorrowData[i].fcstValue, 10));
-        set(data, "day2.minTemperatureTime", tomorrowData[i].fcstTime);
-      } else if (tomorrowData[i].category === "TMX") {
-        set(data, "day2.maxTemperature", parseInt(tomorrowData[i].fcstValue, 10));
-        set(data, "day2.maxTemperatureTime", tomorrowData[i].fcstTime);
-      }
-      if (
-        (tomorrowData[i].fcstTime === "0600" || tomorrowData[i].fcstTime === "1500") &&
-        (tomorrowData[i].category === "SKY" || tomorrowData[i].category === "PTY")
-      ) {
-        atmos.push(tomorrowData[i]);
-      }
+  const getDayInfo = async (time: string) => {
+    switch (time) {
+      case "0200":
+        return await getData(timeData.time02);
+      case "0500":
+        return await getData(timeData.time05);
+      case "0800":
+        return await getData(timeData.time08);
+      case "1100":
+        return await getData(timeData.time11);
+      case "1400":
+        return await getData(timeData.time14);
+      case "1700":
+        return await getData(timeData.time17);
+      case "2000":
+        return await getData(timeData.time20);
+      case "2300":
+        return await getData(timeData.time23);
+      default:
+        return;
     }
-  }
+  };
+
+  console.log(await getDayInfo(TIME));
+
+  // /**
+  //  * ! 주간 기상 정보
+  //  */
+  // for (let i = 0; i < tomorrowData.length; i++) {
+  //   if (tomorrowData[i].fcstDate === dayjs(DATE).add(1, "day").format("YYYYMMDD")) {
+  //     if (tomorrowData[i].category === "TMN") {
+  //       set(data, "day1.minTemperature", parseInt(tomorrowData[i].fcstValue, 10));
+  //       set(data, "day1.minTemperatureTime", tomorrowData[i].fcstTime);
+  //     } else if (tomorrowData[i].category === "TMX") {
+  //       set(data, "day1.maxTemperature", parseInt(tomorrowData[i].fcstValue, 10));
+  //       set(data, "day1.maxTemperatureTime", tomorrowData[i].fcstTime);
+  //     }
+  //     if (
+  //       (tomorrowData[i].fcstTime === "0600" || tomorrowData[i].fcstTime === "1500") &&
+  //       (tomorrowData[i].category === "SKY" || tomorrowData[i].category === "PTY")
+  //     ) {
+  //       atmos.push(tomorrowData[i]);
+  //     }
+  //   } else if (tomorrowData[i].fcstDate === dayjs(DATE).add(2, "day").format("YYYYMMDD")) {
+  //     if (tomorrowData[i].category === "TMN") {
+  //       set(data, "day2.minTemperature", parseInt(tomorrowData[i].fcstValue, 10));
+  //       set(data, "day2.minTemperatureTime", tomorrowData[i].fcstTime);
+  //     } else if (tomorrowData[i].category === "TMX") {
+  //       set(data, "day2.maxTemperature", parseInt(tomorrowData[i].fcstValue, 10));
+  //       set(data, "day2.maxTemperatureTime", tomorrowData[i].fcstTime);
+  //     }
+  //     if (
+  //       (tomorrowData[i].fcstTime === "0600" || tomorrowData[i].fcstTime === "1500") &&
+  //       (tomorrowData[i].category === "SKY" || tomorrowData[i].category === "PTY")
+  //     ) {
+  //       atmos.push(tomorrowData[i]);
+  //     }
+  //   }
+  // }
 
   atmos.map((item: CurrentStatusProps) => {
     if (item.fcstDate === dayjs(DATE).add(1, "day").format("YYYYMMDD")) {
@@ -164,46 +262,46 @@ export const weeklyWeather = async (props: WeeklyDataProps): Promise<ResultWeekl
     }
   });
 
-  await axios
-    .get(
-      `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=&dataType=json&regId=${locationCode}&tmFc=${AFTER3}`
-    )
-    .then((res) => {
-      const result = res.data.response.body.items.item[0];
-      set(data, `day3.minTemperature`, result.taMin3);
-      set(data, `day3.maxTemperature`, result.taMax3);
-      set(data, `day4.minTemperature`, result.taMin4);
-      set(data, `day4.maxTemperature`, result.taMax4);
-      set(data, `day5.minTemperature`, result.taMin5);
-      set(data, `day5.maxTemperature`, result.taMax5);
-      set(data, `day6.minTemperature`, result.taMin6);
-      set(data, `day6.maxTemperature`, result.taMax6);
-      set(data, `day7.minTemperature`, result.taMin7);
-      set(data, `day7.maxTemperature`, result.taMax7);
-    });
+  // await axios
+  //   .get(
+  //     `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=&dataType=json&regId=${locationCode}&tmFc=${AFTER3}`
+  //   )
+  //   .then((res) => {
+  //     const result = res.data.response.body.items.item[0];
+  //     set(data, `day3.minTemperature`, result.taMin3);
+  //     set(data, `day3.maxTemperature`, result.taMax3);
+  //     set(data, `day4.minTemperature`, result.taMin4);
+  //     set(data, `day4.maxTemperature`, result.taMax4);
+  //     set(data, `day5.minTemperature`, result.taMin5);
+  //     set(data, `day5.maxTemperature`, result.taMax5);
+  //     set(data, `day6.minTemperature`, result.taMin6);
+  //     set(data, `day6.maxTemperature`, result.taMax6);
+  //     set(data, `day7.minTemperature`, result.taMin7);
+  //     set(data, `day7.maxTemperature`, result.taMax7);
+  //   });
 
-  await axios
-    .get(
-      `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=100&pageNo=1&dataType=json&regId=${skyCode}&tmFc=${AFTER3}`
-    )
-    .then((res) => {
-      const result = res.data.response.body.items.item[0];
-      set(data, "day3.skyAm", result.wf3Am);
-      set(data, "day3.skyPm", result.wf3Pm);
-      set(data, "day4.skyAm", result.wf4Am);
-      set(data, "day4.skyPm", result.wf4Pm);
-      set(data, "day5.skyAm", result.wf5Am);
-      set(data, "day5.skyPm", result.wf5Pm);
-      set(data, "day6.skyAm", result.wf6Am);
-      set(data, "day6.skyPm", result.wf6Pm);
-      set(data, "day7.skyAm", result.wf7Am);
-      set(data, "day7.skyPm", result.wf7Pm);
-    });
+  // await axios
+  //   .get(
+  //     `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=100&pageNo=1&dataType=json&regId=${skyCode}&tmFc=${AFTER3}`
+  //   )
+  //   .then((res) => {
+  //     const result = res.data.response.body.items.item[0];
+  //     set(data, "day3.skyAm", result.wf3Am);
+  //     set(data, "day3.skyPm", result.wf3Pm);
+  //     set(data, "day4.skyAm", result.wf4Am);
+  //     set(data, "day4.skyPm", result.wf4Pm);
+  //     set(data, "day5.skyAm", result.wf5Am);
+  //     set(data, "day5.skyPm", result.wf5Pm);
+  //     set(data, "day6.skyAm", result.wf6Am);
+  //     set(data, "day6.skyPm", result.wf6Pm);
+  //     set(data, "day7.skyAm", result.wf7Am);
+  //     set(data, "day7.skyPm", result.wf7Pm);
+  //   });
 
-  set(data, "day1.skyAm", changeValue(get(data, "day1.skyValueAm"), get(data, "day1.ptyValueAm")));
-  set(data, "day1.skyPm", changeValue(get(data, "day1.skyValuePm"), get(data, "day1.ptyValuePm")));
-  set(data, "day2.skyAm", changeValue(get(data, "day2.skyValueAm"), get(data, "day2.ptyValueAm")));
-  set(data, "day2.skyPm", changeValue(get(data, "day2.skyValuePm"), get(data, "day2.ptyValuePm")));
+  // set(data, "day1.skyAm", changeValue(get(data, "day1.skyValueAm"), get(data, "day1.ptyValueAm")));
+  // set(data, "day1.skyPm", changeValue(get(data, "day1.skyValuePm"), get(data, "day1.ptyValuePm")));
+  // set(data, "day2.skyAm", changeValue(get(data, "day2.skyValueAm"), get(data, "day2.ptyValueAm")));
+  // set(data, "day2.skyPm", changeValue(get(data, "day2.skyValuePm"), get(data, "day2.ptyValuePm")));
 
   const weeklyData = omit(data, [
     "day1.minTemperatureTime",

@@ -20,13 +20,11 @@ type ReutrnThreeHours = {
  */
 export const hourlyData = (data: ThreeHoursData): Array<ReutrnThreeHours> => {
   const hourly: Array<ReutrnThreeHours> = [];
-  data.map((item, idx: number) => {
-    if (idx % 3 === 1) {
-      hourly.push({
-        sky: item.weather[0].description,
-        temp: item.temp,
-      });
-    }
+  data.map((item) => {
+    hourly.push({
+      sky: item.weather[0].description,
+      temp: item.temp,
+    });
   });
 
   return hourly;
