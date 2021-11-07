@@ -1,4 +1,4 @@
-export type CurrentStatusProps = {
+export type ApiResponseData = {
   baseDate: string;
   baseTime: string;
   category: string;

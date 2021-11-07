@@ -1,6 +1,6 @@
 import axios from "axios";
 import { set } from "lodash";
-import { ResultDailyDataProps, CurrentStatusProps } from "~/@types";
+import { ResultDailyDataProps, ApiResponseData } from "~/@types";
 import { getCurrentDate, getCurrentTime } from "~/common";
 import { KOREA_WEATHER_API_KEY } from "~/common";
 
@@ -95,7 +95,7 @@ export const currentWeather = async (props: CurrentDataProps): Promise<ReturnCur
     )
     .then((res) => {
       const result = res.data.response.body.items.item;
-      const sky = result.filter((list: CurrentStatusProps) => {
+      const sky = result.filter((list: ApiResponseData) => {
         return list.category === "SKY";
       });
       set(data, "sky", sky[0].fcstValue);
@@ -114,7 +114,7 @@ export const currentWeather = async (props: CurrentDataProps): Promise<ReturnCur
     )
     .then((res) => {
       const result = res.data.response.body.items.item;
-      return result.map((item: CurrentStatusProps) => {
+      return result.map((item: ApiResponseData) => {
         switch (item.category) {
           case "TMN":
             set(data, "minTemp", item.fcstValue);
@@ -130,7 +130,7 @@ export const currentWeather = async (props: CurrentDataProps): Promise<ReturnCur
     )
     .then((res) => {
       const result = res.data.response.body.items.item;
-      return result.map((item: CurrentStatusProps) => {
+      return result.map((item: ApiResponseData) => {
         switch (item.category) {
           case "TMX":
             set(data, "maxTemp", item.fcstValue);
