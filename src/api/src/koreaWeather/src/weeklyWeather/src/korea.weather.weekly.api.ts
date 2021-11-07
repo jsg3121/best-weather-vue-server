@@ -90,9 +90,9 @@ export const weeklyWeather = async (props: WeeklyDataProps): Promise<ResultWeekl
    * - SKY : 하늘 상태 ---> 17번부터 시작 12개씩
    * - TMP : 1시간 기온 --> 0번부터 12개씩
    */
-  const getHourlyData = async (): Promise<Array<ApiResponseData>> => {
+  const getHourlyData = async (): Promise<ResultWeeklyDataProps["hourlyData"]> => {
     const arr = new Array<number>(48).fill(0);
-    const data: Array<ApiResponseData> = [];
+    const data = new Array();
     await Promise.all(
       arr.map(async (_, index) => {
         const res = await axios.get(
@@ -130,11 +130,10 @@ export const weeklyWeather = async (props: WeeklyDataProps): Promise<ResultWeekl
           return 0;
         }
       });
-    console.table(data);
-    return data;
+    return data as ResultWeeklyDataProps["hourlyData"];
   };
 
-  await getHourlyData();
+  const hourlyData = await getHourlyData();
 
   /**
    * ! 데이터 요청
@@ -334,11 +333,5 @@ export const weeklyWeather = async (props: WeeklyDataProps): Promise<ResultWeekl
     "day2.skyValuePm",
   ]) as ResultWeeklyDataProps["weeklyData"];
 
-  const hourlyData = {
-    category: "string;",
-    fcstDate: "string;",
-    fcstTime: "string;",
-    fcstValue: " string;",
-  };
   return { weeklyData, hourlyData };
 };
