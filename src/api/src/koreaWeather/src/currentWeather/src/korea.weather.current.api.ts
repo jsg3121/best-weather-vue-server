@@ -65,8 +65,8 @@ export const currentWeather = async (props: CurrentDataProps): Promise<ReturnCur
           case "REH":
             set(data, "humidity", item.obsrValue);
             break;
-          case "RN1":
-            set(data, "precipitation", item.obsrValue);
+          case "PTY":
+            set(data, "pty", item.obsrValue);
             break;
           case "VEC":
             set(data, "windDirection", item.obsrValue);
