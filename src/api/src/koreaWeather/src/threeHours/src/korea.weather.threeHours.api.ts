@@ -1,10 +1,10 @@
 import axios from "axios";
 import { omit } from "lodash";
-import { CurrentStatusProps } from "~/@types";
+import { ApiResponseData } from "~/@types";
 import { changDateFormThreeHoursTime, getCurrentDate } from "~/common";
 import { KOREA_WEATHER_API_KEY } from "~/common";
 
-type ReturnDataType = Array<Omit<CurrentStatusProps, "baseDate" | "baseTime" | "nx" | "ny">>;
+type ReturnDataType = Array<Omit<ApiResponseData, "baseDate" | "baseTime" | "nx" | "ny">>;
 
 /**
  * ! 3시간 단위 예보
@@ -29,12 +29,12 @@ export const threeHours = async (): Promise<ReturnDataType> => {
       }&ny=${ny ? ny : 127}`
     )
     .then((res) => {
-      return res.data.response.body.items.item.filter((item: CurrentStatusProps) => {
+      return res.data.response.body.items.item.filter((item: ApiResponseData) => {
         return item.category === "PTY" || item.category === "SKY" || item.category === "TMP";
       });
     })
     .then((res) => {
-      const output: ReturnDataType = res.map((item: CurrentStatusProps) => {
+      const output: ReturnDataType = res.map((item: ApiResponseData) => {
         return omit(item, ["baseDate", "baseTime", "nx", "ny"]);
       });
 

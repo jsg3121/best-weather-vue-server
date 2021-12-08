@@ -53,7 +53,7 @@ export const atmosStatus = async (): Promise<ReturnAtmosData> => {
 
   const uv: ReturnUvData = await axios
     .get(
-      `http://apis.data.go.kr/1360000/LivingWthrIdxService01/getUVIdx?serviceKey=${KOREA_WEATHER_API_KEY}&dataType=json&areaNo=1100000000&time=${BASE_DATE}`
+      `http://apis.data.go.kr/1360000/LivingWthrIdxServiceV2/getUVIdxV2?serviceKey=${KOREA_WEATHER_API_KEY}&dataType=json&areaNo=1100000000&time=${BASE_DATE}`
     )
     .then((res) => {
       return res.data.response.body.items.item[0].today;

@@ -1,7 +1,7 @@
 import axios from "axios";
 import dayjs from "dayjs";
 import { get, omit, set } from "lodash";
-import { CurrentStatusProps, ResultWeeklyDataProps } from "~/@types";
+import { ApiResponseData, ResultWeeklyDataProps } from "~/@types";
 import { getWeeklyDate, getWeeklyDateAfter3, getWeeklyTime, KOREA_WEATHER_API_KEY } from "~/common";
 
 export type WeeklyDataProps = {
@@ -51,6 +51,8 @@ const changeValue = (sky: string, pty: string): string => {
 
 /**
  * ! 주간 기상 정보 데이터 요청
+ * ! 00시 ~ 5시 이전이면 전날 23시에서 요청
+ * ! 그 외의 경우는 현재 시간에서 요청 가능
  * * ***Return data options***
  *
  * - minTemperature: 최저기온
@@ -67,58 +69,7 @@ export const weeklyWeather = async (props: WeeklyDataProps): Promise<ResultWeekl
 
   const AFTER3 = getWeeklyDateAfter3();
   const data = {};
-  const atmos: Array<CurrentStatusProps> = [];
-  console.log(AFTER3, locationCode, skyCode, nx, ny);
-
-  /**
-   * ! 주간 기온 요청 api
-   * ! 00시 ~ 5시 이전이면 전날 23시에서 요청
-   * ! 그 외의 경우는 현재 시간에서 요청 가능
-   */
-  // const tomorrowData = await axios
-  //   .get(
-  //     `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=1&dataType=json&base_date=${DATE}&base_time=${TIME}&nx=${nx}&ny=${ny}`
-  //     // `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=422JryGS9%2B676hcl7wOZ4jh5de2s99vCJr2NcRWV4YXkv9nQP8C0BFGDPVlBt55Fyy5VMJh%2ByRYBMkV%2BcciYZg%3D%3D&numOfRows=1000&pageNo=1&dataType=json&base_date=20211027&base_time=0200&nx=60&ny=127`
-  //   )
-  //   .then((res) => {
-  //     console.table(res.data.response.body.items.item);
-  //     return res.data.response.body.items.item;
-  //   });
-
-  // for (let i = 0; i < 10; i++) {
-  //   axios
-  //     .get(
-  //       `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=1&dataType=json&base_date=20211106&base_time=0500&nx=${nx}&ny=${ny}`
-  //       // `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=1000&pageNo=1&dataType=json&base_date=${DATE}&base_time=${TIME}&nx=${nx}&ny=${ny}`
-  //       // `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=422JryGS9%2B676hcl7wOZ4jh5de2s99vCJr2NcRWV4YXkv9nQP8C0BFGDPVlBt55Fyy5VMJh%2ByRYBMkV%2BcciYZg%3D%3D&numOfRows=1000&pageNo=1&dataType=json&base_date=20211027&base_time=0200&nx=60&ny=127`
-  //     )
-  //     .then((res) => {
-  //       console.table(res.data.response.body.items.item);
-  //       return res.data.response.body.items.item;
-  //     });
-  // }
-
-  // /**
-  //  * ! 3시간 단위 예보
-  //  *
-  //  * * ***Return data options***
-  //  * - PTY : 강수 형태 (비, 눈 등)
-  //  * - SKY : 하늘 상태
-  //  * - TMP : 1시간 기온
-  //  */
-  // const hourlyData = tomorrowData
-  //   .filter((item: CurrentStatusProps) => {
-  //     return item.category === "PTY" || item.category === "SKY" || item.category === "TMP";
-  //   })
-  //   .map((item: CurrentStatusProps) => {
-  //     return omit(item, ["baseDate", "baseTime", "nx", "ny"]);
-  //   });
-  const hourlyData = {
-    category: "string",
-    fcstDate: "string",
-    fcstTime: "string",
-    fcstValue: "string",
-  };
+  const atmos: Array<ApiResponseData> = [];
 
   const timeData = {
     time02: [448, 339, 738, 629],
@@ -131,46 +82,104 @@ export const weeklyWeather = async (props: WeeklyDataProps): Promise<ResultWeekl
     time23: [194, 85, 484, 374],
   };
 
-  const getApiData = async (val: number): Promise<CurrentStatusProps> => {
+  /**
+   * ! 3시간 단위 예보
+   *
+   * * ***Return data options***
+   * - PTY : 강수 형태 (비, 눈 등) ---> 18부터 시작 --> 12개씩
+   * - SKY : 하늘 상태 ---> 17번부터 시작 12개씩
+   * - TMP : 1시간 기온 --> 0번부터 12개씩
+   */
+  const getHourlyData = async (): Promise<ResultWeeklyDataProps["hourlyData"]> => {
+    const arr = new Array<number>(48).fill(0);
+    const data = new Array();
+    await Promise.all(
+      arr.map(async (_, index) => {
+        const res = await axios.get(
+          `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=${
+            index + 1
+          }&dataType=json&base_date=${DATE}&base_time=${TIME}&nx=${nx}&ny=${ny}`
+        );
+
+        const filter = res.data.response.body.items.item
+          .filter((item: ApiResponseData) => {
+            return item.category === "PTY" || item.category === "SKY" || item.category === "TMP";
+          })
+          .map((item: ApiResponseData) => {
+            return omit(item, ["baseDate", "baseTime", "nx", "ny"]);
+          });
+        return data.push(...filter);
+      })
+    );
+    data
+      .sort((a, b) => {
+        if (a.fcstTime > b.fcstTime) {
+          return 1;
+        } else if (a.fcstTime < b.fcstTime) {
+          return -1;
+        } else {
+          return 0;
+        }
+      })
+      .sort((a, b) => {
+        if (a.fcstDate > b.fcstDate) {
+          return 1;
+        } else if (a.fcstDate < b.fcstDate) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+    return data as ResultWeeklyDataProps["hourlyData"];
+  };
+
+  const hourlyData = await getHourlyData();
+
+  /**
+   * ! 데이터 요청
+   * @param {number} val 데이터 인덱스
+   * @returns {Promise<ApiResponseData>}
+   */
+  const getApiData = async (val: number): Promise<ApiResponseData> => {
     return await axios
       .get(
         `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=1&pageNo=${val}&dataType=json&base_date=${DATE}&base_time=${TIME}&nx=${nx}&ny=${ny}`
       )
       .then((res) => {
-        console.table(res.data.response.body.items.item[0]);
         return res.data.response.body.items.item[0];
       });
   };
 
-  const getData = async (data: Array<number>): Promise<Array<CurrentStatusProps>> => {
-    const addArray = (arr) => {
+  /**
+   * ! 시간대별 다른 인덱스에 맞춰 Sky, Pty 데이터 인덱스 계산하여 배열 추가
+   * ! api 요청 일괄 적으로 요청 후 Return
+   */
+  const getData = async (data: Array<number>): Promise<Array<ApiResponseData>> => {
+    const addArray = (arr: number[]) => {
       for (let i = 0; i < 4; i++) {
         arr.push(arr[i] - 6);
         arr.push(arr[i] - 7);
       }
     };
     addArray(data);
-    const result = await Promise.all([
-      getApiData(data[0]),
-      getApiData(data[1]),
-      getApiData(data[2]),
-      getApiData(data[3]),
-      getApiData(data[4]),
-      getApiData(data[5]),
-      getApiData(data[6]),
-      getApiData(data[7]),
-      getApiData(data[8]),
-      getApiData(data[9]),
-      getApiData(data[10]),
-      getApiData(data[11]),
-    ]).then((res) => {
+    const result = await Promise.all(
+      data.map((item) => {
+        return getApiData(item);
+      })
+    ).then((res) => {
       return res;
     });
 
     return result;
   };
 
-  const getDayInfo = async (time: string) => {
+  /**
+   * ! 시간별로 필요 인덱스 데이터만 요청
+   *
+   * @param {string} time 요청 시간
+   * @returns {Promise<Array<ApiResponseData>>}
+   */
+  const getDayInfo = async (time: string): Promise<Array<ApiResponseData>> => {
     switch (time) {
       case "0200":
         return await getData(timeData.time02);
@@ -230,9 +239,7 @@ export const weeklyWeather = async (props: WeeklyDataProps): Promise<ResultWeekl
     }
   }
 
-  console.log(atmos);
-
-  atmos.map((item: CurrentStatusProps) => {
+  atmos.map((item: ApiResponseData) => {
     if (item.fcstDate === dayjs(DATE).add(1, "day").format("YYYYMMDD")) {
       if (item.fcstTime === get(data, "day1.minTemperatureTime")) {
         if (item.category === "SKY") {
@@ -266,45 +273,45 @@ export const weeklyWeather = async (props: WeeklyDataProps): Promise<ResultWeekl
     }
   });
 
-  // await axios
-  //   .get(
-  //     `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=&dataType=json&regId=${
-  //       locationCode ? locationCode : "11D20501"
-  //     }&tmFc=${AFTER3}`
-  //   )
-  //   .then((res) => {
-  //     const result = res.data.response.body.items.item[0];
-  //     set(data, `day3.minTemperature`, result.taMin3);
-  //     set(data, `day3.maxTemperature`, result.taMax3);
-  //     set(data, `day4.minTemperature`, result.taMin4);
-  //     set(data, `day4.maxTemperature`, result.taMax4);
-  //     set(data, `day5.minTemperature`, result.taMin5);
-  //     set(data, `day5.maxTemperature`, result.taMax5);
-  //     set(data, `day6.minTemperature`, result.taMin6);
-  //     set(data, `day6.maxTemperature`, result.taMax6);
-  //     set(data, `day7.minTemperature`, result.taMin7);
-  //     set(data, `day7.maxTemperature`, result.taMax7);
-  //   });
+  await axios
+    .get(
+      `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=&dataType=json&regId=${
+        locationCode ? locationCode : "11D20501"
+      }&tmFc=${AFTER3}`
+    )
+    .then((res) => {
+      const result = res.data.response.body.items.item[0];
+      set(data, `day3.minTemperature`, result.taMin3);
+      set(data, `day3.maxTemperature`, result.taMax3);
+      set(data, `day4.minTemperature`, result.taMin4);
+      set(data, `day4.maxTemperature`, result.taMax4);
+      set(data, `day5.minTemperature`, result.taMin5);
+      set(data, `day5.maxTemperature`, result.taMax5);
+      set(data, `day6.minTemperature`, result.taMin6);
+      set(data, `day6.maxTemperature`, result.taMax6);
+      set(data, `day7.minTemperature`, result.taMin7);
+      set(data, `day7.maxTemperature`, result.taMax7);
+    });
 
-  // await axios
-  //   .get(
-  //     `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=100&pageNo=1&dataType=json&regId=${
-  //       skyCode ? skyCode : "11B00000"
-  //     }&tmFc=${AFTER3}`
-  //   )
-  //   .then((res) => {
-  //     const result = res.data.response.body.items.item[0];
-  //     set(data, "day3.skyAm", result.wf3Am);
-  //     set(data, "day3.skyPm", result.wf3Pm);
-  //     set(data, "day4.skyAm", result.wf4Am);
-  //     set(data, "day4.skyPm", result.wf4Pm);
-  //     set(data, "day5.skyAm", result.wf5Am);
-  //     set(data, "day5.skyPm", result.wf5Pm);
-  //     set(data, "day6.skyAm", result.wf6Am);
-  //     set(data, "day6.skyPm", result.wf6Pm);
-  //     set(data, "day7.skyAm", result.wf7Am);
-  //     set(data, "day7.skyPm", result.wf7Pm);
-  //   });
+  await axios
+    .get(
+      `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=100&pageNo=1&dataType=json&regId=${
+        skyCode ? skyCode : "11B00000"
+      }&tmFc=${AFTER3}`
+    )
+    .then((res) => {
+      const result = res.data.response.body.items.item[0];
+      set(data, "day3.skyAm", result.wf3Am);
+      set(data, "day3.skyPm", result.wf3Pm);
+      set(data, "day4.skyAm", result.wf4Am);
+      set(data, "day4.skyPm", result.wf4Pm);
+      set(data, "day5.skyAm", result.wf5Am);
+      set(data, "day5.skyPm", result.wf5Pm);
+      set(data, "day6.skyAm", result.wf6Am);
+      set(data, "day6.skyPm", result.wf6Pm);
+      set(data, "day7.skyAm", result.wf7Am);
+      set(data, "day7.skyPm", result.wf7Pm);
+    });
 
   set(data, "day1.skyAm", changeValue(get(data, "day1.skyValueAm"), get(data, "day1.ptyValueAm")));
   set(data, "day1.skyPm", changeValue(get(data, "day1.skyValuePm"), get(data, "day1.ptyValuePm")));

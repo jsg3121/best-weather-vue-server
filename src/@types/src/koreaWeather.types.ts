@@ -1,4 +1,4 @@
-export type CurrentStatusProps = {
+export type ApiResponseData = {
   baseDate: string;
   baseTime: string;
   category: string;
@@ -25,12 +25,14 @@ export type ResultWeeklyDataProps = {
     skyAm: string;
     skyPm: string;
   };
-  hourlyData: {
-    category: string;
-    fcstDate: string;
-    fcstTime: string;
-    fcstValue: string;
-  };
+  hourlyData: [
+    {
+      category: string;
+      fcstDate: string;
+      fcstTime: string;
+      fcstValue: string;
+    }
+  ];
 };
 
 export type ResultDustDataProps = {

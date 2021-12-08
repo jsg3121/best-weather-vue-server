@@ -1,1 +1,1 @@
-export * from "./src/korea.weather";
+export * from "./request.service";
