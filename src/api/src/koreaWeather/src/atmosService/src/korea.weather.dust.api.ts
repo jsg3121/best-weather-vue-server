@@ -29,13 +29,12 @@ type ReturnAtmosData = { dust: ReturnDustData; uv: ReturnUvData };
  */
 export const atmosStatus = async (payload): Promise<ReturnAtmosData> => {
   const area = payload.locationCode;
-  const locationCode = payload.skyCode;
-  const encoding = encodeURIComponent(area);
+  // const locationCode = payload.skyCode;
   const BASE_DATE = getAtmosDate();
 
   const dust: ReturnDustData = await axios
     .get(
-      `http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?sidoName=${encoding}&pageNo=1&numOfRows=40&returnType=json&serviceKey=${KOREA_WEATHER_API_KEY}&ver=1.3`
+      `http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?sidoName=${area}&pageNo=1&numOfRows=10&returnType=json&serviceKey=${KOREA_WEATHER_API_KEY}&ver=1.3`
     )
     .then((res) => {
       const item = res.data.response.body.items;
@@ -54,7 +53,7 @@ export const atmosStatus = async (payload): Promise<ReturnAtmosData> => {
 
   const uv: ReturnUvData = await axios
     .get(
-      `http://apis.data.go.kr/1360000/LivingWthrIdxServiceV2/getUVIdxV2?serviceKey=${KOREA_WEATHER_API_KEY}&dataType=json&areaNo=${locationCode}&time=${BASE_DATE}`
+      `http://apis.data.go.kr/1360000/LivingWthrIdxServiceV2/getUVIdxV2?serviceKey=${KOREA_WEATHER_API_KEY}&dataType=json&areaNo=1100000000&time=${BASE_DATE}`
     )
     .then((res) => {
       return res.data.response.body.items.item[0].today;
