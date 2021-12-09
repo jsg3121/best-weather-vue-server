@@ -29,12 +29,12 @@ type ReturnAtmosData = { dust: ReturnDustData; uv: ReturnUvData };
  */
 export const atmosStatus = async (payload): Promise<ReturnAtmosData> => {
   const area = payload.locationCode;
-  // const locationCode = payload.skyCode;
+  const encoding = encodeURIComponent(area);
   const BASE_DATE = getAtmosDate();
 
   const dust: ReturnDustData = await axios
     .get(
-      `http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?sidoName=${area}&pageNo=1&numOfRows=10&returnType=json&serviceKey=${KOREA_WEATHER_API_KEY}&ver=1.3`
+      `http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?sidoName=${encoding}&pageNo=1&numOfRows=10&returnType=json&serviceKey=${KOREA_WEATHER_API_KEY}&ver=1.3`
     )
     .then((res) => {
       const item = res.data.response.body.items;

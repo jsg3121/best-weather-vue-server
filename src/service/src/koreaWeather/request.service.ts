@@ -13,13 +13,11 @@ export const requestApi = () => {
    */
   app.get("/service/weekly", async (req, res) => {
     const params = req.query as WeeklyDataProps;
-    console.time("total");
     const data = await weeklyWeather(params).then((res) => {
       return res;
     });
     res.send(data);
     res.end();
-    console.timeEnd("total");
   });
 
   /**
@@ -40,12 +38,11 @@ export const requestApi = () => {
    * ! uv : 자외선
    */
   app.get("/service/atmos", async (req, res) => {
-    const params = req.params;
+    const params = req.query;
     const data = await atmosStatus(params).then((res) => {
       return res;
     });
     res.send(data);
     res.end();
-    console.timeEnd("dust");
   });
 };
