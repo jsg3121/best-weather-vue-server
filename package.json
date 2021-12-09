@@ -12,7 +12,8 @@
     "build:js": "babel src --out-dir build --extensions \".ts\" --source-maps inline",
     "start:dev": "node -r esm build/index.js",
     "prisma": "npx prisma migrate dev --name init",
-    "start": "pm2 start ecosystem.config.js --env production"
+    "start": "pm2 start ecosystem.config.js --env production",
+    "restart": "pm2 restart ecosystem.config.js --env production"
   },
   "keywords": [],
   "author": "",

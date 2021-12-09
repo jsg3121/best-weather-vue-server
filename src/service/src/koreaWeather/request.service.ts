@@ -39,9 +39,9 @@ export const requestApi = () => {
    * ! dust : 미세먼지, 초미세먼지
    * ! uv : 자외선
    */
-  app.get("/service/atmos", async (_, res) => {
-    console.time("dust");
-    const data = await atmosStatus().then((res) => {
+  app.get("/service/atmos", async (req, res) => {
+    const params = req.params;
+    const data = await atmosStatus(params).then((res) => {
       return res;
     });
     res.send(data);
