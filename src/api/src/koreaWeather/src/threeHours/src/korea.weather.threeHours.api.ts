@@ -23,17 +23,16 @@ export const getHourly = async (
   const DATE = getWeeklyDate();
   const TIME = getWeeklyTime();
 
-  const arr = new Array<number>(48).fill(0);
+  const arr = new Array<number>(5).fill(0);
   const data = new Array();
 
   await Promise.all(
     arr.map(async (_, index) => {
       const res = await axios.get(
-        `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=${
+        `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=100&pageNo=${
           index + 1
         }&dataType=json&base_date=${DATE}&base_time=${TIME}&nx=${nx}&ny=${ny}`
       );
-
       const filter = res.data.response.body.items.item
         .filter((item: ApiResponseData) => {
           return item.category === "PTY" || item.category === "SKY" || item.category === "TMP";

@@ -224,9 +224,7 @@ export const weeklyWeather = async (
 
   await axios
     .get(
-      `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=&dataType=json&regId=${
-        locationCode ? locationCode : "11D20501"
-      }&tmFc=${AFTER3}`
+      `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=&dataType=json&regId=${locationCode}&tmFc=${AFTER3}`
     )
     .then((res) => {
       const result = res.data.response.body.items.item[0];
@@ -244,9 +242,7 @@ export const weeklyWeather = async (
 
   await axios
     .get(
-      `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=100&pageNo=1&dataType=json&regId=${
-        skyCode ? skyCode : "11B00000"
-      }&tmFc=${AFTER3}`
+      `http://apis.data.go.kr/1360000/MidFcstInfoService/getMidLandFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=100&pageNo=1&dataType=json&regId=${skyCode}&tmFc=${AFTER3}`
     )
     .then((res) => {
       const result = res.data.response.body.items.item[0];

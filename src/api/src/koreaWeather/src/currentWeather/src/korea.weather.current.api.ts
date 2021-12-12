@@ -51,34 +51,32 @@ export const currentWeather = async (props: CurrentDataProps): Promise<ReturnCur
    * @param {string} BASE_DATE 요청 일자
    * @return {void}
    */
-  await axios
-    .get(
-      `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}&nx=${nx}&ny=${ny}`
-    )
-    .then((res) => {
-      const result = res.data.response.body.items.item;
-      return result.map((item: ResultDailyDataProps) => {
-        switch (item.category) {
-          case "T1H":
-            set(data, "temperature", item.obsrValue);
-            break;
-          case "REH":
-            set(data, "humidity", item.obsrValue);
-            break;
-          case "PTY":
-            set(data, "pty", item.obsrValue);
-            break;
-          case "VEC":
-            set(data, "windDirection", item.obsrValue);
-            break;
-          case "WSD":
-            set(data, "windSpeed", item.obsrValue);
-            break;
-          default:
-            break;
-        }
-      });
+  const currentURL = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}&nx=${nx}&ny=${ny}`;
+  await axios.get(currentURL).then((res) => {
+    const result = res.data.response.body.items.item;
+
+    return result.map((item: ResultDailyDataProps) => {
+      switch (item.category) {
+        case "T1H":
+          set(data, "temperature", item.obsrValue);
+          break;
+        case "REH":
+          set(data, "humidity", item.obsrValue);
+          break;
+        case "PTY":
+          set(data, "pty", item.obsrValue);
+          break;
+        case "VEC":
+          set(data, "windDirection", item.obsrValue);
+          break;
+        case "WSD":
+          set(data, "windSpeed", item.obsrValue);
+          break;
+        default:
+          break;
+      }
     });
+  });
 
   /**
    * 하늘 상태 정보 요청 api
@@ -89,17 +87,14 @@ export const currentWeather = async (props: CurrentDataProps): Promise<ReturnCur
    * @param {string} BASE_DATE 요청 일자
    * @return {void}
    */
-  await axios
-    .get(
-      `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=25&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}&nx=${nx}&ny=${ny}`
-    )
-    .then((res) => {
-      const result = res.data.response.body.items.item;
-      const sky = result.filter((list: ApiResponseData) => {
-        return list.category === "SKY";
-      });
-      set(data, "sky", sky[0].fcstValue);
+  const skyURL = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=25&pageNo=1&dataType=json&base_date=${BASE_DATE}&base_time=${BASE_TIME}&nx=${nx}&ny=${ny}`;
+  await axios.get(skyURL).then((res) => {
+    const result = res.data.response.body.items.item;
+    const sky = result.filter((list: ApiResponseData) => {
+      return list.category === "SKY";
     });
+    set(data, "sky", sky[0].fcstValue);
+  });
 
   /**
    * 당일 최저기온, 최고기온 요청 api
@@ -124,6 +119,7 @@ export const currentWeather = async (props: CurrentDataProps): Promise<ReturnCur
         }
       });
     });
+
   await axios
     .get(
       `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=25&pageNo=7&dataType=json&base_date=${BASE_DATE}&base_time=0200&nx=${nx}&ny=${ny}`
