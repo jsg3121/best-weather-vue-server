@@ -2,7 +2,11 @@ import axios from "axios";
 import { omit } from "lodash";
 import { ApiResponseData, ResultWeeklyDataProps } from "~/@types";
 import { getWeeklyDate, getWeeklyTime, KOREA_WEATHER_API_KEY } from "~/common";
-import { WeeklyDataProps } from "../../weeklyWeather";
+
+type CurrentDataProps = {
+  nx: string;
+  ny: string;
+};
 
 /**
  * ! 3시간 단위 예보
@@ -12,8 +16,8 @@ import { WeeklyDataProps } from "../../weeklyWeather";
  * - SKY : 하늘 상태 ---> 17번부터 시작 12개씩
  * - TMP : 1시간 기온 --> 0번부터 12개씩
  */
-export const getHourlyData = async (
-  props: WeeklyDataProps
+export const getHourly = async (
+  props: CurrentDataProps
 ): Promise<ResultWeeklyDataProps["hourlyData"]> => {
   const { nx, ny } = props;
   const DATE = getWeeklyDate();

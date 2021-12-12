@@ -4,6 +4,7 @@ import {
   weeklyWeather,
   WeeklyDataProps,
   CurrentDataProps,
+  getHourly,
 } from "~/api";
 import { app } from "~/index";
 
@@ -50,8 +51,8 @@ export const requestApi = () => {
    * ! 기상청 시간간격 예보
    */
   app.get("/service/hourly", async (req, res) => {
-    const params = req.query;
-    const data = await atmosStatus(params).then((res) => {
+    const params = req.query as CurrentDataProps;
+    const data = await getHourly(params).then((res) => {
       return res;
     });
     res.send(data);
