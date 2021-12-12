@@ -62,7 +62,9 @@ const changeValue = (sky: string, pty: string): string => {
  *
  * @returns {Promise<ResultWeeklyDataProps>}
  */
-export const weeklyWeather = async (props: WeeklyDataProps): Promise<ResultWeeklyDataProps> => {
+export const weeklyWeather = async (
+  props: WeeklyDataProps
+): Promise<ResultWeeklyDataProps["weeklyData"]> => {
   const { nx, ny, locationCode, skyCode } = props;
   const DATE = getWeeklyDate();
   const TIME = getWeeklyTime();
@@ -81,59 +83,6 @@ export const weeklyWeather = async (props: WeeklyDataProps): Promise<ResultWeekl
     time20: [230, 121, 520, 411],
     time23: [194, 85, 484, 374],
   };
-
-  /**
-   * ! 3시간 단위 예보
-   *
-   * * ***Return data options***
-   * - PTY : 강수 형태 (비, 눈 등) ---> 18부터 시작 --> 12개씩
-   * - SKY : 하늘 상태 ---> 17번부터 시작 12개씩
-   * - TMP : 1시간 기온 --> 0번부터 12개씩
-   */
-  const getHourlyData = async (): Promise<ResultWeeklyDataProps["hourlyData"]> => {
-    const arr = new Array<number>(48).fill(0);
-    const data = new Array();
-    await Promise.all(
-      arr.map(async (_, index) => {
-        const res = await axios.get(
-          `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${KOREA_WEATHER_API_KEY}&numOfRows=10&pageNo=${
-            index + 1
-          }&dataType=json&base_date=${DATE}&base_time=${TIME}&nx=${nx}&ny=${ny}`
-        );
-
-        const filter = res.data.response.body.items.item
-          .filter((item: ApiResponseData) => {
-            return item.category === "PTY" || item.category === "SKY" || item.category === "TMP";
-          })
-          .map((item: ApiResponseData) => {
-            return omit(item, ["baseDate", "baseTime", "nx", "ny"]);
-          });
-        return data.push(...filter);
-      })
-    );
-    data
-      .sort((a, b) => {
-        if (a.fcstTime > b.fcstTime) {
-          return 1;
-        } else if (a.fcstTime < b.fcstTime) {
-          return -1;
-        } else {
-          return 0;
-        }
-      })
-      .sort((a, b) => {
-        if (a.fcstDate > b.fcstDate) {
-          return 1;
-        } else if (a.fcstDate < b.fcstDate) {
-          return -1;
-        } else {
-          return 0;
-        }
-      });
-    return data as ResultWeeklyDataProps["hourlyData"];
-  };
-
-  const hourlyData = await getHourlyData();
 
   /**
    * ! 데이터 요청
@@ -333,5 +282,5 @@ export const weeklyWeather = async (props: WeeklyDataProps): Promise<ResultWeekl
     "day2.skyValuePm",
   ]) as ResultWeeklyDataProps["weeklyData"];
 
-  return { weeklyData, hourlyData };
+  return weeklyData;
 };

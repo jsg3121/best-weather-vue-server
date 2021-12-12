@@ -45,4 +45,16 @@ export const requestApi = () => {
     res.send(data);
     res.end();
   });
+
+  /**
+   * ! 기상청 시간간격 예보
+   */
+  app.get("/service/hourly", async (req, res) => {
+    const params = req.query;
+    const data = await atmosStatus(params).then((res) => {
+      return res;
+    });
+    res.send(data);
+    res.end();
+  });
 };
